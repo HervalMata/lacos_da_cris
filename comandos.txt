@@ -29,3 +29,5 @@ Migrar banco de dados
 
 5 - Configuracao de controllers resources
     php artisan route:list
+
+6 - Recuperando categorias

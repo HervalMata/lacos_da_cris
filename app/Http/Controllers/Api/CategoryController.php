@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Category::all();
     }
 
     /**
@@ -32,22 +32,22 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \LacosDaCris\Models\Category  $modelsCategory
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return Category
      */
-    public function show(Category $modelsCategory)
+    public function show(Category $category)
     {
-        //
+        return $category;
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \LacosDaCris\Models\Category  $modelsCategory
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param Category $category
+     * @return void
      */
-    public function update(Request $request, Category $modelsCategory)
+    public function update(Request $request, Category $category)
     {
         //
     }
@@ -55,10 +55,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \LacosDaCris\Models\Category  $modelsCategory
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return void
      */
-    public function destroy(Category $modelsCategory)
+    public function destroy(Category $category)
     {
         //
     }
