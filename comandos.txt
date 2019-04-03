@@ -25,5 +25,7 @@ Migrar banco de dados
 4 - Criando categorias para teste
     php artisan make:seeder CategoriesTableSeeder
 
-    php artisan migrate --seeder
+    php artisan migrate --seed
 
+5 - Configuracao de controllers resources
+    php artisan route:list

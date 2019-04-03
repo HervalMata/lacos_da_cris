@@ -1,7 +1,8 @@
 <?php
 
-namespace LacosDaCris\Http\Controllers;
+namespace LacosDaCris\Http\Controllers\Api;
 
+use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Models\Category;
 use Illuminate\Http\Request;
 
@@ -13,16 +14,6 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -45,17 +36,6 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Category $modelsCategory)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \LacosDaCris\Models\Category  $modelsCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $modelsCategory)
     {
         //
     }
