@@ -18,3 +18,6 @@ Migrar banco de dados
     php artisan app:name LacosDaCris
 
     Mover Classe user para App\Models
+
+3 - Criando estrutura para categorias
+    php artisan make:model Models\Category -m -f -r
