@@ -21,3 +21,9 @@ Migrar banco de dados
 
 3 - Criando estrutura para categorias
     php artisan make:model Models\Category -m -f -r
+
+4 - Criando categorias para teste
+    php artisan make:seeder CategoriesTableSeeder
+
+    php artisan migrate --seeder
+
