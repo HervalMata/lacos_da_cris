@@ -31,3 +31,5 @@ Migrar banco de dados
     php artisan route:list
 
 6 - Recuperando categorias
+
+7 - Criando categorias
