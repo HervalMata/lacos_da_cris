@@ -1,0 +1,16 @@
+1 - Gerando aplicacao laravel
+    composer create-project --prefer-dist laravel/laravel:5.6.* lacos_da_cris
+
+Testar servidor:
+    php artisan serve
+
+Criar banco de dados:
+    mysql =uroot =pxxxxxxxx
+
+    create database lacos_da_cris;
+
+    alterar .env
+
+Migrar banco de dados
+    php artisan migrate
+
