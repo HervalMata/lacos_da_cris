@@ -14,3 +14,7 @@ Criar banco de dados:
 Migrar banco de dados
     php artisan migrate
 
+2 - Personalizando o namespace da aplicacao
+    php artisan app:name LacosDaCris
+
+    Mover Classe user para App\Models
