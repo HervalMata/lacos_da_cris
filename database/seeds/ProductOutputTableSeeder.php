@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Seeder;
 use LacosDaCris\Models\Product;
-use LacosDaCris\Models\ProductInput;
+use LacosDaCris\Models\ProductOutput;
 
-class ProductInputTableSeeder extends Seeder
+class ProductOutputTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,13 +14,13 @@ class ProductInputTableSeeder extends Seeder
     public function run()
     {
         $products = Product::all();
-        factory(ProductInput::class, 200)
+        factory(ProductOutput::class, 150)
             ->make()
-            ->each(function ($input) use ($products) {
+            ->each(function ($output) use ($products) {
                 $product = $products->random();
-                $input->product_id = $products->random()->id;
-                $input->save();
-                $product->stock += $input->amount;
+                $output->product_id = $products->random()->id;
+                $output->save();
+                $product->stock += $output->amount;
                 $product->save();
             });
     }
