@@ -54,3 +54,5 @@ Migrar banco de dados
 
     composer require doctrine/dbal:^2.3 --dev
     php artisan ide-helper:models
+
+13 - Route model bind
