@@ -97,3 +97,11 @@ Resource Produto
 
 25 - Criando serializacao para relacionamento
     php artisan make:resource ProductCategoryResource
+
+Movimentação de estoque
+
+26 - Iniciando entrada de produtos
+    php artisan make:model Models/ProductInput -f -m -r
+    php artisan make:seeder ProductInputTableSeeder
+
+    php artisan migrate:refresh --seed
