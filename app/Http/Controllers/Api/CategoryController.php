@@ -63,9 +63,12 @@ class CategoryController extends Controller
      *
      * @param Category $category
      * @return void
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return response([], 204);
     }
 }
