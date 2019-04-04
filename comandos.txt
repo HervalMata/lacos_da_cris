@@ -67,3 +67,6 @@ Resource Produto
     php artisan make:seeder ProductsTableSeeder
 
     php artisan migrate:refresh --seed
+
+15 - Testando resource de Product
+    php artisan make:request ProductRequest
