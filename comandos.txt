@@ -113,3 +113,5 @@ Movimentação de estoque
 
 29 - Cadastrando uma entrada de estoque
     php artisan make:request ProductInputRequest
+
+30 - Orientacao por eventos
