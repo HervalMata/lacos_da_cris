@@ -5,6 +5,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Requests\ProductInputRequest;
 use LacosDaCris\Http\Resources\ProductInputResource;
 use LacosDaCris\Models\ProductInput;
 use Illuminate\Http\Request;
@@ -25,12 +26,16 @@ class ProductInputController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ProductInputRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(ProductInputRequest $request)
     {
-        //
+        $input = ProductInput::create($request->all());
+        $product = $input->product;
+        $product->stock += $input->amount;
+        $product->save();
+        return ProductInputResource($input);
     }
 
     /**

@@ -110,3 +110,6 @@ Movimentação de estoque
     php artisan make:resource ProductInputResource
 
 28 - Listando uma entrada
+
+29 - Cadastrando uma entrada de estoque
+    php artisan make:request ProductInputRequest
