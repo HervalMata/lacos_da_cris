@@ -33,3 +33,6 @@ Migrar banco de dados
 6 - Recuperando categorias
 
 7 - Criando categorias
+
+8 - Validando categorias
+    php artisan make:request CategoryRequest
