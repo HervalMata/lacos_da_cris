@@ -32,7 +32,7 @@ class ProductInputController extends Controller
     public function store(ProductInputRequest $request)
     {
         $input = ProductInput::create($request->all());
-        return ProductInputResource($input);
+        return new ProductInputResource($input);
     }
 
     /**

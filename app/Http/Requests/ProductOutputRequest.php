@@ -3,6 +3,8 @@
 namespace LacosDaCris\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use LacosDaCris\Models\Product;
+use LacosDaCris\Rules\HasStock;
 
 class ProductOutputRequest extends FormRequest
 {
@@ -23,9 +25,9 @@ class ProductOutputRequest extends FormRequest
      */
     public function rules()
     {
+        $product = Product::findOrFail($this->product_id);
         return [
-            'amount' => 'required|integer|min:1',
-            'product_id' => 'required|exists:products,id'
+            'amount' => ['required|integer|min:1', new HasStock($product)]
         ];
     }
 }

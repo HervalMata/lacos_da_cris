@@ -4,6 +4,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Requests\ProductOutputRequest;
 use LacosDaCris\Http\Resources\ProductOutputResource;
 use LacosDaCris\Models\ProductOutput;
 use Illuminate\Http\Request;
@@ -24,12 +25,13 @@ class ProductOutputController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ProductOutputRequest $request
+     * @return ProductOutputResource
      */
-    public function store(Request $request)
+    public function store(ProductOutputRequest $request)
     {
-        //
+        $output = ProductOutput::create($request->all());
+        return new ProductOutputResource($output);
     }
 
     /**

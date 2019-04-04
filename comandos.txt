@@ -125,3 +125,6 @@ Movimentação de estoque
 32 - Listando saida de produtos
     php artisan make:resource ProductOutputResource
     php artisan make:request ProductOutputRequest
+
+33 - Regra personalizada para validar estoque na saida
+    php artisan make:rule HasStock
