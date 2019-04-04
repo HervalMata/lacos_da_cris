@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Seeder;
+use LacosDaCris\Models\Category;
 use LacosDaCris\Models\Product;
 
 class ProductsTableSeeder extends Seeder
@@ -12,6 +14,13 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Product::class, 30)->create();
+        /** @var Collection $categories */
+        $categories = Category::all();
+        factory(Product::class, 30)
+            ->create()
+            ->each(function (Product $product) use ($categories) {
+                $categoryId = $categories->random()->id;
+                $product->categories()->attach($categoryId);
+            });
     }
 }

@@ -78,3 +78,6 @@ Resource Produto
 
 18 - Criando endpoints para relacionar categorias e produtos
     php artisan make:controller Api/ProductCategoryController -r
+
+19 - Atribuindo categorias aos produtos na seeder
+    php artisan migrate:refresh --seed
