@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Requests\ProductCategoryRequest;
+use LacosDaCris\Http\Resources\ProductCategoryResource;
 use LacosDaCris\Models\Category;
 use LacosDaCris\Models\Product;
 
@@ -15,11 +16,11 @@ class ProductCategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return BelongsToMany
+     * @return ProductCategoryResource
      */
     public function index(Product $product)
     {
-        return $product->categories;
+        return new ProductCategoryResource($product);
     }
 
     /**
@@ -35,7 +36,7 @@ class ProductCategoryController extends Controller
         $categiesAttachedId = $changed['attached'];
         /** @var Collection $categories */
         $categories = Category::whereIn('id', $categiesAttachedId)->get();
-        return $categories->count() ? response()->json($categories, 201) : $categories;
+        return $categories->count() ? response()->json(new ProductCategoryResource($product), 201) : $categories;
     }
 
     /**

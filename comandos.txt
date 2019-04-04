@@ -94,3 +94,6 @@ Resource Produto
 24 - Iniciando com API Resource
     php artisan make:resource CategoryResource
     php artisan make:resource ProductResource
+
+25 - Criando serializacao para relacionamento
+    php artisan make:resource ProductCategoryResource
