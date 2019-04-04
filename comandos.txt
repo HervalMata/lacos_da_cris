@@ -83,3 +83,5 @@ Resource Produto
     php artisan migrate:refresh --seed
 
 20 - Listando categorias dos produtos
+
+21 - Endpoint para inserir categorias em produtos

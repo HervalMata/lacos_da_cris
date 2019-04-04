@@ -2,9 +2,11 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Models\Category;
 use LacosDaCris\Models\Product;
 
 class ProductCategoryController extends Controller
@@ -25,9 +27,13 @@ class ProductCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
-        //
+        $changed = $product->categories()->sync($request->categories);
+        $categiesAttachedId = $changed['attached'];
+        /** @var Collection $categories */
+        $categories = Category::whereIn('id', $categiesAttachedId)->get();
+        return $categories->count() ? response()->json($categories, 201) : $categories;
     }
 
     /**
