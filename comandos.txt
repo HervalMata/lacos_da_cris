@@ -90,3 +90,7 @@ Resource Produto
     php artisan make:request ProductCategoryRequest
 
 23 - Endpoint para excluir relacionamentos
+
+24 - Iniciando com API Resource
+    php artisan make:resource CategoryResource
+    php artisan make:resource ProductResource

@@ -2,8 +2,10 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Requests\ProductRequest;
+use LacosDaCris\Http\Resources\ProductResource;
 use LacosDaCris\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,35 +14,36 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Database\Eloquent\Collection|Product[]
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        return Product::paginate(10);
+        $products = Product::paginate(10);
+        return ProductResource::collection($products);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param ProductRequest $request
-     * @return \Illuminate\Http\Response
+     * @return ProductResource
      */
     public function store(ProductRequest $request)
     {
         $product = Product::create($request->all());
-
-        return $product;
+        $product->refresh();
+        return new ProductResource($product);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \LacosDaCris\Models\Product  $product
-     * @return Product
+     * @return ProductResource
      */
     public function show(Product $product)
     {
-        return $product;
+        return new ProductResource($product);
     }
 
     /**
@@ -48,14 +51,14 @@ class ProductController extends Controller
      *
      * @param ProductRequest $request
      * @param  \LacosDaCris\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return ProductResource
      */
     public function update(ProductRequest $request, Product $product)
     {
         $product->fill($request->all());
         $product->save();
 
-        return response()->json([], 204);
+        return new ProductResource($product);
     }
 
     /**
