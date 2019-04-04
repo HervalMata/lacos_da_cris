@@ -88,3 +88,5 @@ Resource Produto
 
 22 - Validando dados da categoria
     php artisan make:request ProductCategoryRequest
+
+23 - Endpoint para excluir relacionamentos

@@ -55,7 +55,7 @@ class ProductController extends Controller
         $product->fill($request->all());
         $product->save();
 
-        return response([], 204);
+        return response()->json([], 204);
     }
 
     /**
@@ -69,6 +69,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return response([], 204);
+        return response()->json([], 204);
     }
 }

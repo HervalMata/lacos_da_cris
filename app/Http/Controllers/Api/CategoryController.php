@@ -55,7 +55,7 @@ class CategoryController extends Controller
         $category->fill($request->all());
         $category->save();
 
-        return response([], 204);
+        return response()->json([], 204);
     }
 
     /**
@@ -69,6 +69,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return response([], 204);
+        return response()->json([], 204);
     }
 }
