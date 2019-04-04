@@ -108,3 +108,5 @@ Movimentação de estoque
 
 27 - Capturando dados com with
     php artisan make:resource ProductInputResource
+
+28 - Listando uma entrada

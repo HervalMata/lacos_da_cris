@@ -3,6 +3,7 @@
 namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Resources\ProductInputResource;
 use LacosDaCris\Models\ProductInput;
@@ -25,7 +26,7 @@ class ProductInputController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -35,11 +36,11 @@ class ProductInputController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \LacosDaCris\Models\ProductInput  $productInput
-     * @return \Illuminate\Http\Response
+     * @param ProductInput $input
+     * @return Response
      */
-    public function show(ProductInput $productInput)
+    public function show(ProductInput $input)
     {
-        //
+        return ProductInputResource($input);
     }
 }
