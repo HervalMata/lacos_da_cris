@@ -70,3 +70,6 @@ Resource Produto
 
 15 - Testando resource de Product
     php artisan make:request ProductRequest
+
+16 - Hypermidia e paginacao
+
