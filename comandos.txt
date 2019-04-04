@@ -76,3 +76,5 @@ Resource Produto
 17 - Criando relacionamento entre categorias e produtos
     php artisan make:migration create_category_product_table --create
 
+18 - Criando endpoints para relacionar categorias e produtos
+    php artisan make:controller Api/ProductCategoryController -r
