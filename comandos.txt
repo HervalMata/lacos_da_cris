@@ -41,7 +41,16 @@ Migrar banco de dados
 
 10 - Removendo categorias
 
-10 - Trabalhando com slugs
+11 - Trabalhando com slugs
     composer require cviebrock/eloquent-sluggable:4.5.*
 
     php artisan migrate:refresh --seed
+
+12 - Melhorando autocomplete da IDE
+    composer require barryvdh/laravel-ide-helper --dev
+
+    php artisan ide-helper:generate
+    php artisan ide-helper:meta
+
+    composer require doctrine/dbal:^2.3 --dev
+    php artisan ide-helper:models
