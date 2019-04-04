@@ -2,7 +2,9 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Resources\ProductInputResource;
 use LacosDaCris\Models\ProductInput;
 use Illuminate\Http\Request;
 
@@ -11,21 +13,12 @@ class ProductInputController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return AnonymousResourceCollection
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $inputs = ProductInput::with('product')->paginate();
+        return ProductInputResource::collection($inputs);
     }
 
     /**
@@ -46,40 +39,6 @@ class ProductInputController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(ProductInput $productInput)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \LacosDaCris\Models\ProductInput  $productInput
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ProductInput $productInput)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \LacosDaCris\Models\ProductInput  $productInput
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ProductInput $productInput)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \LacosDaCris\Models\ProductInput  $productInput
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(ProductInput $productInput)
     {
         //
     }

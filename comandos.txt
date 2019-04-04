@@ -105,3 +105,6 @@ Movimentação de estoque
     php artisan make:seeder ProductInputTableSeeder
 
     php artisan migrate:refresh --seed
+
+27 - Capturando dados com with
+    php artisan make:resource ProductInputResource
