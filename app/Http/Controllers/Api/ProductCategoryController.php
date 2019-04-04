@@ -2,19 +2,21 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Models\Product;
 
 class ProductCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return BelongsToMany
      */
-    public function index()
+    public function index(Product $product)
     {
-        //
+        return $product->categories;
     }
 
     /**

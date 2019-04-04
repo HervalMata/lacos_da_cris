@@ -81,3 +81,5 @@ Resource Produto
 
 19 - Atribuindo categorias aos produtos na seeder
     php artisan migrate:refresh --seed
+
+20 - Listando categorias dos produtos
