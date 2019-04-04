@@ -1,3 +1,4 @@
+
 1 - Gerando aplicacao laravel
     composer create-project --prefer-dist laravel/laravel:5.6.* lacos_da_cris
 
@@ -18,6 +19,8 @@ Migrar banco de dados
     php artisan app:name LacosDaCris
 
     Mover Classe user para App\Models
+
+CRUD de Categorias
 
 3 - Criando estrutura para categorias
     php artisan make:model Models\Category -m -f -r
@@ -56,3 +59,11 @@ Migrar banco de dados
     php artisan ide-helper:models
 
 13 - Route model bind
+
+Resource Produto
+
+14 - Criando model Product
+    php artisan make:model Models/Product -f -m -r
+    php artisan make:seeder ProductsTableSeeder
+
+    php artisan migrate:refresh --seed
