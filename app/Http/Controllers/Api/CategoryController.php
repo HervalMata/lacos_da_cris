@@ -46,13 +46,16 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param CategoryRequest $request
      * @param Category $category
-     * @return void
+     * @return Category
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        //
+        $category->fill($request->all());
+        $category->save();
+
+        return response([], 204);
     }
 
     /**

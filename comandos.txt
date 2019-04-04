@@ -36,3 +36,5 @@ Migrar banco de dados
 
 8 - Validando categorias
     php artisan make:request CategoryRequest
+
+9 - Atualizando categorias
