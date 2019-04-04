@@ -121,3 +121,7 @@ Movimentação de estoque
     php artisan make:seeder ProductOutputTableSeeder
 
     php artisan migrate:refresh --seed
+
+32 - Listando saida de produtos
+    php artisan make:resource ProductOutputResource
+    php artisan make:request ProductOutputRequest
