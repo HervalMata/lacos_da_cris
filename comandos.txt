@@ -85,3 +85,6 @@ Resource Produto
 20 - Listando categorias dos produtos
 
 21 - Endpoint para inserir categorias em produtos
+
+22 - Validando dados da categoria
+    php artisan make:request ProductCategoryRequest
