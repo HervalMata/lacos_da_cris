@@ -40,3 +40,8 @@ Migrar banco de dados
 9 - Atualizando categorias
 
 10 - Removendo categorias
+
+10 - Trabalhando com slugs
+    composer require cviebrock/eloquent-sluggable:4.5.*
+
+    php artisan migrate:refresh --seed
