@@ -1,7 +1,10 @@
 <?php
 
-namespace LacosDaCris\Http\Controllers;
+namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Http\Response;
+use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Models\Product;
 use LacosDaCris\Models\ProductPhoto;
 use Illuminate\Http\Request;
 
@@ -10,28 +13,18 @@ class ProductPhotoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
-    public function index()
+    public function index(Product $product)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $product->photos;
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -41,23 +34,16 @@ class ProductPhotoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \LacosDaCris\Models\ProductPhoto  $productPhoto
-     * @return \Illuminate\Http\Response
+     * @param Product $product
+     * @param ProductPhoto $photo
+     * @return ProductPhoto
      */
-    public function show(ProductPhoto $productPhoto)
+    public function show(Product $product, ProductPhoto $photo)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \LacosDaCris\Models\ProductPhoto  $productPhoto
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ProductPhoto $productPhoto)
-    {
-        //
+        if ($photo->product_id != $product->id) {
+            abort(404);
+        }
+        return $photo;
     }
 
     /**
@@ -65,7 +51,7 @@ class ProductPhotoController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \LacosDaCris\Models\ProductPhoto  $productPhoto
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, ProductPhoto $productPhoto)
     {
@@ -76,7 +62,7 @@ class ProductPhotoController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \LacosDaCris\Models\ProductPhoto  $productPhoto
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy(ProductPhoto $productPhoto)
     {
