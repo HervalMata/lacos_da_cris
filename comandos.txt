@@ -137,3 +137,5 @@ Movimentação de estoque
 
 35 - Preparando ambiente de upload falso de imagens
     criar pasta storage/app/public/products
+
+36 - Criando registro das imagens
