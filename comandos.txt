@@ -141,3 +141,6 @@ Movimentação de estoque
 36 - Criando registro das imagens
 
 37 - Gerando nome da imagem do upload
+
+38 - Testando upload falso de imagens
+    php artisan migrate:refresh --seed
