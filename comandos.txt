@@ -134,3 +134,6 @@ Movimentação de estoque
     php artisan make:seeder ProductPhotosSeeder
 
     criar pasta storage/app/faker/product_photos
+
+35 - Preparando ambiente de upload falso de imagens
+    criar pasta storage/app/public/products
