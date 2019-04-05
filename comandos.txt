@@ -128,3 +128,9 @@ Movimentação de estoque
 
 33 - Regra personalizada para validar estoque na saida
     php artisan make:rule HasStock
+
+34 - Iniciando modelagem das imagens dos produtos
+    php artisan make:model Models/ProductPhoto -m -r
+    php artisan make:seeder ProductPhotosSeeder
+
+    criar pasta storage/app/faker/product_photos

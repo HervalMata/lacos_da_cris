@@ -31,7 +31,7 @@ class HasStock implements Rule
      */
     public function passes($attribute, $value)
     {
-        $this->product->stock - $value >= 0;
+        return $this->product->stock - $value >= 0;
     }
 
     /**

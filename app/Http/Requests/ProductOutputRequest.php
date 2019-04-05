@@ -26,8 +26,9 @@ class ProductOutputRequest extends FormRequest
     public function rules()
     {
         $product = Product::findOrFail($this->product_id);
+        /** @var Product $product */
         return [
-            'amount' => ['required|integer|min:1', new HasStock($product)]
+            'amount' => ['required','integer', 'min:1', new HasStock($product)]
         ];
     }
 }
