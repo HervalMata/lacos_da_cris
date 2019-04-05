@@ -5,6 +5,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Resources\ProductPhotoCollection;
 use LacosDaCris\Http\Resources\ProductPhotoResource;
 use LacosDaCris\Models\Product;
 use LacosDaCris\Models\ProductPhoto;
@@ -15,11 +16,12 @@ class ProductPhotoController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return AnonymousResourceCollection
+     * @param Product $product
+     * @return ProductPhotoCollection
      */
     public function index(Product $product)
     {
-        return ProductPhotoResource::collection($product->photos);
+        return new ProductPhotoCollection($product->photos, $product);
     }
 
     /**

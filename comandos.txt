@@ -152,3 +152,6 @@ Movimentação de estoque
 
 41 - Entendendo storage privado e publico
     php artisan storage:link
+
+42 - Resource Collection
+    php artisan make:resource ProductPhotoCollection --collection
