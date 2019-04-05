@@ -149,3 +149,6 @@ Movimentação de estoque
 
 40 - Serializando endereco da imagem
     php artisan make:resource ProductPhotoResource
+
+41 - Entendendo storage privado e publico
+    php artisan storage:link
