@@ -155,3 +155,5 @@ Movimentação de estoque
 
 42 - Resource Collection
     php artisan make:resource ProductPhotoCollection --collection
+
+43 - Construindo upload das imagens

@@ -2,6 +2,7 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
@@ -28,11 +29,11 @@ class ProductPhotoController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return Response
+     * @return Collection
      */
-    public function store(Request $request)
+    public function store(Request $request, Product $product)
     {
-        //
+        return ProductPhoto::createWithPhotosFiles($product->id, $request->photos);
     }
 
     /**
