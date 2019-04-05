@@ -146,3 +146,6 @@ Movimentação de estoque
     php artisan migrate:refresh --seed
 
 39 - Listando registros das imagens
+
+40 - Serializando endereco da imagem
+    php artisan make:resource ProductPhotoResource
