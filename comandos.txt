@@ -139,3 +139,5 @@ Movimentação de estoque
     criar pasta storage/app/public/products
 
 36 - Criando registro das imagens
+
+37 - Gerando nome da imagem do upload

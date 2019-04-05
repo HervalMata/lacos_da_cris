@@ -1,12 +1,15 @@
 <?php
 
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Collection;
 use Illuminate\Database\Seeder;
 use LacosDaCris\Models\Product;
 use LacosDaCris\Models\ProductPhoto;
 
 class ProductPhotosSeeder extends Seeder
 {
+    private $allFakerPhotos;
+    private $fakerPhotosPath = 'app/faker/product_photos';
     /**
      * Run the database seeds.
      *
@@ -14,13 +17,21 @@ class ProductPhotosSeeder extends Seeder
      */
     public function run()
     {
+        $this->allFakerPhotos = $this->getFakerPhotos();
         /** @var Collection $products */
         $products = Product::all();
         $this->deleteAllPhotosInProductsPath();
         $self = $this;
-        $products->each(function ($product) {
-            self::createPhotoDir($product);
+        $products->each(function ($product) use ($self) {
+            $self->createPhotoDir($product);
+            $self->createPhotosModels($product);
         });
+    }
+
+    private function getFakerPhotos() : Collection
+    {
+        $path = storage_path($this->fakerPhotosPath);
+        return collect(\File::allFiles($path));
     }
 
     private function deleteAllPhotosInProductsPath()
@@ -44,9 +55,28 @@ class ProductPhotosSeeder extends Seeder
 
     private function createPhotoModel(Product $product)
     {
-        ProductPhoto::create([
+        $photo = ProductPhoto::create([
             'product_id' => $product->id,
             'file_name' => 'imagem.jpg'
         ]);
+        $this->generatePhoto($photo);
+    }
+
+    private function generatePhoto(ProductPhoto $photo)
+    {
+        $photo->file_name = $this->uploadPhoto($photo->product_id);
+        $photo->save();
+    }
+
+    private function uploadPhoto($productId) : string
+    {
+        /** @var SplFileInfo $photoFile */
+        $photoFile = $this->allFakerPhotos->random();
+        $uploadFile = new UploadedFile(
+            $photoFile->getRealPath(),
+            str_random(16) . '.' . $photoFile->getExtension()
+        );
+
+        return $uploadFile->hashName();
     }
 }
