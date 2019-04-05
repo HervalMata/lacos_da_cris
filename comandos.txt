@@ -157,3 +157,6 @@ Movimentação de estoque
     php artisan make:resource ProductPhotoCollection --collection
 
 43 - Construindo upload das imagens
+
+44 - Testando upload de fotos
+    php artisan make:request ProductPhotoRequest
