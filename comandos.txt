@@ -166,3 +166,8 @@ Imagens dos produtos
 45 - Database transactions e tratamento de excecao
 
 46 - Edicao de imagem do produto
+
+Exclusao logica
+
+47 - Iniciando com exclusao logica
+    php artisan migrate:refresh --seed
