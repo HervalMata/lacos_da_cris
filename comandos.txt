@@ -212,3 +212,12 @@ Administração de usuários
 60 - Testando envio de email de recuperacao de senha
     php artisan make:auth
     php artisan vendor;publish --tag=laravel-notifications
+
+Autenticação com JWT
+
+61 - Integracao com a biblioteca JWT
+    composer require tymon/jwt-auth:dev-develop#481c67b0d95ad14c3f3690bb6ec2a285c2f1ab1b
+
+    php artisan jwt:secret
+
+    php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
