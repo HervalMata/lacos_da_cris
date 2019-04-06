@@ -164,3 +164,5 @@ Imagens dos produtos
     php artisan make:request ProductPhotoRequest
 
 45 - Database transactions e tratamento de excecao
+
+46 - Edicao de imagem do produto
