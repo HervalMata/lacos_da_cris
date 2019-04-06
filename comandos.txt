@@ -195,3 +195,6 @@ Administração de usuários
     php artisan make:request UserRequest
 
 55 - Regra de validação para unicidade de registro
+
+56 - Atualizando usuários
+

@@ -30,7 +30,7 @@ class UsersController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $user = User::createCustom($request->all());
+        $user = User::create($request->all());
         return new UserResource($user);
     }
 
@@ -48,13 +48,15 @@ class UsersController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UserRequest $request
+     * @param User $user
+     * @return UserResource
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $user->fill($request->all());
+        $user->save();
+        return new UserResource($user);
     }
 
     /**
