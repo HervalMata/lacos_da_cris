@@ -4,6 +4,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
@@ -50,7 +51,7 @@ class ProductPhotoController extends Controller
      */
     public function show(Product $product, ProductPhoto $photo)
     {
-        $this->assertProductPhoto($photo, $product);
+        $this->assertProductPhoto($product, $photo);
         return new ProductPhotoResource($photo);
     }
 
@@ -65,7 +66,7 @@ class ProductPhotoController extends Controller
      */
     public function update(Request $request, Product $product, ProductPhoto $photo)
     {
-        $this->assertProductPhoto($photo, $product);
+        $this->assertProductPhoto($product, $photo);
         $photo = $photo->updateWithPhoto($request->photo);
         return new ProductPhotoResource($photo);
     }
@@ -73,12 +74,16 @@ class ProductPhotoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \LacosDaCris\Models\ProductPhoto  $productPhoto
-     * @return Response
+     * @param Product $product
+     * @param ProductPhoto $photo
+     * @return JsonResponse
+     * @throws \Exception
      */
-    public function destroy(ProductPhoto $productPhoto)
+    public function destroy(Product $product, ProductPhoto $photo)
     {
-        //
+        $this->assertProductPhoto($product, $photo);
+        $photo->deleteWithPhoto();
+        return response()->json([], 204);
     }
 
     private function assertProductPhoto(ProductPhoto $photo, Product $product)
