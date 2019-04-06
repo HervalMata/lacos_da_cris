@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
         'LacosDaCris\Events\Event' => [
             'LacosDaCris\Listeners\EventListener',
         ],
+        'LacosDaCris\Events\UserCreatedEvent' => [
+            'LacosDaCris\Listeners\SendMailToDefinedPassword',
+        ]
     ];
 
     /**

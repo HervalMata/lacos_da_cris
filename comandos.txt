@@ -202,3 +202,6 @@ Administração de usuários
     php artisan migrate:refresh --seed
 
 57 - Restauracao de usuarios
+
+58 - Configurando evento personalizado quando usuario for criado
+    php artisan event:generate
