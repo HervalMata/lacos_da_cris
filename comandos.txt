@@ -173,3 +173,6 @@ Exclusao logica
     php artisan migrate:refresh --seed
 
 48 - Exclusao de imagem do  produto
+
+49 - Integrando exclusao logica com recurso de produtos
+

@@ -2,7 +2,9 @@
 
 namespace LacosDaCris\Providers;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use LacosDaCris\Models\Category;
@@ -38,9 +40,24 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('product', function ($value) {
             /** @var Collection $collection */
-            $collection = Product::whereId($value)->orWhere('slug', $value)->get();
+            $query = Product::query();
+            $query = $this->onlyTrashedIfRequested($query);
+            $collection = $query->whereId($value)->orWhere('slug', $value)->get();
             return $collection->first();
         });
+    }
+
+    /**
+     * @param Request $request
+     * @param Builder $query
+     * @return Builder
+     */
+    private function onlyTrashedIfRequested(Builder $query)
+    {
+        if (\Request::get('trashed') == 1) {
+            $query = $query->onlyTrashed();
+        }
+        return $query;
     }
 
     /**

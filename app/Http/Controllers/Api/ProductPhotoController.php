@@ -86,6 +86,10 @@ class ProductPhotoController extends Controller
         return response()->json([], 204);
     }
 
+    /**
+     * @param ProductPhoto $photo
+     * @param Product $product
+     */
     private function assertProductPhoto(ProductPhoto $photo, Product $product)
     {
         if ($photo->product_id != $product->id) {
