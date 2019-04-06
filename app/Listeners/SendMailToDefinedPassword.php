@@ -3,6 +3,7 @@
 namespace LacosDaCris\Listeners;
 
 use LacosDaCris\Events\UserCreatedEvent;
+use LacosDaCris\Models\User;
 
 class SendMailToDefinedPassword
 {
@@ -24,6 +25,10 @@ class SendMailToDefinedPassword
      */
     public function handle(UserCreatedEvent $event)
     {
-        //
+        /** @var User $user */
+        $user = $event->getUser();
+        $token = \Password::broker()->createToken($user);
+
+        $user->notify(new \Notification($token));
     }
 }

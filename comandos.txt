@@ -205,3 +205,6 @@ Administração de usuários
 
 58 - Configurando evento personalizado quando usuario for criado
     php artisan event:generate
+
+59 - Entendendo estrutura de notificacoes do laravel
+    php artisan make:notification MyResetPassword
