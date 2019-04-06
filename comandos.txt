@@ -201,4 +201,4 @@ Administração de usuários
 56 - Excluindo usuários com exclusao logica
     php artisan migrate:refresh --seed
 
-
+57 - Restauracao de usuarios

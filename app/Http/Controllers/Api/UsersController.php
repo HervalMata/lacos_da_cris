@@ -2,6 +2,7 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Common\OnlyTrashed;
@@ -73,6 +74,16 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+        return response()->json([], 204);
+    }
+
+    /**
+     * @param User $user
+     * @return JsonResponse
+     */
+    public function restore(User $user)
+    {
+        $user->restore();
         return response()->json([], 204);
     }
 }
