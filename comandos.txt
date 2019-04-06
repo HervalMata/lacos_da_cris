@@ -180,3 +180,11 @@ Exclusao logica
 
 51 - Restauracao de produtos
 
+Administração de usuários
+
+52 - Criando usuários falsos
+    php artisan make:controller Api/UsersController -r
+    php artisan make:seeder UsersTableSeeder
+
+    php artisan migrate:refresh --seed
+
