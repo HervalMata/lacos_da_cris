@@ -190,3 +190,6 @@ Administração de usuários
 
 53 - Listando usuários
     php artisan make:resource UserResource
+
+54 - Criando usuários
+    php artisan make:request UserRequest

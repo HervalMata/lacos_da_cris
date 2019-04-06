@@ -5,6 +5,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Requests\UserRequest;
 use LacosDaCris\Http\Resources\UserResource;
 use LacosDaCris\Models\User;
 
@@ -24,12 +25,13 @@ class UsersController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param UserRequest $request
+     * @return UserResource
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = User::createCustom($request->all());
+        return new UserResource($user);
     }
 
     /**
