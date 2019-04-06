@@ -221,3 +221,5 @@ Autenticação com JWT
     php artisan jwt:secret
 
     php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"
+
+62 - Sujeito do token
