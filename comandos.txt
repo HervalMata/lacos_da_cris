@@ -188,3 +188,5 @@ Administração de usuários
 
     php artisan migrate:refresh --seed
 
+53 - Listando usuários
+    php artisan make:resource UserResource
