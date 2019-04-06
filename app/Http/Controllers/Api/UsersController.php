@@ -4,6 +4,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use LacosDaCris\Common\OnlyTrashed;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Requests\UserRequest;
 use LacosDaCris\Http\Resources\UserResource;
@@ -11,14 +12,17 @@ use LacosDaCris\Models\User;
 
 class UsersController extends Controller
 {
+    use OnlyTrashed;
     /**
      * Display a listing of the resource.
      *
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::paginate();
+        $query = User::query();
+        $query = $this->onlyTrashedIfRequested($request, $query);
+        $users = $query->paginate(10);
         return UserResource::collection($users);
     }
 
@@ -62,11 +66,13 @@ class UsersController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param User $user
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return response()->json([], 204);
     }
 }

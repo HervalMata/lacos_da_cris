@@ -198,3 +198,7 @@ Administração de usuários
 
 56 - Atualizando usuários
 
+56 - Excluindo usuários com exclusao logica
+    php artisan migrate:refresh --seed
+
+
