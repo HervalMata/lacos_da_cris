@@ -17,7 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace' => 'api', 'as' => 'api.'], function () {
+Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
+    Route::patch('products/{product}/restore', 'ProductController@restore');
     Route::resource('categories', 'CategoryController', ['except' => ['create', 'edit']]);
     Route::resource('products', 'ProductController', ['except' => ['create', 'edit']]);
 

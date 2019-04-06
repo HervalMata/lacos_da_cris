@@ -178,3 +178,5 @@ Exclusao logica
 
 50 - Exclusao logica em relacionamentos
 
+51 - Restauracao de produtos
+

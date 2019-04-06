@@ -3,7 +3,9 @@
 namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Requests\ProductRequest;
 use LacosDaCris\Http\Resources\ProductResource;
@@ -68,13 +70,22 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \LacosDaCris\Models\Product $product
-     * @return \Illuminate\Http\Response
+     * @return Response
      * @throws \Exception
      */
     public function destroy(Product $product)
     {
         $product->delete();
+        return response()->json([], 204);
+    }
 
+    /**
+     * @param Product $product
+     * @return JsonResponse
+     */
+    public function restore(Product $product)
+    {
+        $product->restore();
         return response()->json([], 204);
     }
 
