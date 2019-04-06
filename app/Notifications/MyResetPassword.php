@@ -12,13 +12,20 @@ class MyResetPassword extends Notification
     use Queueable;
 
     /**
+     * The password reset token.
+     *
+     * @var string
+     */
+    public $token;
+
+    /**
      * Create a new notification instance.
      *
-     * @return void
+     * @param $token
      */
-    public function __construct()
+    public function __construct($token)
     {
-        //
+        $this->token = $token;
     }
 
     /**

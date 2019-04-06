@@ -208,3 +208,7 @@ Administração de usuários
 
 59 - Entendendo estrutura de notificacoes do laravel
     php artisan make:notification MyResetPassword
+
+60 - Testando envio de email de recuperacao de senha
+    php artisan make:auth
+    php artisan vendor;publish --tag=laravel-notifications
