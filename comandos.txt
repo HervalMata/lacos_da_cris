@@ -176,3 +176,5 @@ Exclusao logica
 
 49 - Integrando exclusao logica com recurso de produtos
 
+50 - Exclusao logica em relacionamentos
+
