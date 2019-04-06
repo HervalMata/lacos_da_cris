@@ -2,6 +2,7 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
@@ -31,12 +32,13 @@ class ProductPhotoController extends Controller
      *
      * @param ProductPhotoRequest $request
      * @param Product $product
-     * @return ProductPhotoCollection
+     * @return ResponseFactory|Response
+     * @throws \Exception
      */
     public function store(ProductPhotoRequest $request, Product $product)
     {
         $photos = ProductPhoto::createWithPhotosFiles($product->id, $request->photos);
-        return new ProductPhotoCollection($photos, $product);
+        return response()->json(new ProductPhotoCollection($photos, $product), 201);
     }
 
     /**
