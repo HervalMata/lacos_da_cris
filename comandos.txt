@@ -275,4 +275,6 @@ Single page application web components
 
 81 - Guardando token no localstorage
 
+82 - Estilizando componente de listagem de categorias
+
 
