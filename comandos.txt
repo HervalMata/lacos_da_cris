@@ -228,3 +228,5 @@ Autenticação com JWT
     php artisan make:controller Api/AuthController
 
 64 - Protegendo a API
+
+65 - Logout - invalidando tokens
