@@ -277,4 +277,6 @@ Single page application web components
 
 82 - Estilizando componente de listagem de categorias
 
+83 - Listando categorias no componente
+
 
