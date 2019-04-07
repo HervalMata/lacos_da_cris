@@ -280,3 +280,6 @@ Single page application web components
 83 - Listando categorias no componente
 
 84 - Formatacao de datas
+
+85 - Directiva ngClass
+
