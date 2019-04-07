@@ -268,3 +268,6 @@ Single page application web components
     ng g c components/pages/category/category-list
 
 78 - Definindo pagina padrao
+
+79 - Debug de rotas
+
