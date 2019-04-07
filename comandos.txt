@@ -248,5 +248,6 @@ Iniciando com Angular
     npm i bootstrap --save
     npm i jquery popper.js --save
 
-
+71 - Criando tela de login
+    ng g c components/pages/login
 
