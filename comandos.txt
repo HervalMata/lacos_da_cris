@@ -292,5 +292,7 @@ Single page application web components
 
 89 - Criando propriedades personalizadas em um componente
 
+90 - Criando eventos personalizados em um componente
+
 
 
