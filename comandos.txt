@@ -285,3 +285,6 @@ Single page application web components
 
 86 - Mostrando mensagem de erro no login
 
+87 - Criando componente para alert de erro
+     ng g c components/bootstrap/alert-error
+
