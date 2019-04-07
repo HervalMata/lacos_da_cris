@@ -9,12 +9,9 @@ import { CategoryListComponent } from './components/pages/category/category-list
 import {RouterModule, Routes} from "@angular/router";
 
 const routes: Routes = [
-    {
-      path: 'login', component: LoginComponent
-    },
-    {
-        path: 'categories/list', component: CategoryListComponent
-    }
+    { path: 'login', component: LoginComponent },
+    { path: 'categories/list', component: CategoryListComponent },
+    { path: '', redirectTo: '/login', pathMatch: 'full'}
 ]
 
 

@@ -266,3 +266,5 @@ Single page application web components
 
 77 - Iniciando com Single page application
     ng g c components/pages/category/category-list
+
+78 - Definindo pagina padrao
