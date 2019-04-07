@@ -251,3 +251,5 @@ Iniciando com Angular
 71 - Criando tela de login
     ng g c components/pages/login
 
+72 - Estilizando formulario de login
+
