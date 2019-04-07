@@ -19,8 +19,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    this.http.post('http://localhost:8000/api/login', this.credentials)
-        .subscribe((data) => console.log(data));
+    this.http.post<any>('http://localhost:8000/api/login', this.credentials)
+        .subscribe((data) => {
+          const token = data.token;
+          this.http.get('http://localhost:8000/api/categories', {
+            headers: {
+              'Authorization': `Bearer ${token}`
+            }
+          })
+              .subscribe((data) => console.log(data))
+        });
     return false;
   }
 }

@@ -259,3 +259,5 @@ Iniciando com Angular
 
 75 - Configuracao do CORS
     php artisan make:middleware CorsMiddleware
+
+76 - Consumindo informacoes com o token
