@@ -230,3 +230,5 @@ Autenticação com JWT
 64 - Protegendo a API
 
 65 - Logout - invalidando tokens
+
+66 - Pegando usuario autenticado

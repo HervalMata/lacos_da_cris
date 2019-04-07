@@ -2,10 +2,12 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Resources\UserResource;
 use PHPUnit\Util\Json;
 
 class AuthController extends Controller
@@ -35,5 +37,14 @@ class AuthController extends Controller
     {
         \Auth::guard('api')->logout();
         return response()->json([], 204);
+    }
+
+    /**
+     * @return UserResource
+     */
+    public function me()
+    {
+        $user = \Auth::guard('api')->user();
+        return new UserResource($user);
     }
 }

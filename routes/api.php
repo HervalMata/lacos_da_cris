@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
 
     Route::group(['middleware' => 'auth:api'], function () {
         Route::name('logout')->post('logout', 'AuthController@logout');
+        Route::name('me')->get('me', 'AuthController@me');
         Route::patch('products/{product}/restore', 'ProductController@restore');
         Route::patch('users/{user}/restore', 'UsersController@restore');
         Route::resource('categories', 'CategoryController', ['except' => ['create', 'edit']]);
