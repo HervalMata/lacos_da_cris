@@ -242,6 +242,11 @@ Gerando Aplicação Frontend Web
 Iniciando com Angular
 
 69 - Gerando Aplicacao angular
+    ng new angular-app
+
+70 - Integracao do Bootstrap com Angular
+    npm i bootstrap --save
+    npm i jquery popper.js --save
 
 
 
