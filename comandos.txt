@@ -273,3 +273,6 @@ Single page application web components
 
 80 - Consumindo categorias no componente de listagem
 
+81 - Guardando token no localstorage
+
+
