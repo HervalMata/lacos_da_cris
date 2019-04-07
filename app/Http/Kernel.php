@@ -3,6 +3,7 @@
 namespace LacosDaCris\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use LacosDaCris\Http\Middleware\CorsMiddleware;
 
 class Kernel extends HttpKernel
 {
@@ -19,6 +20,7 @@ class Kernel extends HttpKernel
         \LacosDaCris\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \LacosDaCris\Http\Middleware\TrustProxies::class,
+        CorsMiddleware::class
     ];
 
     /**

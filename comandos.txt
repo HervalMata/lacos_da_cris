@@ -257,3 +257,5 @@ Iniciando com Angular
 
 74 - Fazendo primeira requisicao com ajax
 
+75 - Configuracao do CORS
+    php artisan make:middleware CorsMiddleware

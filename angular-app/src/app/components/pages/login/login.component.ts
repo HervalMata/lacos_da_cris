@@ -21,5 +21,6 @@ export class LoginComponent implements OnInit {
   submit() {
     this.http.post('http://localhost:8000/api/login', this.credentials)
         .subscribe((data) => console.log(data));
+    return false;
   }
 }
