@@ -1,4 +1,4 @@
-Gerando Aplicação
+Gerando Aplicação Backend
 1 - Gerando aplicacao laravel
     composer create-project --prefer-dist laravel/laravel:5.6.* lacos_da_cris
 
@@ -236,4 +236,12 @@ Autenticação com JWT
 67 - Criacao da operacao de refresh token
 
 68 - Auto refresh token
+
+Gerando Aplicação Frontend Web
+
+Iniciando com Angular
+
+69 - Gerando Aplicacao angular
+
+
 
