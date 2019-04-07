@@ -261,3 +261,8 @@ Iniciando com Angular
     php artisan make:middleware CorsMiddleware
 
 76 - Consumindo informacoes com o token
+
+Single page application web components
+
+77 - Iniciando com Single page application
+    ng g c components/pages/category/category-list
