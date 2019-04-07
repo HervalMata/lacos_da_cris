@@ -290,4 +290,7 @@ Single page application web components
 
 88 - Permitindo fechamento do alert no padrao bootstrap
 
+89 - Criando propriedades personalizadas em um componente
+
+
 

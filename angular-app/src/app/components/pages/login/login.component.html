@@ -1,5 +1,5 @@
 <div class="col col-md-4 offset-4" *ngIf="showMessageError">
-  <alert-error>Credenciais inválidas</alert-error>
+  <alert-error [show]="showMessageError">Credenciais inválidas</alert-error>
 </div>
 <form class="form-signin" (submit)="submit()">
   <img class="mb-6" src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" horizontal-align="middle" width="72" height="72">
