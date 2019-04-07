@@ -226,3 +226,5 @@ Autenticação com JWT
 
 63 - Endpoint para gerar o token
     php artisan make:controller Api/AuthController
+
+64 - Protegendo a API
