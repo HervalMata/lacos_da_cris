@@ -8,7 +8,6 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Resources\UserResource;
-use PHPUnit\Util\Json;
 
 class AuthController extends Controller
 {
@@ -48,6 +47,9 @@ class AuthController extends Controller
         return new UserResource($user);
     }
 
+    /**
+     * @return array
+     */
     public function refresh()
     {
         $token = \Auth::guard('api')->refresh();

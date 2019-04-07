@@ -235,3 +235,5 @@ Autenticação com JWT
 
 67 - Criacao da operacao de refresh token
 
+68 - Auto refresh token
+
