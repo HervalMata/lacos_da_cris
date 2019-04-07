@@ -288,3 +288,6 @@ Single page application web components
 87 - Criando componente para alert de erro
      ng g c components/bootstrap/alert-error
 
+88 - Permitindo fechamento do alert no padrao bootstrap
+
+
