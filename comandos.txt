@@ -1,4 +1,4 @@
-
+Gerando Aplicação
 1 - Gerando aplicacao laravel
     composer create-project --prefer-dist laravel/laravel:5.6.* lacos_da_cris
 
@@ -232,3 +232,6 @@ Autenticação com JWT
 65 - Logout - invalidando tokens
 
 66 - Pegando usuario autenticado
+
+67 - Criacao da operacao de refresh token
+
