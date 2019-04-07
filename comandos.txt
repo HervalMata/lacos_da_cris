@@ -271,3 +271,5 @@ Single page application web components
 
 79 - Debug de rotas
 
+80 - Consumindo categorias no componente de listagem
+
