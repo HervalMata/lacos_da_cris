@@ -319,3 +319,5 @@ CRUD Frontend de Categorias
 
 100 - Testando componente de edicao de categorias
 
+101 - Campo ativo e inputs checkbox
+
