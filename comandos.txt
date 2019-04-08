@@ -309,5 +309,8 @@ CRUD Frontend de Categorias
 
 96 - Usando novo modal no cadastro de categorias
 
+97 - Criando componente para cadastro de categorias
+    ng g c components/pages/category/category-new-modal
+
 
 

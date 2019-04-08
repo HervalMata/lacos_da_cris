@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
+import {CategoryNewModalComponent} from "../category-new-modal/category-new-modal.component";
 
 declare let $;
 
@@ -13,32 +14,14 @@ export class CategoryListComponent implements OnInit {
 
   categories: Array<{id:number, name: string, active: boolean, created_at: {date: string}}> = [];
 
-  category = {
-      name: ''
-  };
-
-  @ViewChild(ModalComponent)
-  modal: ModalComponent;
+  @ViewChild(CategoryNewModalComponent)
+  categoryNewModal: CategoryNewModalComponent;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
     console.log('ngOnInit');
     this.getCategories();
-  }
-
-  submit() {
-    const token = window.localStorage.getItem('token');
-    this.http.post('http://localhost:8000/api/categories', this.category, {
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
-        .subscribe((category) => {
-            console.log(category);
-            this.modal.hide();
-            this.getCategories();
-        })
   }
 
   getCategories() {
@@ -53,11 +36,7 @@ export class CategoryListComponent implements OnInit {
           })
   }
 
-  showModal() {
-      this.modal.show();
-  }
-
-  hideModal($event: Event) {
-      console.log($event);
+  showModalInsert() {
+      this.categoryNewModal.showModal();
   }
 }
