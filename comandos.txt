@@ -298,5 +298,7 @@ CRUD Frontend de Categorias
 
 91 - Criando modal bootstrap para criar categorias
 
+92 - Criando cadastro de categorias
+
 
 
