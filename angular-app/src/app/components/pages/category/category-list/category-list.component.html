@@ -29,7 +29,7 @@
   </table>
 </div>
 <button type="button" (click)="showModal()">Abrir Modal</button>
-<modal>
+<modal (onHide)="hideModal()">
     <div modal-title>
         Titulo
     </div>

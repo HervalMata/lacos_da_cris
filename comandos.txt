@@ -305,5 +305,7 @@ CRUD Frontend de Categorias
 
 94 - Criando operacoes do ModalComponent
 
+95 - Melhorias no ModalComponent
+
 
 
