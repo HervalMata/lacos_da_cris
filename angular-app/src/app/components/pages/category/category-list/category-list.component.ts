@@ -54,6 +54,15 @@ export class CategoryListComponent implements OnInit {
   }
 
   onInsertError($event: HttpErrorResponse) {
-      console.log($event)
+      console.log($event);
+  }
+
+  onEditSuccess($event: any) {
+      console.log($event);
+      this.getCategories();
+  }
+
+  onEditError($event: HttpErrorResponse) {
+      console.log($event);
   }
 }

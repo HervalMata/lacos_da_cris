@@ -317,3 +317,5 @@ CRUD Frontend de Categorias
 99 - Criando componente para edicao de categorias
     ng g c components/pages/category/category-edit-modal
 
+100 - Testando componente de edicao de categorias
+
