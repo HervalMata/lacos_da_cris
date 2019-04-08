@@ -9,7 +9,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 })
 export class CategoryDeleteModalComponent implements OnInit {
 
-    category = null;
+    category: Category = null;
 
     _categoryId: number;
 

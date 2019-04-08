@@ -9,7 +9,7 @@ import {HttpClient, HttpErrorResponse} from "@angular/common/http";
 })
 export class CategoryEditModalComponent implements OnInit {
 
-    category = {
+    category: Category = {
         name: '',
         active: true
     };

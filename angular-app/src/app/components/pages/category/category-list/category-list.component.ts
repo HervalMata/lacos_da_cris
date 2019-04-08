@@ -14,7 +14,7 @@ declare let $;
 })
 export class CategoryListComponent implements OnInit {
 
-    categories: Array<{ id: number, name: string, active: boolean, created_at: { date: string } }> = [];
+    categories: Array<Category> = [];
 
     @ViewChild(CategoryNewModalComponent) categoryNewModal: CategoryNewModalComponent;
     @ViewChild(CategoryEditModalComponent) categoryEditModal: CategoryEditModalComponent;
