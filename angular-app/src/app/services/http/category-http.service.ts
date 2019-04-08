@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
@@ -19,8 +20,14 @@ export class CategoryHttpService {
         });
     }
 
-    get() {
-
+    get(id:number)  : Observable<Category> {
+        const token = window.localStorage.getItem('token');
+        return this.http.get<{ data:Category }>(`http://localhost:8000/api/categories/${id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .pipe(map(response => response.data))
     }
 
     create() {

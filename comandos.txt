@@ -333,3 +333,5 @@ Melhorias no CRUD de categorias
 
 105 - Metodo AJAX para pegar uma categorias
 
+106 - Metodo AJAX para cadastrar uma categorias
+
