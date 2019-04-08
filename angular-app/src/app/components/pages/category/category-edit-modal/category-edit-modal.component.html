@@ -1,7 +1,7 @@
 <form (submit)="submit()">
   <modal (onHide)="hideModal($event)">
     <h5 modal-title>
-      Nova Categoria
+      Editar Categoria - {{ category.name}}
     </h5>
     <div modal-body>
       <div class="form-group">
@@ -11,7 +11,7 @@
     </div>
     <div modal-footer>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-success">Salvar</button>
+      <button type="submit" class="btn btn-success">Editar</button>
     </div>
   </modal>
 </form>

@@ -314,5 +314,6 @@ CRUD Frontend de Categorias
 
 98 - Criando evento de sucesso e de erro para cadastro de categorias
 
-
+99 - Criando componente para edicao de categorias
+    ng g c components/pages/category/category-edit-modal
 
