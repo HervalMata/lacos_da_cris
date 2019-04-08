@@ -321,3 +321,8 @@ CRUD Frontend de Categorias
 
 101 - Campo ativo e inputs checkbox
 
+Melhorias no CRUD de categorias
+
+102 - Criando componente para exclusao de categorias
+    ng g c components/pages/category/category-delete-modal
+
