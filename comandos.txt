@@ -312,5 +312,7 @@ CRUD Frontend de Categorias
 97 - Criando componente para cadastro de categorias
     ng g c components/pages/category/category-new-modal
 
+98 - Criando evento de sucesso e de erro para cadastro de categorias
+
 
 
