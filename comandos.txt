@@ -307,5 +307,7 @@ CRUD Frontend de Categorias
 
 95 - Melhorias no ModalComponent
 
+96 - Usando novo modal no cadastro de categorias
+
 
 
