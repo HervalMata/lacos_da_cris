@@ -294,5 +294,9 @@ Single page application web components
 
 90 - Criando eventos personalizados em um componente
 
+CRUD Frontend de Categorias
+
+91 - Criando modal bootstrap para criar categorias
+
 
 
