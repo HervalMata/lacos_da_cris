@@ -329,3 +329,5 @@ Melhorias no CRUD de categorias
 103 - Iniciando com servicos compartilhados
     ng g s services/http/category-http
 
+104 - Metodo AJAX para listagem de categorias
+
