@@ -326,3 +326,6 @@ Melhorias no CRUD de categorias
 102 - Criando componente para exclusao de categorias
     ng g c components/pages/category/category-delete-modal
 
+103 - Iniciando com servicos compartilhados
+    ng g s services/http/category-http
+
