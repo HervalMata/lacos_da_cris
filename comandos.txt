@@ -303,5 +303,7 @@ CRUD Frontend de Categorias
 93 - Criando modal bootstrap componentizado
     ng g c components/bootstrap/modal
 
+94 - Criando operacoes do ModalComponent
+
 
 

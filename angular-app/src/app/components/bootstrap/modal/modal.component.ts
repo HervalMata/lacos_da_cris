@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
+
+declare const $;
 
 @Component({
   selector: 'modal',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private element: ElementRef) { }
 
   ngOnInit() {
   }
 
+  show() {
+    this.getJQueryElement().modal('show');
+  }
+
+  hide() {
+    this.getJQueryElement().modal('hide');
+  }
+
+  private getJQueryElement() {
+    const nativeElement = this.element.nativeElement;
+    return $(nativeElement.firstChild);
+  }
 }
