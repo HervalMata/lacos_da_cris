@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryHttpService} from "../../../../services/http/category-http.service";
 
 @Component({
@@ -23,7 +23,6 @@ export class CategoryEditModalComponent implements OnInit {
     @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
     constructor(
-        private http: HttpClient,
         private categoryHttp: CategoryHttpService
     ) {
     }
@@ -32,12 +31,7 @@ export class CategoryEditModalComponent implements OnInit {
     }
 
     submit() {
-        const token = window.localStorage.getItem('token');
-        this.http.put(`http://localhost:8000/api/categories/${this._categoryId}`, this.category, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        this.categoryHttp.update(this._categoryId, this.category)
             .subscribe((category) => {
                 this.onSuccess.emit(category);
                 this.modal.hide();
