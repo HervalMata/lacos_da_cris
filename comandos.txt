@@ -343,3 +343,7 @@ Melhorias no CRUD de categorias
 
 110 - Iniciando com mensagens de notificacao
     npm i pnotify --save
+
+111 - Criando um servico para as mensagens de notificacao
+    ng g s services/notify-message
+

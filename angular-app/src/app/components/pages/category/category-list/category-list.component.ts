@@ -4,8 +4,7 @@ import {CategoryNewModalComponent} from "../category-new-modal/category-new-moda
 import {CategoryEditModalComponent} from "../category-edit-modal/category-edit-modal.component";
 import {CategoryDeleteModalComponent} from "../category-delete-modal/category-delete-modal.component";
 import {CategoryHttpService} from "../../../../services/http/category-http.service";
-import PNotify from 'pnotify/dist/es/PNotify';
-import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
+import {NotifyMessageService} from "../../../../services/notify-message.service";
 
 declare let $;
 
@@ -25,7 +24,8 @@ export class CategoryListComponent implements OnInit {
     categoryId: number;
 
     constructor(
-        public categoryHttp: CategoryHttpService
+        public categoryHttp: CategoryHttpService,
+        private notifyMessage: NotifyMessageService
     ) {
     }
 
@@ -56,34 +56,35 @@ export class CategoryListComponent implements OnInit {
     }
 
     onInsertSuccess($event: any) {
+        this.notifyMessage.success('Categoria cadastrada com sucesso!');
         console.log($event);
         this.getCategories();
     }
 
     onInsertError($event: HttpErrorResponse) {
         console.log($event);
+        this.notifyMessage.error('Não foi possível cadastrarr a categoria.');
     }
 
     onEditSuccess($event: any) {
+        this.notifyMessage.success('Categoria atualizada com sucesso!');
         console.log($event);
         this.getCategories();
     }
 
     onEditError($event: HttpErrorResponse) {
         console.log($event);
+        this.notifyMessage.error('Não foi possível atualizar a categoria.');
     }
 
     onDeleteSuccess($event: any) {
+        this.notifyMessage.success('Categoria removida com sucesso!');
         console.log($event);
         this.getCategories();
     }
 
     onDeleteError($event: HttpErrorResponse) {
         console.log($event);
-    }
-
-    showNotify() {
-        PNotifyButtons;
-        PNotify.alert('Hello World!', 'success')
+        this.notifyMessage.error('Não foi possível excluir a categoria. Verifique se a mesma não está relacionada com produtos.');
     }
 }
