@@ -4,6 +4,8 @@ import {CategoryNewModalComponent} from "../category-new-modal/category-new-moda
 import {CategoryEditModalComponent} from "../category-edit-modal/category-edit-modal.component";
 import {CategoryDeleteModalComponent} from "../category-delete-modal/category-delete-modal.component";
 import {CategoryHttpService} from "../../../../services/http/category-http.service";
+import PNotify from 'pnotify/dist/es/PNotify';
+import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
 
 declare let $;
 
@@ -78,5 +80,10 @@ export class CategoryListComponent implements OnInit {
 
     onDeleteError($event: HttpErrorResponse) {
         console.log($event);
+    }
+
+    showNotify() {
+        PNotifyButtons;
+        PNotify.alert('Hello World!', 'success')
     }
 }
