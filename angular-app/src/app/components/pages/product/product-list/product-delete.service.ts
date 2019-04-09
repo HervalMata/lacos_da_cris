@@ -19,7 +19,7 @@ export class ProductDeleteService {
 
     showModalDelete(productId: number) {
         this._productListComponent.productId = productId;
-        //this._productListComponent.productDeleteModal.showModal();
+        this._productListComponent.productDeleteModal.showModal();
     }
 
     onDeleteSuccess($event: any) {

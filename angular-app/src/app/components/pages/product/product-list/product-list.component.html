@@ -44,5 +44,5 @@
   ></pagination-controls>
 </div>
 <product-new-modal (onSuccess)="productInsertService.onInsertSuccess($event)" (onError)="productInsertService.onInsertError($event)"></product-new-modal>
-<!--<product-edit-modal [productId]="productId" (onSuccess)="productEditService.onEditSuccess($event)" (onError)="productEditService.onEditError($event)"></product-edit-modal>
-<product-delete-modal [productId]="productId" (onSuccess)="productDeleteService.onDeleteSuccess($event)" (onError)="productDeleteService.onDeleteError($event)"></product-delete-modal>-->
+<product-edit-modal [productId]="productId" (onSuccess)="productEditService.onEditSuccess($event)" (onError)="productEditService.onEditError($event)"></product-edit-modal>
+<product-delete-modal [productId]="productId" (onSuccess)="productDeleteService.onDeleteSuccess($event)" (onError)="productDeleteService.onDeleteError($event)"></product-delete-modal>

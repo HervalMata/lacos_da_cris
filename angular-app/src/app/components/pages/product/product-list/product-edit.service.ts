@@ -19,7 +19,7 @@ export class ProductEditService {
 
     showModalEdit(productId: number) {
         this._productListComponent.productId = productId;
-        //this._productListComponent.productEditModal.showModal();
+        this._productListComponent.productEditModal.showModal();
     }
 
     onEditSuccess($event: any) {

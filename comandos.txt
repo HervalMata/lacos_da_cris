@@ -374,3 +374,5 @@ Produtos, Categorias e Usuários
 
 118 - Componente de cadastro e edicao de produtos
 
+119 - Componente de exclusao de produtos
+
