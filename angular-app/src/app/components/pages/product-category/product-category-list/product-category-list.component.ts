@@ -24,11 +24,12 @@ export class ProductCategoryListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.productId = params.product;
-      this.getProducts()
+      this.getProduct();
+      this.getProductCategory();
     });
   }
 
-    getProducts() {
+    getProduct() {
       this.productHttp.get(this.productId)
           .subscribe( product => this.product = product)
     }

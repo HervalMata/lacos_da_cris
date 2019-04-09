@@ -384,3 +384,5 @@ Produtos, Categorias e Usuários
 
 122 - Pegando dados de produtos e categorias
     ng g s services/http/product-category-http
+
+123 - Listando categorias dos produtos
