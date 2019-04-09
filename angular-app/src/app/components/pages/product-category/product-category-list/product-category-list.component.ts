@@ -51,4 +51,19 @@ export class ProductCategoryListComponent implements OnInit {
                 this.categories = response.data;
             })
     }
+
+    submit() {
+      const categoriesId = this.mergeCategories();
+      this.productCategoryHttp.create(this.productId, categoriesId)
+          .subscribe(productCategory => this.getProductCategory());
+      return false;
+    }
+
+    private mergeCategories(): number[] {
+      const categoriesId = this.productCategory.categories.map((category) => category.id);
+      const newCategoriesId = this.categoriesId.filter((category) => {
+        return categoriesId.indexOf(category) == -1;
+      });
+      return categoriesId.concat(newCategoriesId);
+    }
 }

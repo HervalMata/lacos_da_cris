@@ -389,3 +389,5 @@ Produtos, Categorias e Usuários
 
 124 - Criando campo select para listar categorias
 
+125 - Atribuindo categorias a um produto
+

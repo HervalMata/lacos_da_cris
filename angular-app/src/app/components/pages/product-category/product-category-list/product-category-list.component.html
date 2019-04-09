@@ -4,7 +4,7 @@
       <thead>
       <tr>
         <td colspan="5">
-          <form class="form-inline">
+          <form class="form-inline" (submit)="submit()">
             <div class="col-auto">
               <label for="categories[]"><b>Categorias</b></label>
               <select class="form-control"name="categories[]" id="categories[]" [(ngModel)]="categoriesId" multiple>
