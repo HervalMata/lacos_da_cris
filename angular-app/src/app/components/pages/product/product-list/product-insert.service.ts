@@ -18,7 +18,7 @@ export class ProductInsertService {
     }
 
     showModalInsert() {
-        //this._productListComponent.productNewModal.showModal();
+        this._productListComponent.productNewModal.showModal();
     }
 
     onInsertSuccess($event: any) {

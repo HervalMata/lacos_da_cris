@@ -371,3 +371,6 @@ Produtos, Categorias e Usuários
 
 117 - Pipe para formatar numeros
     ng g p pipes/number-format-br
+
+118 - Componente de cadastro e edicao de produtos
+

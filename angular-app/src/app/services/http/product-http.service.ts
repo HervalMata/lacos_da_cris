@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {Product} from "../../model";
+import {Category, Product} from "../../model";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {map} from "rxjs/operators";
 
 @Injectable({
     providedIn: 'root'
@@ -26,5 +27,15 @@ export class ProductHttpService {
                 'Authorization': `Bearer ${token}`
             }
         });
+    }
+
+    create(data: Product): Observable<Product> {
+        const token = window.localStorage.getItem('token');
+        return this.http.post<{ data: Product }>(this.baseUrl, data, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+            .pipe(map(response => response.data))
     }
 }
