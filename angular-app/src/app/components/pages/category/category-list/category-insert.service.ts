@@ -29,7 +29,7 @@ export class CategoryInsertService {
 
     onInsertError($event: HttpErrorResponse) {
         console.log($event);
-        this.notifyMessage.error('Não foi possível cadastrarr a categoria.');
+        this.notifyMessage.error('Não foi possível cadastrar a categoria.');
     }
 
 }

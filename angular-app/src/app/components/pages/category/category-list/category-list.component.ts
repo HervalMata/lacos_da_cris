@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {HttpErrorResponse} from "@angular/common/http";
 import {CategoryNewModalComponent} from "../category-new-modal/category-new-modal.component";
 import {CategoryEditModalComponent} from "../category-edit-modal/category-edit-modal.component";
 import {CategoryDeleteModalComponent} from "../category-delete-modal/category-delete-modal.component";
@@ -8,6 +7,7 @@ import {NotifyMessageService} from "../../../../services/notify-message.service"
 import {CategoryInsertService} from "./category-insert.service";
 import {CategoryEditService} from "./category-edit.service";
 import {CategoryDeleteService} from "./category-delete.service";
+import { Category } from '../../../../model';
 
 declare let $;
 

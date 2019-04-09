@@ -357,3 +357,14 @@ Melhorias no CRUD de categorias
 115 - Criando barra de progresso ao iniciar AJAX
     npm i github:HubSpot/pace#v1.0.2 --save
 
+Produtos, Categorias e Usuários
+
+116 - Componente de listagem de produtos
+    ng g c components/pages/product/product-list
+    ng g c components/pages/product/product-edit-modal
+    ng g c components/pages/product/product-new-modal
+    ng g c components/pages/product/product-delete-modal
+    ng g s services/http/product-http
+    ng g s components/pages/product/product-list/product-insert
+    ng g s components/pages/product/product-list/product-edit
+    ng g s components/pages/product/product-list/product-delete
