@@ -347,3 +347,6 @@ Melhorias no CRUD de categorias
 111 - Criando um servico para as mensagens de notificacao
     ng g s services/notify-message
 
+112 - Fragmentacao do componente de listagem de categorias
+
+
