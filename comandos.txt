@@ -354,3 +354,6 @@ Melhorias no CRUD de categorias
 
 114 - Paginacao com AJAX
 
+115 - Criando barra de progresso ao iniciar AJAX
+    npm i github:HubSpot/pace#v1.0.2 --save
+
