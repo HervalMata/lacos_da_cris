@@ -1,0 +1,9 @@
+<form class="form-inline" (submit)="submit()">
+  <div class="col-auto">
+    <label for="categories[]"><b>Categorias</b></label>
+    <select class="form-control"name="categories[]" id="categories[]" [(ngModel)]="categoriesId" multiple>
+      <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+    </select>
+  </div>
+  <button class="btn btn-success" type="submit">Incluir Categorias</button>
+</form>

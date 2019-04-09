@@ -19,6 +19,7 @@ import { ProductNewModalComponent } from './components/pages/product/product-new
 import { ProductDeleteModalComponent } from './components/pages/product/product-delete-modal/product-delete-modal.component';
 import { NumberFormatBrPipe } from './pipes/number-format-br.pipe';
 import { ProductCategoryListComponent } from './components/pages/product-category/product-category-list/product-category-list.component';
+import { ProductCategoryNewModalComponent } from './components/pages/product-category/product-category-new-modal/product-category-new-modal.component';
 
 const routes: Routes = [
     { path: 'login', component: LoginComponent },
@@ -44,7 +45,8 @@ const routes: Routes = [
     ProductNewModalComponent,
     ProductDeleteModalComponent,
     NumberFormatBrPipe,
-    ProductCategoryListComponent
+    ProductCategoryListComponent,
+    ProductCategoryNewModalComponent
   ],
   imports: [
     BrowserModule,

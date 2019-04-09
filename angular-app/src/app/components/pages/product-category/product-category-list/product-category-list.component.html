@@ -1,42 +1,36 @@
 <div class="row">
-  <h1>Categorias do produto - {{ product?.name }}</h1>
+    <h1>Categorias do produto - {{ product?.name }}</h1>
     <table class="table table-striped">
-      <thead>
-      <tr>
-        <td colspan="5">
-          <form class="form-inline" (submit)="submit()">
-            <div class="col-auto">
-              <label for="categories[]"><b>Categorias</b></label>
-              <select class="form-control"name="categories[]" id="categories[]" [(ngModel)]="categoriesId" multiple>
-                <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
-              </select>
-            </div>
-            <button class="btn btn-success" type="submit">Incluir Categorias</button>
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <th style="width: 5%">ID</th>
-        <th style="width: 65%">Nome</th>
-        <th style="width: 10%">Ativa?</th>
-        <th style="width: 10%">Criado Em</th>
-        <th style="width: 20%">Ações</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let category of productCategory?.categories">
-        <td>{{ category.id }}</td>
-        <td>{{ category.name }}</td>
-        <td>
-          <i class='fas' [ngClass]="{'fa-check': category.active, 'fa-times': !category.active }"></i>
-        </td>
-        <td>{{ category.created_at.date | date: 'dd/MM/yyyy' }}</td>
-        <td>
-          <a title="Excluir" href="javascript:void(0)">
-            <i class="fas fa-trash-alt"></i>
-          </a>
-        </td>
-      </tr>
-      </tbody>
+        <thead>
+        <tr>
+            <td colspan="5">
+                <product-category-new-modal [productId]="productId" [productCategory]="productCategory"
+                                            (onSuccess)="onInsertSuccess($event)"
+                                            (onError)="onInsertError($event)"></product-category-new-modal>
+            </td>
+        </tr>
+        <tr>
+            <th style="width: 5%">ID</th>
+            <th style="width: 65%">Nome</th>
+            <th style="width: 10%">Ativa?</th>
+            <th style="width: 10%">Criado Em</th>
+            <th style="width: 20%">Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let category of productCategory?.categories">
+            <td>{{ category.id }}</td>
+            <td>{{ category.name }}</td>
+            <td>
+                <i class='fas' [ngClass]="{'fa-check': category.active, 'fa-times': !category.active }"></i>
+            </td>
+            <td>{{ category.created_at.date | date: 'dd/MM/yyyy' }}</td>
+            <td>
+                <a title="Excluir" href="javascript:void(0)">
+                    <i class="fas fa-trash-alt"></i>
+                </a>
+            </td>
+        </tr>
+        </tbody>
     </table>
-  </div>
+</div>
