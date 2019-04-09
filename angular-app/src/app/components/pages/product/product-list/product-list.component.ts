@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
     pagination = {
         page: 1,
         totalItems: 0,
-        itemsPerPage: 5
+        itemsPerPage: 10
     }
 
     @ViewChild(ProductNewModalComponent) productNewModal: ProductNewModalComponent;

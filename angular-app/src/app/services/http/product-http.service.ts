@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {Product} from "../../model";
+import {Category, Product} from "../../model";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {map} from "rxjs/operators";
+import {HttpResource} from "./http-resource";
 
 @Injectable({
     providedIn: 'root'
 })
-export class ProductHttpService {
+export class ProductHttpService implements HttpResource<Product> {
 
     private baseUrl = 'http://localhost:8000/api/products';
 
@@ -50,7 +51,7 @@ export class ProductHttpService {
     }
 
 
-    update(id: number, data: Product) {
+    update(id: number, data: Product) : Observable<Product> {
         const token = window.localStorage.getItem('token');
         return this.http.put<{ data: Product }>(`${this.baseUrl}/${id}`, data, {
             headers: {

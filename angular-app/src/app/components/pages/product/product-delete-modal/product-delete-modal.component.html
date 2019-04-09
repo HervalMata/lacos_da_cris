@@ -1,3 +1,12 @@
-<p>
-  product-delete-modal works!
-</p>
+<modal (onHide)="hideModal($event)">
+  <h5 modal-title>
+    Exclusão de Produto
+  </h5>
+  <div modal-body>
+    Deseja excluir o produto {{ product?.name}}
+  </div>
+  <div modal-footer>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    <button type="submit" class="btn btn-danger" (click)="destroy()">Excluir</button>
+  </div>
+</modal>

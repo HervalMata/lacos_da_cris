@@ -376,3 +376,5 @@ Produtos, Categorias e Usuários
 
 119 - Componente de exclusao de produtos
 
+120 - Criando interface para metodos comuns de HTTP
+
