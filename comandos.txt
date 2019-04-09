@@ -386,3 +386,6 @@ Produtos, Categorias e Usuários
     ng g s services/http/product-category-http
 
 123 - Listando categorias dos produtos
+
+124 - Criando campo select para listar categorias
+
