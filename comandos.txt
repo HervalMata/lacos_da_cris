@@ -338,3 +338,5 @@ Melhorias no CRUD de categorias
 107 - Definindo tipos de dados
 
 108 - Metodo AJAX para atualizar uma categorias
+
+109 - Metodo AJAX para excluir uma categorias
