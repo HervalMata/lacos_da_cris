@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {ProductHttpService} from "../../../../services/http/product-http.service";
+import {Product, ProductCategory} from "../../../../model";
+import {ProductCategoryHttpService} from "../../../../services/http/product-category-http.service";
 
 @Component({
   selector: 'product-category-list',
@@ -8,10 +11,31 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ProductCategoryListComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  productId: number;
+  product: Product = null;
+  productCategory: ProductCategory = null;
+
+  constructor(
+      private route: ActivatedRoute,
+      private productHttp: ProductHttpService,
+      private productCategoryHttp: ProductCategoryHttpService
+  ) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => console.log(params))
+    this.route.params.subscribe(params => {
+      this.productId = params.product;
+      this.getProducts()
+    });
   }
 
+    getProducts() {
+      this.productHttp.get(this.productId)
+          .subscribe( product => this.product = product)
+    }
+
+    getProductCategory() {
+      this.productCategoryHttp
+          .list(this.productId)
+          .subscribe(productCategory => this.productCategory = productCategory);
+    }
 }

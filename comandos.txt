@@ -380,4 +380,7 @@ Produtos, Categorias e Usuários
 
 121 - Trabalhando com parametros de rotas
     ng g c components/pages/product-category/product-category-list
+    ng g s services/http/product-category-http
 
+122 - Pegando dados de produtos e categorias
+    ng g s services/http/product-category-http
