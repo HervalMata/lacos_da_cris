@@ -368,3 +368,6 @@ Produtos, Categorias e Usuários
     ng g s components/pages/product/product-list/product-insert
     ng g s components/pages/product/product-list/product-edit
     ng g s components/pages/product/product-list/product-delete
+
+117 - Pipe para formatar numeros
+    ng g p pipes/number-format-br
