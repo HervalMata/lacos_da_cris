@@ -378,3 +378,6 @@ Produtos, Categorias e Usuários
 
 120 - Criando interface para metodos comuns de HTTP
 
+121 - Trabalhando com parametros de rotas
+    ng g c components/pages/product-category/product-category-list
+
