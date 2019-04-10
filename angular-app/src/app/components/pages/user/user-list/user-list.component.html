@@ -1,0 +1,44 @@
+<div class="row">
+  <h1>Listagem de Usuários</h1>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <td colspan="5">
+        <button class="btn btn-success" (click)="userInsertService.showModalInsert()">Novo Usuário</button>
+      </td>
+    </tr>
+    <tr>
+      <th style="width: 5%">ID</th>
+      <th style="width: 25%">Nome</th>
+      <th style="width: 40%">Email</th>
+      <th style="width: 10%">Criado Em</th>
+      <th style="width: 20%">Ações</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of users | paginate: {itemsPerPage: pagination.itemsPerPage, currentPage: pagination.page, totalItems: pagination.totalItems}">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.created_at.date | date: 'dd/MM/yyyy' }}</td>
+      <td>
+        <a href="javascript:void(0)" (click)="userEditService.showModalEdit(user.id)">
+          <i class="fas fa-edit"></i>
+        </a>
+        |
+        <a href="javascript:void(0)" (click)="userDeleteService.showModalDelete(user.id)">
+          <i class="fas fa-trash-alt"></i>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <pagination-controls
+          (pageChange)="pageChanged($event)"
+          previousLabel="Anterior"
+          nextLabel="Próximo"
+  ></pagination-controls>
+</div>
+<user-new-modal (onSuccess)="userInsertService.onInsertSuccess($event)" (onError)="userInsertService.onInsertError($event)"></user-new-modal>
+<user-edit-modal [userId]="userId" (onSuccess)="userEditService.onEditSuccess($event)" (onError)="userEditService.onEditError($event)"></user-edit-modal>
+<user-delete-modal [userId]="userId" (onSuccess)="userDeleteService.onDeleteSuccess($event)" (onError)="userDeleteService.onDeleteError($event)"></user-delete-modal>

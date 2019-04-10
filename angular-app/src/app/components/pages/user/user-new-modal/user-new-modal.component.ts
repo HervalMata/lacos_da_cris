@@ -1,21 +1,19 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {ProductHttpService} from "../../../../services/http/product-http.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {User} from "../../../../model";
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
-import {Product} from "../../../../model";
+import {HttpErrorResponse} from "@angular/common/http";
+import {UserHttpService} from "../../../../services/http/user-http.service";
 
 @Component({
-  selector: 'product-new-modal',
-  templateUrl: './product-new-modal.component.html',
-  styleUrls: ['./product-new-modal.component.css']
+    selector: 'user-new-modal',
+    templateUrl: './user-new-modal.component.html',
+    styleUrls: ['./user-new-modal.component.css']
 })
-export class ProductNewModalComponent implements OnInit {
+export class UserNewModalComponent implements OnInit {
 
-    product: Product = {
+    user: User = {
         name: '',
-        description: '',
-        price: 0,
-        active: true
+        email: ''
     };
 
     @ViewChild(ModalComponent) modal: ModalComponent;
@@ -23,7 +21,7 @@ export class ProductNewModalComponent implements OnInit {
     @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
     @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-    constructor(private productHttp: ProductHttpService) {
+    constructor(private userHttp: UserHttpService) {
     }
 
     ngOnInit() {
@@ -31,9 +29,9 @@ export class ProductNewModalComponent implements OnInit {
 
     submit() {
         const token = window.localStorage.getItem('token');
-        this.productHttp.create(this.product)
-            .subscribe((product) => {
-                this.onSuccess.emit(product);
+        this.userHttp.create(this.user)
+            .subscribe((user) => {
+                this.onSuccess.emit(user);
                 this.modal.hide();
             }, error => this.onError.emit(error));
     }

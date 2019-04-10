@@ -399,3 +399,13 @@ Produtos, Categorias e Usuários
 128 - Filtrando todos os registros em vez de paginacao
 
 129 - Organizando geracao de parametros de busca
+
+130 - Criando CRUD de usuarios
+    ng g c components/pages/user/user-list
+    ng g c components/pages/user/user-edit-modal
+    ng g c components/pages/user/user-new-modal
+    ng g c components/pages/user/user-delete-modal
+    ng g s services/http/user-http
+    ng g s components/pages/user/user-list/user-insert
+    ng g s components/pages/user/user-list/user-edit
+    ng g s components/pages/user/user-list/user-delete
