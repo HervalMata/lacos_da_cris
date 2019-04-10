@@ -2,8 +2,11 @@
 
 namespace LacosDaCris\Http\Controllers\Api;
 
+use const Grpc\CALL_ERROR_BATCH_TOO_BIG;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Filters\CategoryFilter;
 use LacosDaCris\Http\Requests\CategoryRequest;
 use LacosDaCris\Http\Resources\CategoryResource;
 use LacosDaCris\Models\Category;
@@ -18,7 +21,12 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        $categories = $request->has('all') ? Category::all() : Category::paginate(5);
+        /** @var CategoryFilter $filter */
+        $filter = app(CategoryFilter::class);
+        /** @var Builder $filterQuery */
+        $filterQuery = Category::filtered($filter);
+        //$categories = $request->has('all') ? Category::all() : Category::paginate(5);
+        $categories = $filterQuery->all();
         return CategoryResource::collection($categories);
     }
 

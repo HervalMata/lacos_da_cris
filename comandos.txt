@@ -447,3 +447,8 @@ Autenticação no Angular
 144 - Configurando o ambiente de producao
 
 145 - Configuracao de ambiente com controle de versao
+
+Filtros e Ordenações
+
+146 - Criando estrutura de filtros e ordenacoes na API
+  composer require mnabialek/laravel-eloquent-filter
