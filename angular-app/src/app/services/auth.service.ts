@@ -45,4 +45,9 @@ export class AuthService {
       email: decodedToken.email,
     } : null;
   }
+
+  isAuth() : boolean {
+      const token = this.getToken();
+      return !new JwtHelperService().isTokenExpired(token, 30);
+  }
 }

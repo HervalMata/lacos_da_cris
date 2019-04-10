@@ -424,3 +424,5 @@ Autenticação no Angular
 
 135 - Criando componente para menu de navegacao
     ng g c components/bootstrap/navbar
+
+136 - Verificar se o usuario esta autenticado no angular
