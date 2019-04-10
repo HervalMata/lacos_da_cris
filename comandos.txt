@@ -438,3 +438,5 @@ Autenticação no Angular
     ng g s services/refresh-token-interceptor
 
 141 - Testando renovacao de token
+
+142 - Melhoria na renovacao de token
