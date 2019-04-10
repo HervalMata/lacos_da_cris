@@ -409,3 +409,8 @@ Produtos, Categorias e Usuários
     ng g s components/pages/user/user-list/user-insert
     ng g s components/pages/user/user-list/user-edit
     ng g s components/pages/user/user-list/user-delete
+
+Autenticação no Angular
+
+131 - Criando metodo de login
+    ng g s services/auth
