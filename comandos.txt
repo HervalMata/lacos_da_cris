@@ -426,3 +426,5 @@ Autenticação no Angular
     ng g c components/bootstrap/navbar
 
 136 - Verificar se o usuario esta autenticado no angular
+
+137 - Criando o logout
