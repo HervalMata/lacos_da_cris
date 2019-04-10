@@ -428,3 +428,5 @@ Autenticação no Angular
 136 - Verificar se o usuario esta autenticado no angular
 
 137 - Criando o logout
+
+138 - Ativando menu de acordo com a rota
