@@ -2,8 +2,17 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {throttle} from "rxjs/operators";
+
 export const environment = {
-  production: false
+    production: false,
+    api: {
+        protocol: 'http',
+        host: 'localhost:8000',
+        get url() {
+            return `${this.protocol}://${this.host}/api`
+        }
+    }
 };
 
 /*
