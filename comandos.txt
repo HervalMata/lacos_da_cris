@@ -397,3 +397,5 @@ Produtos, Categorias e Usuários
 127 - Definindo url base para o servico de productCategory
 
 128 - Filtrando todos os registros em vez de paginacao
+
+129 - Organizando geracao de parametros de busca

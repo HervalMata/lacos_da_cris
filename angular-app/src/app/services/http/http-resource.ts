@@ -5,6 +5,21 @@ export interface SearchParams {
     all?: any;
 }
 
+export class SearchParamsBuilder {
+    constructor(private serchParams: SearchParams) {}
+
+    makeObject() : any {
+        const sParams: any = {
+            page: this.serchParams.page + "",
+        };
+        if (this.serchParams.all) {
+            sParams.all = 1;
+            delete sParams.page;
+        }
+        return sParams;
+    }
+}
+
 export interface HttpResource<T> {
 
     list(serchParams: SearchParams): Observable<{ data: Array<T>, meta: any }>;
