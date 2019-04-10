@@ -452,3 +452,5 @@ Filtros e Ordenações
 
 146 - Criando estrutura de filtros e ordenacoes na API
   composer require mnabialek/laravel-eloquent-filter
+
+147 - Testando filtros e ordenacoes
