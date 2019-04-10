@@ -414,3 +414,5 @@ Autenticação no Angular
 
 131 - Criando metodo de login
     ng g s services/auth
+
+132 - Atribuindo token ao localstorage
