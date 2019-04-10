@@ -416,3 +416,6 @@ Autenticação no Angular
     ng g s services/auth
 
 132 - Atribuindo token ao localstorage
+
+133 - Instalando angular2-jwt
+    npm i @auth0/angular-jwt@2.0.0 --save

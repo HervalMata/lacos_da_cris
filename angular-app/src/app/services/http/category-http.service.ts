@@ -20,54 +20,30 @@ export class CategoryHttpService implements HttpResource<Category> {
     }
 
     list(serchParams: SearchParams): Observable<{ data: Array<Category>, meta: any }> {
-        const token = this.authService.getToken();
         const params = new HttpParams({
             fromObject: new SearchParamsBuilder(serchParams).makeObject()
         });
-        return this.http.get<{ data: Array<Category>, meta }>(this.baseUrl, {
+        return this.http.get<{ data: Array<Category>, meta: any }>(this.baseUrl, {
             params,
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
         });
     }
 
     get(id: number): Observable<Category> {
-        const token = this.authService.getToken();
-        return this.http.get<{ data: Category }>(`${this.baseUrl}/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.get<{ data: Category }>(`${this.baseUrl}/${id}`, )
             .pipe(map(response => response.data))
     }
 
     create(data: Category): Observable<Category> {
-        const token = this.authService.getToken();
-        return this.http.post<{ data: Category }>(this.baseUrl, data, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.post<{ data: Category }>(this.baseUrl, data, )
             .pipe(map(response => response.data))
     }
 
     update(id: number, data: Category) : Observable<Category> {
-        const token = this.authService.getToken();
-        return this.http.put<{ data: Category }>(`${this.baseUrl}/${id}`, data, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.put<{ data: Category }>(`${this.baseUrl}/${id}`, data, )
             .pipe(map(response => response.data))
     }
 
     destroy(id: number): Observable<any> {
-        const token = this.authService.getToken();
-        return this.http.delete(`${this.baseUrl}/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
+        return this.http.delete(`${this.baseUrl}/${id}`, )
     }
 }
