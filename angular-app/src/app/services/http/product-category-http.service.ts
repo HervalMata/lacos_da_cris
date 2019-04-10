@@ -15,7 +15,7 @@ export class ProductCategoryHttpService {
     list(productId: number): Observable<ProductCategory> {
         const token = window.localStorage.getItem('token');
         return this.http.get<{ data: ProductCategory }>
-        (`http://localhost:8000/api/products/${productId}/categories`, {
+        (this.getBaseUrl(productId), {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -26,11 +26,19 @@ export class ProductCategoryHttpService {
     create(productId: number, categoriesId: number[]): Observable<ProductCategory> {
         const token = window.localStorage.getItem('token');
         return this.http.post<{ data: ProductCategory }>
-        (`http://localhost:8000/api/products/${productId}/categories`, {categories: categoriesId}, {
+        (this.getBaseUrl(productId), {categories: categoriesId}, {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         })
             .pipe(map(response => response.data))
+    }
+
+    private getBaseUrl(productId: number, categoryId: number = null) : string {
+        let baseUrl = `http://localhost:8000/api/products/${productId}/categories`;
+        if (categoryId) {
+            baseUrl += `/${categoryId}`;
+        }
+        return baseUrl;
     }
 }

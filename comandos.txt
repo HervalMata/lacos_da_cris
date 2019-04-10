@@ -394,3 +394,5 @@ Produtos, Categorias e Usuários
 126 - Criando componente para adicao de categorias em produtos
     ng g c components/pages/product-category/product-category-new-modal
 
+127 - Definindo url base para o servico de productCategory
+
