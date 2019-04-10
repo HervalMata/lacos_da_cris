@@ -32,7 +32,7 @@ export class ProductCategoryNewModalComponent implements OnInit {
     }
 
     getCategories() {
-        this.categoryHttp.list(1)
+        this.categoryHttp.list({all: 1})
             .subscribe(response => {
                 this.categories = response.data;
             })

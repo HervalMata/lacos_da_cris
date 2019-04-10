@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {Category, Product} from "../../model";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {map} from "rxjs/operators";
-import {HttpResource} from "./http-resource";
+import {HttpResource, SearchParams} from "./http-resource";
 
 @Injectable({
     providedIn: 'root'
@@ -15,12 +15,17 @@ export class ProductHttpService implements HttpResource<Product> {
     constructor(private http: HttpClient) {
     }
 
-    list(page: number): Observable<{ data: Array<Product>, meta: any }> {
+    list(serchParams: SearchParams): Observable<{ data: Array<Product>, meta: any }> {
         const token = window.localStorage.getItem('token');
+        const sParams: any = {
+            page: serchParams.page + "",
+        };
+        if (serchParams.all) {
+            sParams.all = 1;
+            delete sParams.page;
+        }
         const params = new HttpParams({
-            fromObject: {
-                page: page + ""
-            }
+            fromObject: sParams
         });
         return this.http.get<{ data: Array<Product>, meta }>(this.baseUrl, {
             params,
