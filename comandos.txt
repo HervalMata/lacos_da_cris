@@ -430,3 +430,7 @@ Autenticação no Angular
 137 - Criando o logout
 
 138 - Ativando menu de acordo com a rota
+
+139 - Protegendo paginas internas com o guardiao
+    ng g g guards/auth
+
