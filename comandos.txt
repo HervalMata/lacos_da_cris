@@ -445,3 +445,5 @@ Autenticação no Angular
     ng g m app-routing
 
 144 - Configurando o ambiente de producao
+
+145 - Configuracao de ambiente com controle de versao

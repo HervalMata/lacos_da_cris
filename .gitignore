@@ -15,3 +15,6 @@ yarn-error.log
 _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
+
+src/enviroments/enviroment.ts
+src/enviroments/enviroment.prod.ts
