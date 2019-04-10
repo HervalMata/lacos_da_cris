@@ -440,3 +440,6 @@ Autenticação no Angular
 141 - Testando renovacao de token
 
 142 - Melhoria na renovacao de token
+
+143 - Criando modulo para o roteamento
+    ng g m app-routing
