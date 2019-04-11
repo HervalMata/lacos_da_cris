@@ -8,10 +8,10 @@
         </td>
       </tr>
       <tr>
-        <th style="width: 5%">ID</th>
-        <th style="width: 65%">Nome</th>
+        <th style="width: 10%" [sortColumn]="sortColumn" columnName="id">ID</th>
+        <th style="width: 55%" [sortColumn]="sortColumn" columnName="name">Nome</th>
         <th style="width: 10%">Ativa?</th>
-        <th style="width: 10%">Criado Em</th>
+        <th style="width: 15%" [sortColumn]="sortColumn" columnName="created_at">Criado Em</th>
         <th style="width: 10%">Ações</th>
       </tr>
     </thead>
