@@ -454,3 +454,5 @@ Filtros e Ordenações
   composer require mnabialek/laravel-eloquent-filter
 
 147 - Testando filtros e ordenacoes
+
+148 - Criando consulta personalizada para categorias
