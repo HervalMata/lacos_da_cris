@@ -461,3 +461,5 @@ Filtros e Ordenações
     ng g c components/common/sort-column
 
 150 - Testando visual da ordenacao
+
+151 - Testando ordenacao na pratica
