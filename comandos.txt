@@ -463,3 +463,6 @@ Filtros e Ordenações
 150 - Testando visual da ordenacao
 
 151 - Testando ordenacao na pratica
+
+152 - Filtrando dados na listagem
+    ng g c components/pages/category/category-search-form

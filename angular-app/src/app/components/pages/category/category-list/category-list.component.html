@@ -3,8 +3,11 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <td colspan="5">
+        <td colspan="2">
           <button class="btn btn-success" (click)="categoryInsertService.showModalInsert()">Nova Categoria</button>
+        </td>
+        <td colspan="4">
+          <category-search-form (onSearch)="search($event)"></category-search-form>
         </td>
       </tr>
       <tr>
