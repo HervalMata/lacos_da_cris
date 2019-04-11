@@ -459,3 +459,5 @@ Filtros e Ordenações
 
 149 - Criando componente para renderizar a ordenacao
     ng g c components/common/sort-column
+
+150 - Testando visual da ordenacao
