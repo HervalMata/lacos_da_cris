@@ -473,3 +473,6 @@ Formulários Reativos
     ng g c components/pages/category/category-form
 
 154 - Criacao e edicao com FormGroup
+
+155 - Criando componente para listar erros
+    ng g c components/bootstrap/field-error
