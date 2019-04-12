@@ -487,3 +487,7 @@ Formulários Reativos
 159 - Regras de validacao de forma programada
 
 160 - Organizando opcoes de campo
+
+161 - Listando erros da API
+    ng g c components/bootstrap/list-error
+    ng g c components/bootstrap/card-error

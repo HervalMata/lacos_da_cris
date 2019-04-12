@@ -13,6 +13,7 @@ import fieldsOptions from "../category-form/category-fields-options";
 export class CategoryNewModalComponent implements OnInit {
 
     form: FormGroup;
+    errors = {};
 
     @ViewChild(ModalComponent) modal: ModalComponent;
 
@@ -26,6 +27,7 @@ export class CategoryNewModalComponent implements OnInit {
         const maxLength = fieldsOptions.name.validationMessage.maxlength;
         this.form = this.formBuilder.group({
             name: ['', Validators.required, Validators.maxLength(maxLength)],
+            //name: [''],
             active: true
         });
     }
@@ -42,7 +44,12 @@ export class CategoryNewModalComponent implements OnInit {
                 });
                 this.onSuccess.emit(category);
                 this.modal.hide();
-            }, error => this.onError.emit(error));
+            }, responseError => {
+                if (responseError.status  === 422) {
+                    this.errors = responseError.error.errors
+                }
+                this.onError.emit(responseError)
+            });
     }
 
     showModal() {
@@ -51,6 +58,10 @@ export class CategoryNewModalComponent implements OnInit {
 
     hideModal($event: Event) {
         console.log($event);
+    }
+
+    showErrors() {
+        return Object.keys(this.errors).length != 0;
     }
 
 }
