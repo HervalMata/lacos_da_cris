@@ -27,7 +27,6 @@ export class CategoryNewModalComponent implements OnInit {
         const maxLength = fieldsOptions.name.validationMessage.maxlength;
         this.form = this.formBuilder.group({
             name: ['', Validators.required, Validators.maxLength(maxLength)],
-            //name: [''],
             active: true
         });
     }

@@ -7,10 +7,6 @@
   <field-error [field]="form.get('name')"
                [label]="fielfOptions.name.label"
             [messages]="fielfOptions.name.validationMessage"></field-error>
-  <!--   <div class="invalid-feedback" *ngIf="form.get('name').invalid && (form.get('name').dirty || form.get('name').touched)"> -->
-  <!-- 	<p *ngIf="form.get('name').errors && form.get('name').errors.required"> O campo Nome é requerido.</p> -->
-  <!-- 	<p *ngIf="form.get('name').errors && form.get('name').errors.maxlength"> O tamanho máximo do campo Nome é 255 caracteres.</p> -->
-  <!--   </div>   -->
 </div>
 <div class="form-group form-check" [formGroup]="form">
   <input type="checkbox" class="form-check-input"
