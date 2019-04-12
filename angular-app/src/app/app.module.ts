@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {LoginComponent} from './components/pages/login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {CategoryListComponent} from './components/pages/category/category-list/category-list.component';
 import {AlertErrorComponent} from './components/bootstrap/alert-error/alert-error.component';
@@ -73,6 +73,7 @@ function jwtFactory(authService: AuthService) {
     imports: [
         BrowserModule,
         FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         NgxPaginationModule,
         AppRoutingModule,

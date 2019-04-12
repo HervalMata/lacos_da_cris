@@ -4,11 +4,12 @@
       Nova Categoria
     </h5>
     <div modal-body>
-      <category-form [category]="category"></category-form>
+
+      <category-form [form]="form"></category-form>
     </div>
     <div modal-footer>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-success">Salvar</button>
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid">Salvar</button>
     </div>
   </modal>
 </form>
