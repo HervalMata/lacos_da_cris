@@ -483,3 +483,5 @@ Formulários Reativos
     ng g d directives/is-invalid
 
 158 - Organizando mensagens de erro
+
+159 - Regras de validacao de forma programada
