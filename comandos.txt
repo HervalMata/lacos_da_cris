@@ -478,3 +478,6 @@ Formulários Reativos
     ng g c components/bootstrap/field-error
 
 156 - Listando erros de validacao
+
+157 - Criando diretiva para adicionar classe de erro
+    ng g d directives/is-invalid
