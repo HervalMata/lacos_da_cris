@@ -21,4 +21,20 @@ export class CategoryFormComponent implements OnInit {
         this.changeRef.detectChanges();
   }
 
+  get fielfOptions() {
+      return {
+          name: {
+              id: 'name',
+              label: 'Nome',
+              validationMessage: {
+                    maxLength: 255
+              }
+          },
+          active: {
+              id: 'active',
+              label: 'Ativo',
+          }
+      }
+  }
+
 }
