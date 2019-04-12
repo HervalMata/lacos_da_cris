@@ -466,3 +466,8 @@ Filtros e Ordenações
 
 152 - Filtrando dados na listagem
     ng g c components/pages/category/category-search-form
+
+Formulários Reativos
+
+153 - Criando componente somente para formulario
+    ng g c components/pages/category/category-form
