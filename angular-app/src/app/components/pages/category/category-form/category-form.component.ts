@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Category} from "../../../../model";
 import {FormGroup} from "@angular/forms";
+import fieldsOptions from "./category-fields-options";
 
 @Component({
   selector: 'category-form',
@@ -21,20 +22,8 @@ export class CategoryFormComponent implements OnInit {
         this.changeRef.detectChanges();
   }
 
-  get fielfOptions() {
-      return {
-          name: {
-              id: 'name',
-              label: 'Nome',
-              validationMessage: {
-                    maxLength: 255
-              }
-          },
-          active: {
-              id: 'active',
-              label: 'Ativo',
-          }
-      }
+  get fielfOptions() : any {
+      return fieldsOptions;
   }
 
 }
