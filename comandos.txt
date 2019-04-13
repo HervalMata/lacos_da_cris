@@ -513,3 +513,5 @@ Entrada e saida de estoque
 165 - Filtrando informacoes com relacionamentos
 
 166 - Mais sobre filtros e ordenacoes com relacionamentos
+
+167 - Restrigindo busca de produtos; Adicionado busca de produtos e order BY

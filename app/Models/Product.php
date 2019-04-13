@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Mnabialek\LaravelEloquentFilter\Traits\Filterable;
 
 class Product extends Model
 {
-    use Sluggable, SoftDeletes;
+    use Sluggable, SoftDeletes, Filterable;
 
     protected $dates = ['deleted_at'];
 

@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Common\OnlyTrashed;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Filters\ProductFilter;
 use LacosDaCris\Http\Requests\ProductRequest;
 use LacosDaCris\Http\Resources\ProductResource;
 use LacosDaCris\Models\Product;
@@ -23,9 +24,11 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $filter = app(ProductFilter::class);
         $query = Product::query();
         $query = $this->onlyTrashedIfRequested($request, $query);
-        $products = $query->paginate(10);
+        $filterQuery = $query->filtered($filter);
+        $products = $filter->hasFilterParameter() ? $filterQuery->get() : $filterQuery->paginate(10);
         return ProductResource::collection($products);
     }
 
