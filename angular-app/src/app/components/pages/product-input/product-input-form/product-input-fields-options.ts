@@ -1,6 +1,10 @@
 import {FieldsOptions} from "../../../../common/fields-options";
 
-const fieldsoptions : FieldsOptions = {
+const fieldsOptions : FieldsOptions = {
+    product_id:{
+        id: 'product_id',
+        label: 'Produto',
+    },
     amount: {
         id: 'amount',
         label: 'Quantidade',
@@ -10,4 +14,4 @@ const fieldsoptions : FieldsOptions = {
     }
 }
 
-export default fieldsoptions;
+export default fieldsOptions;

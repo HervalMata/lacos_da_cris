@@ -11,7 +11,6 @@ declare const $;
 export class ProductIdFieldService {
 
   data;
-  // @ts-ignore
   options: Select2Options;
   select2Element: ElementRef;
   formControl: AbstractControl;
@@ -55,6 +54,7 @@ export class ProductIdFieldService {
     };
     this.data = [];
     this.onClosingDropdown();
+    this.resetSelect2OnSetNull();
   }
 
     private onClosingDropdown() {
@@ -67,5 +67,14 @@ export class ProductIdFieldService {
 
     updateFormControl(value) {
         this.formControl.setValue(value);
+    }
+
+    private resetSelect2OnSetNull() {
+        this.formControl.valueChanges.subscribe((value => {
+          if (!value) {
+            const selectField = $(this.select2Native).find('select');
+            selectField.val(null).trigger('change');
+          }
+        }))
     }
 }

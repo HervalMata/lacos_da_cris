@@ -5,7 +5,7 @@ const fieldsOptions: FieldsOptions ={
         id: 'name',
         label: 'Nome',
     },
-    descrition: {
+    description: {
         id: 'description',
         label: 'Descrição',
         validationMessage: {

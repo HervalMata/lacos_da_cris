@@ -38,8 +38,8 @@ export class IsInvalidControlDirective {
 }
 
 function toogleClassInvalid(control: NgControl, nativeElement: HTMLElement) {
-    this.control.valueChanges.subscribe(() => {
-        if (this.control.invalid && (this.control.dirty || this.control.touched)) {
+    control.valueChanges.subscribe(() => {
+        if (control.invalid && (control.dirty || control.touched)) {
             if (!nativeElement.classList.contains('is-invalid')) {
                 nativeElement.classList.add('is-invalid');
             }

@@ -2,7 +2,7 @@ import {ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild} from
 import {FormGroup} from "@angular/forms";
 import {Select2Component} from "ng2-select2";
 import {ProductIdFieldService} from "./product-id-field.service";
-import fieldsOptions from "../../product/product-form/product-fields-options";
+import fieldsOptions from "../../product-input/product-input-form/product-input-fields-options";
 
 @Component({
   selector: 'product-input-form',
@@ -23,7 +23,7 @@ export class ProductInputFormComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.productIdField.make(this.select2Element);
+        this.productIdField.make(this.select2Element, this.form.get('product_id'));
     }
 
     ngOnChanges() {

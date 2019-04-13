@@ -531,3 +531,5 @@ Entrada e saida de estoque
 172 - Alterando IsInvalid
 
 173 - Validando e invalidando autocomplete de produtos
+
+174 - reset do formulario
