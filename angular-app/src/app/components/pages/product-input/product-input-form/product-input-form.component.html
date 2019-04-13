@@ -4,10 +4,17 @@
          isInvalid [id]="fieldsOptions.amount.id"
          formControlName="amount">
   <field-error [field]="form.get('amount')"
-               [label]="fieldsOptions.name.label"
-               [messages]="fieldsOptions.name.validationMessage"></field-error>
+               [label]="fieldsOptions.amount.label"
+               [messages]="fieldsOptions.amount.validationMessage"></field-error>
 </div>
 <div class="form-group">
-  <select2 [data]="productIdField.data" [options]="productIdField.options"></select2>
+  <select2
+          [data]="productIdField.data"
+          [options]="productIdField.options"
+          [isInvalidControl]="form.get('product_id')"
+  ></select2>
+  <field-error [field]="form.get('product_id')"
+               [label]="fieldsOptions.product_id.label"
+               [messages]="fieldsOptions.product_id.validationMessage"></field-error>
 </div>
 

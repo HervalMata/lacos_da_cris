@@ -527,3 +527,5 @@ Entrada e saida de estoque
 170 - Select2 com Ajax
 
 171 - Validacao de quantidade de produto
+
+172 - Alterando IsInvalid
