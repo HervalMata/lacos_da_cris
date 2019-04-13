@@ -523,3 +523,5 @@ Entrada e saida de estoque
 
 169 - Criando primeiro select2
     ng g s components/pages/product-input/product-input-form/product-id-field
+
+170 - Select2 com Ajax
