@@ -1,6 +1,6 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from "@angular/forms";
-import fieldsOptions from "../../category/category-form/category-fields-options";
+import fieldsOptions from "../../user/user-form/user-fields-options";
 
 @Component({
     selector: 'user-form',

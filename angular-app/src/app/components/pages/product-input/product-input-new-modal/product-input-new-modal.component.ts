@@ -1,16 +1,16 @@
 import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
-import {ProductHttpService} from "../../../../services/http/product-http.service";
-import {HttpErrorResponse} from "@angular/common/http";
-import {ModalComponent} from "../../../bootstrap/modal/modal.component";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ModalComponent} from "../../../bootstrap/modal/modal.component";
+import {HttpErrorResponse} from "@angular/common/http";
 import fieldsOptions from "../../product/product-form/product-fields-options";
+import {ProductInputHttpService} from "../../../../services/http/product-input-http.service";
 
 @Component({
-    selector: 'product-new-modal',
-    templateUrl: './product-new-modal.component.html',
-    styleUrls: ['./product-new-modal.component.css']
+  selector: 'product-input-new-modal',
+  templateUrl: './product-input-new-modal.component.html',
+  styleUrls: ['./product-input-new-modal.component.css']
 })
-export class ProductNewModalComponent implements OnInit {
+export class ProductInputNewModalComponent implements OnInit {
 
     form: FormGroup;
     errors = {};
@@ -21,7 +21,7 @@ export class ProductNewModalComponent implements OnInit {
     @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
     constructor
-    (private productHttp: ProductHttpService,
+    (private productInputHttp: ProductInputHttpService,
      private formBuilder: FormBuilder
     ) {
         this.form = this.formBuilder.group({
@@ -36,7 +36,7 @@ export class ProductNewModalComponent implements OnInit {
     }
 
     submit() {
-        this.productHttp.create(this.form.value)
+        this.productInputHttp.create(this.form.value)
             .subscribe((product) => {
                 this.form.reset({
                     name: '',
@@ -65,4 +65,5 @@ export class ProductNewModalComponent implements OnInit {
     showErrors() {
         return Object.keys(this.errors).length != 0;
     }
+
 }

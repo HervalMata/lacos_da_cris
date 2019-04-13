@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
-import fieldsOptions from "../../category/category-form/category-fields-options";
+import fieldsOptions from "../../product/product-form/product-fields-options";
 import {FormGroup} from "@angular/forms";
 
 @Component({
@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit {
         this.changeRef.detectChanges();
     }
 
-    get fielfOptions(): any {
+    get fieldOptions(): any {
         return fieldsOptions;
     }
 

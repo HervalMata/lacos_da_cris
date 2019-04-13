@@ -19,7 +19,7 @@ class ProductInputController extends Controller
      */
     public function index()
     {
-        $inputs = ProductInput::with('product')->paginate();
+        $inputs = ProductInput::with('product')->paginate(5);
         return ProductInputResource::collection($inputs);
     }
 

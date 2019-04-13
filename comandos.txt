@@ -499,3 +499,13 @@ Formulários Reativos
 163 - Ajustes em usuarios
     ng g c components/pages/user/user-search-form
     ng g c components/pages/user/user-form
+
+Entrada e saida de estoque
+
+164 - Listando entradas de estoque
+    ng g c components/pages/product-input/product-input-list
+    ng g c components/pages/product-input/product-input-form
+    ng g c components/pages/product-input/product-input-new-modal
+    ng g c components/pages/product-input/product-input-search-form
+    ng g s services/http/product-input-http
+    ng g s components/pages/product-input/product-input-list/product-input-insert

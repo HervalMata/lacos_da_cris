@@ -2,9 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angula
 import {ProductHttpService} from "../../../../services/http/product-http.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {ModalComponent} from "../../../bootstrap/modal/modal.component";
-import {Product} from "../../../../model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {UserHttpService} from "../../../../services/http/user-http.service";
 import fieldsOptions from "../../product/product-form/product-fields-options";
 
 @Component({
@@ -28,11 +26,10 @@ export class ProductEditModalComponent implements OnInit {
         private productHttp: ProductHttpService,
         private formBuilder: FormBuilder
     ) {
-        const maxLength = fieldsOptions.name.validationMessage.maxlength;
         this.form = this.formBuilder.group({
-            name: ['', Validators.required, Validators.maxLength(maxLength)],
+            name: ['', [Validators.required]],
             description: ['', [Validators.required]],
-            price: ['', [Validators.required, Validators.min(fieldsOptions.price.validationMessage.min(1))]],
+            price: ['', [Validators.required, Validators.min(fieldsOptions.price.validationMessage.min)]],
             active: true
         });
     }

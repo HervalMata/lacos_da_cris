@@ -1,36 +1,35 @@
 <div class="form-group" [formGroup]="form">
-  <label [for]="fielfOptions.name.id">{{fielfOptions.name.label}}</label>
+  <label [for]="fieldOptions.name.id">{{fieldOptions.name.label}}</label>
   <input type="text" class="form-control"
-         isInvalid [id]="fielfOptions.name.id"
-         [maxlength]="fielfOptions.name.validationMessage.maxLength"
+         isInvalid [id]="fieldOptions.name.id"
          formControlName="name">
   <field-error [field]="form.get('name')"
-               [label]="fielfOptions.name.label"
-               [messages]="fielfOptions.name.validationMessage"></field-error>
+               [label]="fieldOptions.name.label"
+               [messages]="fieldOptions.name.validationMessage"></field-error>
 </div>
 <div class="form-group" [formGroup]="form">
-  <label [for]="fielfOptions.description.id">{{fielfOptions.description.label}}</label>
+  <label [for]="fieldOptions.description.id">{{fieldOptions.description.label}}</label>
   <textarea type="text" class="form-control"
-         isInvalid [id]="fielfOptions.description.id" [cols]="fielfOptions.description.validationMessage.cols" [rows]="fielfOptions.description.validationMessage.rows"
-         [maxlength]="fielfOptions.description.validationMessage.maxLength"
+         isInvalid [id]="fieldOptions.description.id" [cols]="fieldOptions.description.validationMessage.cols"
+            [rows]="fieldOptions.description.validationMessage.rows"
             formControlName="description"></textarea>
   <field-error [field]="form.get('description')"
-               [label]="fielfOptions.description.label"
-               [messages]="fielfOptions.description.validationMessage"></field-error>
+               [label]="fieldOptions.description.label"
+               [messages]="fieldOptions.description.validationMessage"></field-error>
 </div>
 <div class="form-group" [formGroup]="form">
-  <label [for]="fielfOptions.price.id">{{fielfOptions.price.label}}</label>
+  <label [for]="fieldOptions.price.id">{{fieldOptions.price.label}}</label>
   <input type="text" class="form-control"
-         isInvalid [id]="fielfOptions.price.id"
-         [maxlength]="fielfOptions.price.validationMessage.min"
+         isInvalid [id]="fieldOptions.price.id"
+         [maxlength]="fieldOptions.price.validationMessage.min"
          formControlName="price">
   <field-error [field]="form.get('price')"
-               [label]="fielfOptions.price.label"
-               [messages]="fielfOptions.price.validationMessage"></field-error>
+               [label]="fieldOptions.price.label"
+               [messages]="fieldOptions.price.validationMessage"></field-error>
 </div>
 <div class="form-group form-check" [formGroup]="form">
   <input type="checkbox" class="form-check-input"
-         [id]="fielfOptions.active.id" name="active"
+         [id]="fieldOptions.active.id" name="active"
          formControlName="active">
-  <label [for]="fielfOptions.active.id">Ativo?</label>
+  <label [for]="fieldOptions.active.id">Ativo?</label>
 </div>
