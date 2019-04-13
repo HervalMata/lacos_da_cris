@@ -529,3 +529,5 @@ Entrada e saida de estoque
 171 - Validacao de quantidade de produto
 
 172 - Alterando IsInvalid
+
+173 - Validando e invalidando autocomplete de produtos

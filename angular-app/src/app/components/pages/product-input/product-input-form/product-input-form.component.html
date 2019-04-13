@@ -12,6 +12,8 @@
           [data]="productIdField.data"
           [options]="productIdField.options"
           [isInvalidControl]="form.get('product_id')"
+          class="form-control undo-form-control"
+          (valueChanged)="productIdField.updateFormControl($event.value)"
   ></select2>
   <field-error [field]="form.get('product_id')"
                [label]="fieldsOptions.product_id.label"
