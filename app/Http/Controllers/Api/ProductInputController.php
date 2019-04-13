@@ -5,6 +5,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Filters\ProductInputFilter;
 use LacosDaCris\Http\Requests\ProductInputRequest;
 use LacosDaCris\Http\Resources\ProductInputResource;
 use LacosDaCris\Models\ProductInput;
@@ -19,7 +20,11 @@ class ProductInputController extends Controller
      */
     public function index()
     {
-        $inputs = ProductInput::with('product')->paginate(5);
+        /** @var ProductInputFilter $filter */
+        $filter = app(ProductInputFilter::class);
+        /** @var Builder $filterQuery */
+        $filterQuery = ProductInput::with('product')->filtered($filter);
+        $inputs = $filterQuery->paginate();
         return ProductInputResource::collection($inputs);
     }
 

@@ -509,3 +509,5 @@ Entrada e saida de estoque
     ng g c components/pages/product-input/product-input-search-form
     ng g s services/http/product-input-http
     ng g s components/pages/product-input/product-input-list/product-input-insert
+
+165 - Filtrando informacoes com relacionamentos
