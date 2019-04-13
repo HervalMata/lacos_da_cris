@@ -15,11 +15,21 @@ class ProductInputFilter extends SimpleQueryFilter
 {
     protected $simpleFilters = ['search'];
 
-    protected $simpleSorts = ['id', 'products.name', 'created_at'];
+    protected $simpleSorts = ['id', 'product.name', 'created_at'];
 
     protected function applySearch($value)
     {
         $this->query->where('name', 'LIKE', "%$value%");
+    }
+
+    protected function ApplySortProductName($order)
+    {
+        $this->query->orderBy('name', $order);
+    }
+
+    protected function ApplySortCreatedAt($order)
+    {
+        $this->query->orderBy('product_inputs.created_at', $order);
     }
 
     public function apply($query)

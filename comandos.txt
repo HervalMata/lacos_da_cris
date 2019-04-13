@@ -511,3 +511,5 @@ Entrada e saida de estoque
     ng g s components/pages/product-input/product-input-list/product-input-insert
 
 165 - Filtrando informacoes com relacionamentos
+
+166 - Mais sobre filtros e ordenacoes com relacionamentos
