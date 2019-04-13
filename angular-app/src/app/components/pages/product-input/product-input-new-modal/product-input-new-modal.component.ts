@@ -25,9 +25,8 @@ export class ProductInputNewModalComponent implements OnInit {
      private formBuilder: FormBuilder
     ) {
         this.form = this.formBuilder.group({
-            name: ['', [Validators.required]],
-            description: ['', [Validators.required]],
-            price: ['', [Validators.required, Validators.min(fieldsOptions.price.validationMessage.min)]],
+            name: [''],
+            amount: [''],
             active: true
         });
     }

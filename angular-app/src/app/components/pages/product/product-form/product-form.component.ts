@@ -12,7 +12,9 @@ export class ProductFormComponent implements OnInit {
     @Input()
     form: FormGroup;
 
-    constructor(private changeRef: ChangeDetectorRef) {
+    constructor(
+        private changeRef: ChangeDetectorRef
+        ) {
     }
 
     ngOnInit() {
@@ -22,7 +24,7 @@ export class ProductFormComponent implements OnInit {
         this.changeRef.detectChanges();
     }
 
-    get fieldOptions(): any {
+    get fieldsOptions(): any {
         return fieldsOptions;
     }
 
