@@ -495,3 +495,7 @@ Formulários Reativos
 162 - Ajustes em produtos
     ng g c components/pages/product/product-search-form
     ng g c components/pages/product/product-form
+
+163 - Ajustes em usuarios
+    ng g c components/pages/user/user-search-form
+    ng g c components/pages/user/user-form

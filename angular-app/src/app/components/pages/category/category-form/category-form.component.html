@@ -2,7 +2,7 @@
   <label [for]="fielfOptions.name.id">{{fielfOptions.name.label}}</label>
   <input type="text" class="form-control"
          isInvalid [id]="fielfOptions.name.id"
-         [maxlength]="fielfOptions.name.validationMessage.maxLength"
+         [maxlength]="fielfOptions.name.validationMessage.maxlength"
          formControlName="name">
   <field-error [field]="form.get('name')"
                [label]="fielfOptions.name.label"

@@ -12,6 +12,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class CategoryEditModalComponent implements OnInit {
 
     form: FormGroup;
+    errors = {};
     _categoryId: number;
 
     @ViewChild(ModalComponent) modal: ModalComponent;
@@ -46,11 +47,11 @@ export class CategoryEditModalComponent implements OnInit {
         if (this._categoryId) {
             this.categoryHttp.get(this._categoryId)
                 .subscribe(category => this.form.patchValue(category),
-                                responseError => {
-                                    if (responseError.status == 401) {
-                                        this.modal.hide();
-                                    }
-                                })
+                    responseError => {
+                        if (responseError.status == 401) {
+                            this.modal.hide();
+                        }
+                    })
         }
 
     }
@@ -61,5 +62,9 @@ export class CategoryEditModalComponent implements OnInit {
 
     hideModal($event: Event) {
         console.log($event);
+    }
+
+    showErrors() {
+        return Object.keys(this.errors).length != 0;
     }
 }

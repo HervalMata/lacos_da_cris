@@ -10,9 +10,9 @@ import {UserEditService} from "./user-edit.service";
 import {UserDeleteService} from "./user-delete.service";
 
 @Component({
-  selector: 'user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.css']
+    selector: 'user-list',
+    templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
 
@@ -24,11 +24,14 @@ export class UserListComponent implements OnInit {
         itemsPerPage: 10
     }
 
+    sortColumn = {column: '', sort: ''};
+
     @ViewChild(UserNewModalComponent) userNewModal: UserNewModalComponent;
     @ViewChild(UserEditModalComponent) userEditModal: UserEditModalComponent;
     @ViewChild(UserDeleteModalComponent) userDeleteModal: UserDeleteModalComponent;
 
     userId: number;
+    searchText: string;
 
     constructor(
         private userHttp: UserHttpService,
@@ -47,7 +50,11 @@ export class UserListComponent implements OnInit {
     }
 
     getUsers() {
-        this.userHttp.list({page: this.pagination.page})
+        this.userHttp.list({
+            page: this.pagination.page,
+            sort: this.sortColumn.column === '' ? null : this.sortColumn,
+            search: this.searchText
+        })
             .subscribe(response => {
                 this.users = response.data;
                 this.pagination.totalItems = response.meta.total;
@@ -57,6 +64,15 @@ export class UserListComponent implements OnInit {
 
     pageChanged(page) {
         this.pagination.page = page;
+        this.getUsers();
+    }
+
+    sort(sortColumn) {
+        this.getUsers();
+    }
+
+    search(search) {
+        this.searchText = search;
         this.getUsers();
     }
 

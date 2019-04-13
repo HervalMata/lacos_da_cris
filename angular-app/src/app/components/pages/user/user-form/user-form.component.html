@@ -1,0 +1,29 @@
+<div class="form-group" [formGroup]="form">
+  <label [for]="fielfOptions.name.id">{{fielfOptions.name.label}}</label>
+  <input type="text" class="form-control"
+         isInvalid [id]="fielfOptions.name.id"
+         formControlName="name">
+  <field-error [field]="form.get('name')"
+               [label]="fielfOptions.name.label"
+               [messages]="fielfOptions.name.validationMessage"></field-error>
+</div>
+<div class="form-group" [formGroup]="form">
+  <label [for]="fielfOptions.email().id">{{fielfOptions.email().label}}</label>
+  <input type="text" class="form-control"
+         isInvalid [id]="fielfOptions.email.id"
+         formControlName="email">
+  <field-error [field]="form.get('email')"
+               [label]="fielfOptions.email.label"
+               [messages]="fielfOptions.email.validationMessage"></field-error>
+</div>
+<div class="form-group" [formGroup]="form">
+  <label [for]="fielfOptions.password.id">{{fielfOptions.password.label}}</label>
+  <input type="text" class="form-control"
+         isInvalid [id]="fielfOptions.password.id"
+         [maxlength]="fielfOptions.password.validationMessage.maxlength"
+         [minlength]="fielfOptions.password.validationMessage.minlength"
+         formControlName="password">
+  <field-error [field]="form.get('password')"
+               [label]="fielfOptions.password.label"
+               [messages]="fielfOptions.password.validationMessage"></field-error>
+</div>

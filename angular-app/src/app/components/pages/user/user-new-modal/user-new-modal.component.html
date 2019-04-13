@@ -1,21 +1,17 @@
 <form (submit)="submit()">
   <modal (onHide)="hideModal($event)">
     <h5 modal-title>
-      Novo Usuário
+      Nova Categoria
     </h5>
     <div modal-body>
-      <div class="form-group">
-        <label for="name">Nome</label>
-        <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="user.name">
-      </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email"  required [(ngModel)]="user.email">
-      </div>
+      <card-error *ngIf="showErrors()">
+        <list-error [errors]="errors"></list-error>
+      </card-error>
+      <user-form [form]="form"></user-form>
     </div>
     <div modal-footer>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
-      <button type="submit" class="btn btn-success">Salvar</button>
+      <button type="submit" class="btn btn-success" [disabled]="!form.valid">Salvar</button>
     </div>
   </modal>
 </form>
