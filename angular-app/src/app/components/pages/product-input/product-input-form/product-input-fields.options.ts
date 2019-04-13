@@ -2,10 +2,10 @@ import {FieldsOptions} from "../../../../common/fields-options";
 
 const fieldsoptions : FieldsOptions = {
     amount: {
-        id: 'Quantidade',
+        id: 'amount',
         label: 'Quantidade',
         validationMessage: {
-            maxlength: 255
+            min: 1
         }
     }
 }

@@ -2,7 +2,8 @@ const messages = {
     required: ':name é requerido',
     minLength: ':name precisa ter no minino :min caracteres',
     maxLength: ':name precisa ter no minino :max caracteres',
-    email: ':name não é um email válido'
+    email: ':name não é um email válido',
+    min: ':name deve começar de :min'
 }
 
 export class ValidationMessage {

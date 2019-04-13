@@ -525,3 +525,5 @@ Entrada e saida de estoque
     ng g s components/pages/product-input/product-input-form/product-id-field
 
 170 - Select2 com Ajax
+
+171 - Validacao de quantidade de produto

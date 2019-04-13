@@ -25,9 +25,8 @@ export class ProductInputNewModalComponent implements OnInit {
      private formBuilder: FormBuilder
     ) {
         this.form = this.formBuilder.group({
-            name: [''],
-            amount: [''],
-            active: true
+            product_id: ['', [Validators.required]],
+            amount: ['', [Validators.required, Validators.min(fieldsOptions.amount.validationMessage.min)]],
         });
     }
 
@@ -38,10 +37,8 @@ export class ProductInputNewModalComponent implements OnInit {
         this.productInputHttp.create(this.form.value)
             .subscribe((product) => {
                 this.form.reset({
-                    name: '',
-                    description: '',
-                    price: '',
-                    active: true
+                    product_id: '',
+                    amount: '',
                 })
                 this.onSuccess.emit(product);
                 this.modal.hide();
