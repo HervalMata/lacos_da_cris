@@ -515,3 +515,8 @@ Entrada e saida de estoque
 166 - Mais sobre filtros e ordenacoes com relacionamentos
 
 167 - Restrigindo busca de produtos; Adicionado busca de produtos e order BY
+
+168 - Biblioteca para autocomplete select2
+    npm i select2@4.0.3 ng2-select2@1.0.0-beta12 --save
+    npm i select2-bootstrap4-theme@1.0.0 --save
+    npm i github:HubSpot/pace#c6846cbf6b928e9903b569269fa9fbf32f2554f4
