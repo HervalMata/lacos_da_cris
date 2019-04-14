@@ -542,3 +542,6 @@ Entrada e saida de estoque
     ng g c components/pages/product-photo/product-photo-upload
 
 177 - Melhorias no upload de fotos
+
+178 - Galeria de fotos com Fancybox
+    npm i @fancyapps/fancybox@^3.3.5
