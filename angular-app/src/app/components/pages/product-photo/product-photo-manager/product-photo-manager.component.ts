@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Product, ProductPhoto} from "../../../../model";
 import {ProductPhotoHttpService} from "../../../../services/http/product-photo-http.service";
 import {ActivatedRoute} from "@angular/router";
+import {NotifyMessageService} from "../../../../services/notify-message.service";
 
 @Component({
   selector: 'product-photo-manager',
@@ -16,7 +17,8 @@ export class ProductPhotoManagerComponent implements OnInit {
 
   constructor(
       private productPhotoHttp: ProductPhotoHttpService,
-      private route: ActivatedRoute
+      private route: ActivatedRoute,
+      private notifyMessage: NotifyMessageService
   ) { }
 
   ngOnInit() {
@@ -24,6 +26,11 @@ export class ProductPhotoManagerComponent implements OnInit {
       this.productId = params.product;
       this.getPhotos();
     })
+  }
+
+  onInsertSuccess(data: {photos: ProductPhoto[]}) {
+      this.photos.push(...data.photos);
+      this.notifyMessage.success('Foto(s) cadastrada(s) com sucesso.');
   }
 
    getPhotos() {

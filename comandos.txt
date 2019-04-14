@@ -540,3 +540,5 @@ Entrada e saida de estoque
 
 176 - Fazendo uploads de fotos
     ng g c components/pages/product-photo/product-photo-upload
+
+177 - Melhorias no upload de fotos
