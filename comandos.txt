@@ -548,3 +548,5 @@ Entrada e saida de estoque
 
 179 - Abrindo modal de edicao de fotos
     ng g c components/pages/product-photo/product-photo-edit-modal
+
+180 - Melhorias na edição de fotos
