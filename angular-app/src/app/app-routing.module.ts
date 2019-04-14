@@ -8,6 +8,7 @@ import {ProductCategoryListComponent} from "./components/pages/product-category/
 import {UserListComponent} from "./components/pages/user/user-list/user-list.component";
 import {ProductInputListComponent} from "./components/pages/product-input/product-input-list/product-input-list.component";
 import {ProductPhotoManagerComponent} from "./components/pages/product-photo/product-photo-manager/product-photo-manager.component";
+import {ProductOutputListComponent} from "./components/pages/product-output/product-output-list/product-output-list.component";
 
 const routes: Routes = [
     {path: 'login', component: LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
     {path: 'products/:product/categories/list', component: ProductCategoryListComponent, canActivate: [AuthGuard]},
     {path: 'products/:product/photos/manager', component: ProductPhotoManagerComponent, canActivate: [AuthGuard]},
     {path: 'inputs/list', component: ProductInputListComponent, canActivate: [AuthGuard]},
+    {path: 'outputs/list', component: ProductOutputListComponent, canActivate: [AuthGuard]},
     {path: 'users/list', component: UserListComponent, canActivate: [AuthGuard]},
     {path: '', redirectTo: '/login', pathMatch: 'full'}
 ]
