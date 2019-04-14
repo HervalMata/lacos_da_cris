@@ -533,3 +533,8 @@ Entrada e saida de estoque
 173 - Validando e invalidando autocomplete de produtos
 
 174 - reset do formulario
+
+175 - Listagem de fotos de produtos
+    ng g c components/pages/product-photo/product-photo-manager
+    ng g s services/http/product-photo-http
+
