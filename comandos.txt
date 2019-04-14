@@ -545,3 +545,6 @@ Entrada e saida de estoque
 
 178 - Galeria de fotos com Fancybox
     npm i @fancyapps/fancybox@^3.3.5
+
+179 - Abrindo modal de edicao de fotos
+    ng g c components/pages/product-photo/product-photo-edit-modal
