@@ -4,7 +4,7 @@ import {ProductPhotoHttpService} from "../../../../services/http/product-photo-h
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-product-photo-manager',
+  selector: 'product-photo-manager',
   templateUrl: './product-photo-manager.component.html',
   styleUrls: ['./product-photo-manager.component.css']
 })

@@ -45,6 +45,7 @@ import { ProductInputNewModalComponent } from './components/pages/product-input/
 import { ProductInputSearchFormComponent } from './components/pages/product-input/product-input-search-form/product-input-search-form.component';
 import {Select2Module} from "ng2-select2";
 import { ProductPhotoManagerComponent } from './components/pages/product-photo/product-photo-manager/product-photo-manager.component';
+import { ProductPhotoUploadComponent } from './components/pages/product-photo/product-photo-upload/product-photo-upload.component';
 
 
 function jwtFactory(authService: AuthService) {
@@ -96,7 +97,8 @@ function jwtFactory(authService: AuthService) {
         ProductInputFormComponent,
         ProductInputNewModalComponent,
         ProductInputSearchFormComponent,
-        ProductPhotoManagerComponent
+        ProductPhotoManagerComponent,
+        ProductPhotoUploadComponent
     ],
     imports: [
         BrowserModule,
