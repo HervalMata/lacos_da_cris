@@ -27,7 +27,7 @@ export class ProductOutputHttpService {
         return this.http.get<{ data: Array<ProductOutput>, meta: any }>(this.baseUrl, {params});
     }
 
-    gett(id: number): Observable<ProductOutput> {
+    get(id: number): Observable<ProductOutput> {
         return this.http.get<{ data: ProductOutput }>(`${this.baseUrl}/${id}`)
             .pipe(
                 map(response => response.data)

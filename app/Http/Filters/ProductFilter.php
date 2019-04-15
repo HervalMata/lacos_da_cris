@@ -15,7 +15,7 @@ class ProductFilter extends SimpleQueryFilter
 {
     protected $simpleFilters = ['search'];
 
-    protected $simpleSorts = ['id', 'name', 'price', 'created_at'];
+    protected $simpleSorts = ['id', 'name', 'price', 'created_at', 'stock'];
 
     protected function applySearch($value)
     {

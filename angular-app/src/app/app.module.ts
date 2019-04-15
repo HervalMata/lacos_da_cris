@@ -51,6 +51,7 @@ import { ProductOutputListComponent } from './components/pages/product-output/pr
 import { ProductOutputFormComponent } from './components/pages/product-output/product-output-form/product-output-form.component';
 import { ProductOutputNewModalComponent } from './components/pages/product-output/product-output-new-modal/product-output-new-modal.component';
 import { ProductOutputSearchFormComponent } from './components/pages/product-output/product-output-search-form/product-output-search-form.component';
+import { ProductViewModalComponent } from './components/pages/product/product-view-modal/product-view-modal.component';
 
 
 function jwtFactory(authService: AuthService) {
@@ -108,7 +109,8 @@ function jwtFactory(authService: AuthService) {
         ProductOutputListComponent,
         ProductOutputFormComponent,
         ProductOutputNewModalComponent,
-        ProductOutputSearchFormComponent
+        ProductOutputSearchFormComponent,
+        ProductViewModalComponent
     ],
     imports: [
         BrowserModule,

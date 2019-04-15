@@ -563,3 +563,7 @@ Entrada e saida de estoque
     ng g s components/pages/product-output/product-output-form/product-id-field
 
 183 - Mudança no menu de navegacao
+
+184 - Melhorias na listagem de produtos
+    ng g c components/pages/product/product-view-modal
+    ng g s components/pages/product/product-list/product-view

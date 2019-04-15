@@ -8,6 +8,8 @@ import {ProductHttpService} from "../../../../services/http/product-http.service
 import {ProductInsertService} from "./product-insert.service";
 import {ProductEditService} from "./product-edit.service";
 import {ProductDeleteService} from "./product-delete.service";
+import {ProductViewModalComponent} from "../product-view-modal/product-view-modal.component";
+import {ProductViewService} from "./product-view.service";
 
 @Component({
     selector: 'product-list',
@@ -26,6 +28,7 @@ export class ProductListComponent implements OnInit {
 
     sortColumn = {column: '', sort: ''};
 
+    @ViewChild(ProductViewModalComponent) productViewModal: ProductViewModalComponent;
     @ViewChild(ProductNewModalComponent) productNewModal: ProductNewModalComponent;
     @ViewChild(ProductEditModalComponent) productEditModal: ProductEditModalComponent;
     @ViewChild(ProductDeleteModalComponent) productDeleteModal: ProductDeleteModalComponent;
@@ -36,10 +39,12 @@ export class ProductListComponent implements OnInit {
     constructor(
         private productHttp: ProductHttpService,
         private notifyMessage: NotifyMessageService,
+        protected productViewService: ProductViewService,
         protected productInsertService: ProductInsertService,
         protected productEditService: ProductEditService,
         protected productDeleteService: ProductDeleteService
     ) {
+        this.productViewService.productListComponent = this;
         this.productInsertService.productListComponent = this;
         this.productEditService.productListComponent = this;
         this.productDeleteService.productListComponent = this;

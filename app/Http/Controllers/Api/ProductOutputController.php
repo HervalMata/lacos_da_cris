@@ -4,6 +4,7 @@ namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Filters\ProductOutputFilter;
 use LacosDaCris\Http\Requests\ProductOutputRequest;
 use LacosDaCris\Http\Resources\ProductOutputResource;
 use LacosDaCris\Models\ProductOutput;
