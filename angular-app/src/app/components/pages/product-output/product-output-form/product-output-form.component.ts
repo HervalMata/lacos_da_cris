@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import {FormGroup} from "@angular/forms";
+import {Select2Component} from "ng2-select2";
+import {ProductIdFieldService} from "../../product-output/product-output-form/product-id-field.service";
+import fieldsOptions from "../../product-output/product-output-form/product-output-fields-options";
 
 @Component({
   selector: 'product-output-form',
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductOutputFormComponent implements OnInit {
 
-  constructor() { }
+    @Input()
+    form: FormGroup;
+    @ViewChild(Select2Component, {read: ElementRef})
+    select2Element: ElementRef
 
-  ngOnInit() {
-  }
+    constructor(
+        private changeRef: ChangeDetectorRef,
+        public productIdField: ProductIdFieldService
+    ) {
+    }
+
+    ngOnInit() {
+        this.productIdField.make(this.select2Element, this.form.get('product_id'));
+    }
+
+    ngOnChanges() {
+        this.changeRef.detectChanges();
+    }
+
+    get fieldsOptions(): any {
+        return fieldsOptions;
+    }
 
 }

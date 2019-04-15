@@ -1,3 +1,9 @@
-<p>
-  product-output-search-form works!
-</p>
+<form class="form-inline" (submit)="submit()">
+  <div class="col-auto">
+    <input type="search" class="form-control" name="search" placeholder="Digite a sua busca"
+           [(ngModel)]="search">
+    <button class="btn btn-success" type="submit">
+      <i class="fas fa-search"></i>
+    </button>
+  </div>
+</form>

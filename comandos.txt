@@ -558,3 +558,6 @@ Entrada e saida de estoque
     ng g c components/pages/product-output/product-output-search-form
     ng g s services/http/product-output-http
     ng g s components/pages/product-output/product-output-list/product-output-insert
+
+182 - Cadastro de saída de produtos finalizado
+    ng g s components/pages/product-output/product-output-form/product-id-field
