@@ -12,53 +12,51 @@ import {ActivatedRoute} from "@angular/router";
 export class ProductPhotoEditModalComponent implements OnInit {
 
     errors = {};
-
     productId: number;
     @Input()
     photoId: number;
 
+    //Events
     @ViewChild(ModalComponent) modal: ModalComponent;
-
     @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
     @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-    constructor(
-        private productPhotoHttp: ProductPhotoHttpService,
-        private route: ActivatedRoute
-    ) {
-    }
+    constructor(public productPhotoHttp: ProductPhotoHttpService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
             this.productId = params.product;
         });
+
     }
 
-    editPhoto(files: FileList) {
-        if (!files.length) {
+    editPhoto(files: FileList){
+        if(!files.length){
             return;
         }
 
-        this.productPhotoHttp.update(this.productId, this.photoId, files[0])
-            .subscribe((data) => this.onSuccess.emit(data),
+        this.productPhotoHttp
+            .update(this.productId, this.photoId, files[0])
+            .subscribe(
+                (data) => this.onSuccess.emit(data),
                 (responseError) => {
-                    if (responseError.status === 422) {
-                        this.errors = responseError.error.errors
+                    if(responseError.status === 422){
+                        this.errors = responseError.error.errors;
                     }
-                    this.onError.emit(responseError)
-                });
-
+                    this.onError.emit(responseError);
+                }
+            );
     }
 
-    showModal() {
+    showModal(){
         this.modal.show();
     }
 
-    hideModal() {
+    hideModal(){
         this.modal.hide();
     }
 
-    showErrors() {
+    showErrors(){
         return Object.keys(this.errors).length != 0;
     }
 }

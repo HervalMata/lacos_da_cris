@@ -21,17 +21,15 @@ export class ProductPhotoManagerComponent implements OnInit {
     @Input()
     photoIdToEdit: number;
 
-    @ViewChild(ProductPhotoDeleteModalComponent)
-    deleteModal: ProductPhotoDeleteModalComponent;
 
     @ViewChild(ProductPhotoEditModalComponent)
     editModal: ProductPhotoEditModalComponent;
+    @ViewChild(ProductPhotoDeleteModalComponent)
+    deleteModal: ProductPhotoDeleteModalComponent;
 
-    constructor(
-        private productPhotoHttp: ProductPhotoHttpService,
-        private route: ActivatedRoute,
-        private notifyMessage: NotifyMessageService
-    ) {
+    constructor(private productPhotoHttp: ProductPhotoHttpService,
+                private route: ActivatedRoute,
+                private notifyMessage: NotifyMessageService) {
     }
 
     ngOnInit() {
@@ -42,66 +40,81 @@ export class ProductPhotoManagerComponent implements OnInit {
         })
     }
 
-    onInsertSuccess(data: { photos: ProductPhoto[] }) {
-        this.photos.push(...data.photos);
-        this.notifyMessage.success('Foto(s) cadastrada(s) com sucesso.');
-    }
-
-    getPhotos() {
-        this.productPhotoHttp.list(this.productId)
+    getPhotos(){
+        this.productPhotoHttp
+            .list(this.productId)
             .subscribe(data => {
                 this.photos = data.photos;
                 this.product = data.product;
             })
     }
 
-    configFancyBox() {
+    configFancyBox(){
         $.fancybox.defaults.btnTpl.edit = `
-        <a class="fancybox-button" data-fancybox-edit title="Substituir foto" href="javascript:void(0)" style="text-align: center">
-            <i class="fas fa-edit"></i>
-        </a>
-        `;
+      <a class="fancybox-button" data-fancybox-edit title="Substituir foto" href="javascript:void(0)" style="text-align: center">
+          <i class="fas fa-edit"></i>
+      </a>
+      `;
         $.fancybox.defaults.btnTpl.delete = `
-        <a class="fancybox-button" data-fancybox-delete title="Excluir foto" href="javascript:void(0)" style="text-align: center">
-            <i class="fas fa-edit"></i>
-        </a>
-        `;
-        $.fancybox.defaults.buttons = ['download', 'edit', 'zoom', 'slideshow', 'fuulscreen', 'thumbs', 'close', 'delete'];
+      <a class="fancybox-button" data-fancybox-delete title="Excluir foto" href="javascript:void(0)" style="text-align: center">
+          <i class="fas fa-trash-alt"></i>
+      </a>
+      `;
+        $.fancybox.defaults.buttons = ['download',
+            'edit',
+            /*'zoom', 'slideShow', 'fullScreen', 'thumbs', */
+            'delete',
+            'close'];
+
         $('body').on('click', '[data-fancybox-edit]', (e) => {
             const photoId = this.getPhotoIdFromSlideShow();
+            this.photoIdToEdit = photoId;
             this.editModal.showModal();
         });
+
         $('body').on('click', '[data-fancybox-delete]', (e) => {
             const photoId = this.getPhotoIdFromSlideShow();
-            this.editModal.showModal();
+            this.photoIdToEdit = photoId;
+            this.deleteModal.showModal();
+            console.log(photoId);
         });
+        $.fancybox.defaults.animationEffect = "circular";
+        $.fancybox.defaults.transitionEffect = "circular";
     }
 
-    getPhotoIdFromSlideShow() {
+    getPhotoIdFromSlideShow(){
         const src = $('.fancybox-slide--current .fancybox-image').attr('src');
-        const id = $('[data-fancybox-gallery]').find(`[src = "${src}"]`).attr('id');
+        const id =  $('[data-fancybox="gallery"]').find(`[src="${src}"]`).attr('id');
         return id.split('-')[1];
     }
 
-    onEditSuccess(data: ProductPhoto) {
+    onInsertSuccess(data: {photos: ProductPhoto[]} ){
+        console.log(this.photos);
+        this.photos.push(...data.photos);
+        this.notifyMessage.success('Foto(s) cadastrada(s) com sucesso!');
+    }
+
+    onEditSuccess(data: ProductPhoto){
         $.fancybox.getInstance().close();
         this.editModal.hideModal();
+
         const index = this.photos.findIndex((photo: ProductPhoto) => {
             return photo.id == this.photoIdToEdit;
         });
 
         this.photos[index] = data;
-        this.notifyMessage.success('Foto substituida com sucesso.');
+        this.notifyMessage.success('Foto substituída com sucesso!');
     }
 
-    onDeleteSuccess(data: ProductPhoto) {
+    onDeleteSuccess(data: ProductPhoto){
         $.fancybox.getInstance().close();
         this.deleteModal.hideModal();
+
         const index = this.photos.findIndex((photo: ProductPhoto) => {
             return photo.id == this.photoIdToEdit;
         });
 
         this.photos.splice(index, 1);
-        this.notifyMessage.success('Foto excluida com sucesso.');
+        this.notifyMessage.success('Foto excluída com sucesso!');
     }
 }

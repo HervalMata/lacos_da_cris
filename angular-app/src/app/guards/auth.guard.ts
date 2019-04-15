@@ -9,19 +9,19 @@ import {AuthService} from "../services/auth.service";
 export class AuthGuard implements CanActivate {
 
   constructor(
-      private authServicr: AuthService,
+      private authService: AuthService,
       private router: Router
   ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    const isAuth = this.authServicr.isAuth();
-    this.redirectIfAuthenticated(isAuth);
+    const isAuth = this.authService.isAuth();
+    this.redirectIfUnauthenticated(isAuth);
     return isAuth;
   }
 
-  private redirectIfAuthenticated(isAuth: boolean) {
+  private redirectIfUnauthenticated(isAuth: boolean) {
     if (!isAuth) {
         this.router.navigate(['login'])
     }

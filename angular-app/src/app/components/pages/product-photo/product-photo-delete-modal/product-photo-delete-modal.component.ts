@@ -5,28 +5,23 @@ import {ProductPhotoHttpService} from "../../../../services/http/product-photo-h
 import {ActivatedRoute} from "@angular/router";
 
 @Component({
-  selector: 'app-product-photo-delete-modal',
+  selector: 'product-photo-delete-modal',
   templateUrl: './product-photo-delete-modal.component.html',
   styleUrls: ['./product-photo-delete-modal.component.css']
 })
 export class ProductPhotoDeleteModalComponent implements OnInit {
 
     errors = {};
-
     productId: number;
     @Input()
     photoId: number;
 
+    //Events
     @ViewChild(ModalComponent) modal: ModalComponent;
-
     @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
     @Output() onError: EventEmitter<HttpErrorResponse> = new EventEmitter<HttpErrorResponse>();
 
-    constructor(
-        private productPhotoHttp: ProductPhotoHttpService,
-        private route: ActivatedRoute
-    ) {
-    }
+    constructor(public productPhotoHttp: ProductPhotoHttpService, private route: ActivatedRoute) { }
 
     ngOnInit() {
         this.route.params.subscribe(params => {
@@ -34,30 +29,29 @@ export class ProductPhotoDeleteModalComponent implements OnInit {
         });
     }
 
-    destroy() {
+    destroy(){
         this.productPhotoHttp.destroy(this.productId, this.photoId)
             .subscribe((data) => {
-              this.onSuccess.emit(data);
-              this.modal.hide();
+                    this.onSuccess.emit(data);
+                    this.modal.hide();
                 },
                 (responseError) => {
-                    if (responseError.status === 422) {
-                        this.errors = responseError.error.errors
+                    if(responseError.status === 422){
+                        this.errors = responseError.error.errors;
                     }
-                    this.onError.emit(responseError)
+                    this.onError.emit(responseError);
                 });
-
     }
 
-    showModal() {
+    showModal(){
         this.modal.show();
     }
 
-    hideModal() {
+    hideModal(){
         this.modal.hide();
     }
 
-    showErrors() {
+    showErrors(){
         return Object.keys(this.errors).length != 0;
     }
 
