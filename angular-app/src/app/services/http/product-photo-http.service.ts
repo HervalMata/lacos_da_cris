@@ -46,6 +46,14 @@ export class ProductPhotoHttpService {
             );
     }
 
+    destroy(productId: number, photoId: number) {
+        return this.http.delete(this.getBaseUrl(productId, photoId), {
+            headers: {
+                'Authorization' : `Bearer ${this.token}`
+            }
+        });
+    }
+
     private getBaseUrl(productId: number, photoId: number = null): string {
         let baseUrl = `${this.baseUrl}/products/${productId}/photos`;
         if (photoId) {
@@ -53,4 +61,6 @@ export class ProductPhotoHttpService {
         }
         return baseUrl;
     }
+
+
 }

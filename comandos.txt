@@ -567,3 +567,6 @@ Entrada e saida de estoque
 184 - Melhorias na listagem de produtos
     ng g c components/pages/product/product-view-modal
     ng g s components/pages/product/product-list/product-view
+
+185 - Criada funcionalidade de Exclusão de fotos de produtos
+    ng g c components/pages/product-photo/product-photo-delete-modal
