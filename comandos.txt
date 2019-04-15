@@ -561,3 +561,5 @@ Entrada e saida de estoque
 
 182 - Cadastro de saída de produtos finalizado
     ng g s components/pages/product-output/product-output-form/product-id-field
+
+183 - Mudança no menu de navegacao
