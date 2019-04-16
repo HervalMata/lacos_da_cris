@@ -582,3 +582,6 @@ Aplicação Ionic
     ionic g page login-options
     ionic g page login-phone-number
     ionic g page reset-phone-number
+
+189 - Configuracao do metodo de autenticacao por telefone
+    npm i firebaseui@3.1.1 firebase@5.2.0
