@@ -572,3 +572,8 @@ Entrada e saida de estoque
     ng g c components/pages/product-photo/product-photo-delete-modal
 
 186 - Correcoes no Projeto Angular
+
+Aplicação Ionic
+
+187 - Criando aplicacao ionic
+    ionic start _whatsapp sidemenu
