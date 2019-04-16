@@ -591,3 +591,5 @@ Aplicação Ionic
     ionic g provider firebase-auth
 
 191 - Pegar usuário autenticado do firebase
+
+192 - Criado metodo para pegar usuario autenticado
