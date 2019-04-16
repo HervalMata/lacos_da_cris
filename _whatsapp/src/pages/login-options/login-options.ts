@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ActionSheetController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {LoginPhoneNumberPage} from "../login-phone-number/login-phone-number";
 import {ResetPhoneNumberPage} from "../reset-phone-number/reset-phone-number";
@@ -12,51 +12,51 @@ import {ResetPhoneNumberPage} from "../reset-phone-number/reset-phone-number";
 
 @IonicPage()
 @Component({
-  selector: 'page-login-options',
-  templateUrl: 'login-options.html',
+    selector: 'page-login-options',
+    templateUrl: 'login-options.html',
 })
 export class LoginOptionsPage {
 
-  constructor(
-      public navCtrl: NavController,
-      public navParams: NavParams,
-      private actionSheetCtrl: ActionSheetController
-  ) {
-  }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private actionSheetCtrl: ActionSheetController
+    ) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginOptionsPage');
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad LoginOptionsPage');
+    }
 
-  openLoginOptions() {
-    const actionSheet = this.actionSheetCtrl.create({
-        title: 'Já tem telefone cadastrado?',
-        buttons: [
-            {
-              text: 'Já tenho, quero entrar',
-              handler: () => {
-                this.navCtrl.push(LoginPhoneNumberPage);
-              }
-            },
-            {
-                text: 'Já tenho, quero trocar o telefone',
-                handler: () => {
-                    this.navCtrl.push(ResetPhoneNumberPage);
+    openLoginOptions() {
+        const actionSheet = this.actionSheetCtrl.create({
+            title: 'Já tem telefone cadastrado?',
+            buttons: [
+                {
+                    text: 'Já tenho, quero entrar',
+                    handler: () => {
+                        this.navCtrl.push(LoginPhoneNumberPage);
+                    }
+                },
+                {
+                    text: 'Já tenho, quero trocar o telefone',
+                    handler: () => {
+                        this.navCtrl.push(ResetPhoneNumberPage);
+                    }
+                },
+                {
+                    text: 'Não, quero criar uma conta',
+                    handler: () => {
+                        this.navCtrl.push(LoginPhoneNumberPage);
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    role: 'Cancel'
                 }
-            },
-            {
-                text: 'Não, quero criar uma conta',
-                handler: () => {
-                    this.navCtrl.push(LoginPhoneNumberPage);
-                }
-            },
-            {
-              text: 'Cancelar',
-              role: 'Cancel'
-            }
-        ]
-    });
-    actionSheet.present();
-  }
+            ]
+        });
+        actionSheet.present();
+    }
 
 }
