@@ -577,3 +577,8 @@ Aplicação Ionic
 
 187 - Criando aplicacao ionic
     ionic start _whatsapp sidemenu
+
+188 - Definindo navegacao para opcao de login
+    ionic g page login-options
+    ionic g page login-phone-number
+    ionic g page reset-phone-number
