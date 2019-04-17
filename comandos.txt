@@ -608,3 +608,6 @@ Aplicação Ionic
     php artisan migrate:refresh --seed
 
 198 - Gerando token JWT depois da verificacao Firebase
+
+199 - Criando regra personalizada para validar token Firebase
+    php artisan make:rule FirebaseTokenVerification

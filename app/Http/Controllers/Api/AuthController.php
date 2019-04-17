@@ -10,6 +10,7 @@ use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Resources\UserResource;
 use LacosDaCris\Firebase\Auth as FirebaseAuth;
 use LacosDaCris\Models\UserProfile;
+use LacosDaCris\Rules\FirebaseTokenVerification;
 
 class AuthController extends Controller
 {
@@ -27,8 +28,17 @@ class AuthController extends Controller
         return $this->responseToken($token);
     }
 
+    /**
+     * @param Request $request
+     * @return array|JsonResponse
+     */
     public function loginFirebase(Request $request)
     {
+        $this->validate($request, [
+            'token' => new FirebaseTokenVerification()
+        ]);
+
+        /** @var FirebaseAuth $firebaseAuth */
         $firebaseAuth = app(FirebaseAuth::class);
         $user = $firebaseAuth->user($request->token);
         $profile = UserProfile::where('phone_number', $user->phoneNumber)->first();
@@ -68,6 +78,10 @@ class AuthController extends Controller
         return ['token' => $token];
     }
 
+    /**
+     * @param $token
+     * @return array|JsonResponse
+     */
     private function responseToken($token)
     {
         return $token ?
