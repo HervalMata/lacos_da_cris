@@ -614,3 +614,5 @@ Aplicação Ionic
 
 200 - Criando chamada de Login com o Firebase no Ionic
     ionic g provider auth
+
+201 - Melhoria nos endereços permitidos no CORS
