@@ -611,3 +611,6 @@ Aplicação Ionic
 
 199 - Criando regra personalizada para validar token Firebase
     php artisan make:rule FirebaseTokenVerification
+
+200 - Criando chamada de Login com o Firebase no Ionic
+    ionic g provider auth

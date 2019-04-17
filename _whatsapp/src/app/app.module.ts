@@ -12,6 +12,7 @@ import {LoginOptionsPage} from "../pages/login-options/login-options";
 import {LoginPhoneNumberPage} from "../pages/login-phone-number/login-phone-number";
 import {ResetPhoneNumberPage} from "../pages/reset-phone-number/reset-phone-number";
 import { FirebaseAuthProvider } from '../providers/auth/firebase-auth';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FirebaseAuthProvider } from '../providers/auth/firebase-auth';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

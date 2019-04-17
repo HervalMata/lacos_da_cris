@@ -5,6 +5,7 @@ import * as firebase from 'firebase';
 import firebaseConfig from '../../app/firebase-config';
 import scriptjs from 'scriptjs';
 import {FirebaseAuthProvider} from "../../providers/auth/firebase-auth";
+import {AuthProvider} from "../../providers/auth/auth";
 
 declare const firebaseui;
 (<any>window).firebase = firebase;
@@ -26,7 +27,8 @@ export class LoginPhoneNumberPage {
     constructor(
         public navCtrl: NavController,
         public navParams: NavParams,
-        private firebaseAuth: FirebaseAuthProvider
+        private firebaseAuth: FirebaseAuthProvider,
+        private authService: AuthProvider
     ) {
     }
 
@@ -35,6 +37,7 @@ export class LoginPhoneNumberPage {
             console.log(token), (error) => console.log(error);
         });
         this.firebaseAuth.makePhoneNumberForm('#firebase-ui');
+        this.authService.login().subscribe((token) => console.log(token));
     }
 
 }
