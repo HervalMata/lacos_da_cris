@@ -8,6 +8,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Http\Resources\UserResource;
+use LacosDaCris\Firebase\Auth as FirebaseAuth;
+use LacosDaCris\Models\UserProfile;
 
 class AuthController extends Controller
 {
@@ -22,11 +24,21 @@ class AuthController extends Controller
         $this->validateLogin($request);
         $credentials = $this->credentials($request);
         $token = \JWTAuth::attempt($credentials);
-        return $token ?
-            ['token' => $token] :
-            response()->json([
-                'error' => \Lang::get('auth.failed')
-            ], 400);
+        return $this->responseToken($token);
+    }
+
+    public function loginFirebase(Request $request)
+    {
+        $firebaseAuth = app(FirebaseAuth::class);
+        $user = $firebaseAuth->user($request->token);
+        $profile = UserProfile::where('phone_number', $user->phoneNumber)->first();
+        $token = null;
+
+        if ($profile) {
+            $token = \Auth::guard('api')->login($profile->user);
+        }
+
+        return $this->responseToken($token);
     }
 
     /**
@@ -54,5 +66,14 @@ class AuthController extends Controller
     {
         $token = \Auth::guard('api')->refresh();
         return ['token' => $token];
+    }
+
+    private function responseToken($token)
+    {
+        return $token ?
+            ['token' => $token] :
+            response()->json([
+                'error' => \Lang::get('auth.failed')
+            ], 400);
     }
 }
