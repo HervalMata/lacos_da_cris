@@ -593,3 +593,5 @@ Aplicação Ionic
 191 - Pegar usuário autenticado do firebase
 
 192 - Criado metodo para pegar usuario autenticado
+
+193 - Melhoria na captura de usuario
