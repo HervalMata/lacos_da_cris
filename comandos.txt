@@ -578,6 +578,8 @@ Aplicação Ionic
 187 - Criando aplicacao ionic
     ionic start _whatsapp sidemenu
 
+Verificação por número de telefone
+
 188 - Definindo navegacao para opcao de login
     ionic g page login-options
     ionic g page login-phone-number
@@ -589,6 +591,8 @@ Aplicação Ionic
 190 - Configuracoes Firebase
     npm i scriptjs@2.5.8 --save
     ionic g provider firebase-auth
+
+Autenticação na API com Firebase
 
 191 - Pegar usuário autenticado do firebase
 
@@ -618,3 +622,10 @@ Aplicação Ionic
 201 - Melhoria nos endereços permitidos no CORS
 
 202 - Redirecionamento para a area principal
+
+Criação dos vendedores e clientes
+
+203 - Informacoes basicas de vendedores e clientes
+    php artisan migrate:refresh --seed
+
+

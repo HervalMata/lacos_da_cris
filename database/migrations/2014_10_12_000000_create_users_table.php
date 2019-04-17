@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use LacosDaCris\Models\User;
 
 class CreateUsersTable extends Migration
 {
@@ -18,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->smallInteger('role')->unsigned()->default(User::ROLE_SELLER);
             $table->rememberToken();
             $table->softDeletes();
             $table->timestamps();
