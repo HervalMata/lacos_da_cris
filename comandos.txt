@@ -616,3 +616,5 @@ Aplicação Ionic
     ionic g provider auth
 
 201 - Melhoria nos endereços permitidos no CORS
+
+202 - Redirecionamento para a area principal

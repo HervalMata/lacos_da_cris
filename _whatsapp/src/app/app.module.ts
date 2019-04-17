@@ -13,6 +13,7 @@ import {LoginPhoneNumberPage} from "../pages/login-phone-number/login-phone-numb
 import {ResetPhoneNumberPage} from "../pages/reset-phone-number/reset-phone-number";
 import { FirebaseAuthProvider } from '../providers/auth/firebase-auth';
 import {HttpClientModule} from "@angular/common/http";
+import {MainPage} from "../pages/main/main";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {HttpClientModule} from "@angular/common/http";
     ListPage,
     LoginOptionsPage,
     LoginPhoneNumberPage,
-    ResetPhoneNumberPage
+    ResetPhoneNumberPage,
+    MainPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import {HttpClientModule} from "@angular/common/http";
     ListPage,
     LoginOptionsPage,
     LoginPhoneNumberPage,
-    ResetPhoneNumberPage
+    ResetPhoneNumberPage,
+    MainPage
   ],
   providers: [
     StatusBar,
