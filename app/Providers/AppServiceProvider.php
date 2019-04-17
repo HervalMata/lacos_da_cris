@@ -3,6 +3,8 @@
 namespace LacosDaCris\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Kreait\Firebase;
+use Kreait\Firebase\Factory;
 use LacosDaCris\Models\ProductInput;
 use LacosDaCris\Models\ProductOutput;
 
@@ -39,6 +41,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(Firebase::class, function () {
+            $serviceAccount = Firebase\ServiceAccount::fromJsonFile(base_path('firebase-admin.json'));
+            return (new Factory())->withServiceAccount($serviceAccount)->create();
+        });
     }
 }

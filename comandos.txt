@@ -597,3 +597,6 @@ Aplicação Ionic
 193 - Melhoria na captura de usuario
 
 194 - Capturando o token do firebase
+
+195 - Integrando FIrebase no Backend
+    composer require kreait/firebase-php:4.0
