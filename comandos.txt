@@ -602,3 +602,6 @@ Aplicação Ionic
     composer require kreait/firebase-php:4.0
 
 196 - Criando serviço para autenticação no Firebase
+
+197 - Criando tabela de perfil de usuarios
+    php artisan make:model Models/UserProfile -m
