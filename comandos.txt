@@ -600,3 +600,5 @@ Aplicação Ionic
 
 195 - Integrando FIrebase no Backend
     composer require kreait/firebase-php:4.0
+
+196 - Criando serviço para autenticação no Firebase
