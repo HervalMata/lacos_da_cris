@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 /**
  * Generated class for the CustomerCreatePage page.
@@ -10,24 +11,39 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-customer-create',
-  templateUrl: 'customer-create.html',
+    selector: 'page-customer-create',
+    templateUrl: 'customer-create.html',
 })
 export class CustomerCreatePage {
 
-  @ViewChild('inputFilePhoto')
-  inputFilePhoto; TextInput;
+    form: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    @ViewChild('inputFilePhoto')
+    inputFilePhoto;
+    TextInput;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CustomerCreatePage');
-  }
+    constructor(
+        public navCtrl: NavController,
+        public navParams: NavParams,
+        private formBuilder: FormBuilder
+    ) {
+        this.form = this.formBuilder.group({
+            name: ['', [Validators.required, Validators.maxLength(255)]],
+            email: ['', [Validators.required, Validators.email, Validators.maxLength(255)]]
+        });
+    }
 
-  selectPhoto() {
-    const nativeElement = this.inputFilePhoto.getElementRef().nativeElement;
-    const inputFile = nativeElement.querySelector('input');
-    inputFile.click();
-  }
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad CustomerCreatePage');
+    }
+
+    submit() {
+
+    }
+
+    selectPhoto() {
+        const nativeElement = this.inputFilePhoto.getElementRef().nativeElement;
+        const inputFile = nativeElement.querySelector('input');
+        inputFile.click();
+    }
 }
