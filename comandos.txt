@@ -637,3 +637,8 @@ Criação dos vendedores e clientes
 
 207 - Testando criacao de clientes
 
+208 - Validação dos dados do cliente
+    php artisan make:request CustomerRequest
+    php artisan make:rule PhoneNumberUnique
+    php artisan migrate:refresh --seed
+
