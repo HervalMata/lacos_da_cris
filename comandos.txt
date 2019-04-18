@@ -668,3 +668,5 @@ Criação dos vendedores e clientes
     ng g c components/common/phone-number-auth-modal
 
 219 - Alterando telefone do perfil
+
+220 - Melhoria de verificacao de telefone
