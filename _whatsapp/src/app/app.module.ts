@@ -17,6 +17,7 @@ import {MainPage} from "../pages/main/main";
 import {CustomerCreatePage} from "../pages/customer-create/customer-create";
 import {ReactiveFormsModule} from "@angular/forms";
 import { CustomerHttpProvider } from '../providers/http/customer-http';
+import {AuthProvider} from "../providers/auth/auth";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { CustomerHttpProvider } from '../providers/http/customer-http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
     FirebaseAuthProvider,
     CustomerHttpProvider
   ]

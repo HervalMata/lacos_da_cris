@@ -684,3 +684,5 @@ Criação dos vendedores e clientes
 225 - Mostrando preview da foto do perfil
 
 226 - Navegacao de paginas ate a criacao do cliente
+
+227 - Configuracoes da pagina de reset do telefone
