@@ -670,3 +670,5 @@ Criação dos vendedores e clientes
 219 - Alterando telefone do perfil
 
 220 - Melhoria de verificacao de telefone
+
+221 - Validacao front-end do perfil do usuario
