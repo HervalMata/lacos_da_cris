@@ -646,3 +646,6 @@ Criação dos vendedores e clientes
 
 210 - Validação dos dados do perfil de Usuario
     php artisan make:request UserProfileUpdateRequest
+
+211 - Melhoria na Seeder de Usuarios
+    php artisan migrate:refresh --seed
