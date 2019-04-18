@@ -644,3 +644,5 @@ Criação dos vendedores e clientes
 
 209 - Atualizando perfil de Usuario
 
+210 - Validação dos dados do perfil de Usuario
+    php artisan make:request UserProfileUpdateRequest

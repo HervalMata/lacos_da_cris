@@ -12,15 +12,16 @@ namespace LacosDaCris\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Firebase\Auth as FirebaseAuth;
+use LacosDaCris\Http\Requests\UserProfileUpdateRequest;
 use LacosDaCris\Http\Resources\UserResource;
 
 class UserProfileController extends Controller
 {
     /**
-     * @param Request $request
+     * @param UserProfileUpdateRequest $request
      * @return UserResource
      */
-    public function update(Request $request)
+    public function update(UserProfileUpdateRequest $request)
     {
         $data = $request->all();
         if ($request->has('token')) {
@@ -28,7 +29,10 @@ class UserProfileController extends Controller
             $data["phone_number"] = $this->getPhoneNumber($token);
         }
 
-        $data['photo'] = $data['photo'] ?? null;
+        if ($request->has('remove_photo')) {
+            $data['photo'] ?? null;
+        }
+
         $user = \Auth::guard('api')->user();
         $user->updateWithProfile($data);
 

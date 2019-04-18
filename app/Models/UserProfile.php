@@ -14,10 +14,18 @@ class UserProfile extends Model
 
     protected $fillable = ['photo', 'phone_number'];
 
+    /**
+     * @param User $user
+     * @param array $data
+     * @return UserProfile
+     */
     public static function saveProfile(User $user, array $data) : UserProfile
     {
-        self::deletePhoto($user->profile);
-        $data['photo'] = UserProfile::getPhotoHashName($data['photo']);
+        if (array_key_exists('photo', $data)) {
+            self::deletePhoto($user->profile);
+            $data['photo'] = UserProfile::getPhotoHashName($data['photo']);
+        }
+
         $user
             ->profile
             ->fill($data)
@@ -25,6 +33,9 @@ class UserProfile extends Model
         return $user->profile;
     }
 
+    /**
+     * @param UserProfile $profile
+     */
     private static function deletePhoto(UserProfile $profile)
     {
         if (!$profile->photo) {
@@ -35,6 +46,10 @@ class UserProfile extends Model
         \Storage::disk('public')->delete("{$dir}/{$profile->photo}");
     }
 
+    /**
+     * @param UploadedFile|null $photo
+     * @return null|string
+     */
     private static function getPhotoHashName(UploadedFile $photo = null)
     {
         return $photo ? $photo->hashName() : null;
@@ -70,6 +85,9 @@ class UserProfile extends Model
         $photo->store($dir, ['disk' => 'public']);
     }
 
+    /**
+     * @param UploadedFile|null $photo
+     */
     public static function deleteFile(UploadedFile $photo = null)
     {
         if (!$photo) {
