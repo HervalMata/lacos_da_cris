@@ -653,3 +653,7 @@ Criação dos vendedores e clientes
 212 - Melhoria na serializacao de usuarios
 
 213 - Mostrando foto de usuario na area administrativa
+
+214 - Atualizacao de perfil de usuario
+    ng g c components/pages/user/user-profile
+    ng g s services/http/user-profile-http

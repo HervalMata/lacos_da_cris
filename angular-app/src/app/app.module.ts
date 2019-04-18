@@ -53,6 +53,7 @@ import { ProductOutputNewModalComponent } from './components/pages/product-outpu
 import { ProductOutputSearchFormComponent } from './components/pages/product-output/product-output-search-form/product-output-search-form.component';
 import { ProductViewModalComponent } from './components/pages/product/product-view-modal/product-view-modal.component';
 import { ProductPhotoDeleteModalComponent } from './components/pages/product-photo/product-photo-delete-modal/product-photo-delete-modal.component';
+import { UserProfileComponent } from './components/pages/user/user-profile/user-profile.component';
 
 
 function jwtFactory(authService: AuthService) {
@@ -112,7 +113,8 @@ function jwtFactory(authService: AuthService) {
         ProductOutputNewModalComponent,
         ProductOutputSearchFormComponent,
         ProductViewModalComponent,
-        ProductPhotoDeleteModalComponent
+        ProductPhotoDeleteModalComponent,
+        UserProfileComponent
     ],
     imports: [
         BrowserModule,
