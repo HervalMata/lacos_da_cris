@@ -4,6 +4,7 @@ import {UserProfileHttpService} from "../../../../services/http/user-profile-htt
 import {NotifyMessageService} from "../../../../services/notify-message.service";
 import {AuthService} from "../../../../services/auth.service";
 import {PhoneNumberAuthModalComponent} from "../../../common/phone-number-auth-modal/phone-number-auth-modal.component";
+import {FirebaseAuthService} from "../../../../services/firebase-auth-service";
 
 @Component({
   selector: 'user-profile',
@@ -23,13 +24,15 @@ export class UserProfileComponent implements OnInit {
       private formBuilder: FormBuilder,
       private userProfileHttp: UserProfileHttpService,
       private notifyMessage: NotifyMessageService,
-      private authService: AuthService
+      private authService: AuthService,
+      private firebaseAuth: FirebaseAuthService
   ) {
       this.form = this.formBuilder.group({
           name: ['', [Validators.maxLength(255)]],
           email: ['', [Validators.maxLength(255), Validators.email]],
           password: ['', [Validators.minLength(4), Validators.maxLength(16)]],
           phone_number: null,
+          token: null,
           photo: false
       });
       this.form.patchValue(this.authService.me);
@@ -45,7 +48,7 @@ export class UserProfileComponent implements OnInit {
         delete data.phone_number;
         this.userProfileHttp.update(data)
             .subscribe((data) => {
-                this.form.get('photo').setValue(false);
+                this.form.get('photo').setValue(null);
                 this.setHasPhoto();
                 this.notifyMessage.success('Perfil atualizado com sucesso!')
                 },
@@ -73,6 +76,10 @@ export class UserProfileComponent implements OnInit {
       this.phoneNumberAuthModal.showModal();
     }
 
+    onPhoneNumberVerification() {
+      this.firebaseAuth.getUser().then(user => this.form.get('phone_number').setValue(user.phoneNumber));
+      this.firebaseAuth.getToken().then(token => this.form.get('token').setValue(token));
+    }
 
     showErrors() {
         return Object.keys(this.errors).length != 0;

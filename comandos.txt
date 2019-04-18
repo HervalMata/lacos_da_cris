@@ -666,3 +666,5 @@ Criação dos vendedores e clientes
 
 218 - Modal com verificacao de telefone
     ng g c components/common/phone-number-auth-modal
+
+219 - Alterando telefone do perfil

@@ -1,30 +1,43 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {ModalComponent} from "../../bootstrap/modal/modal.component";
 import {FirebaseAuthService} from "../../../services/firebase-auth-service";
 
 @Component({
-  selector: 'phone-number-auth-modal',
-  templateUrl: './phone-number-auth-modal.component.html',
-  styleUrls: ['./phone-number-auth-modal.component.css']
+    selector: 'phone-number-auth-modal',
+    templateUrl: './phone-number-auth-modal.component.html',
+    styleUrls: ['./phone-number-auth-modal.component.css']
 })
 export class PhoneNumberAuthModalComponent implements OnInit {
 
-  @ViewChild(ModalComponent)
-  modal: ModalComponent
+    unsubscribed;
 
-  constructor(private firebaseAuth: FirebaseAuthService) { }
+    @ViewChild(ModalComponent)
+    modal: ModalComponent
 
-  ngOnInit() {
-    const unsubscribed = this.firebaseAuth.firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-          unsubscribed();
-      }
-    });
-    this.firebaseAuth.makePhoneNumberForm('#firebase-ui');
-  }
+    @Output() onSuccess: EventEmitter<any> = new EventEmitter<any>();
 
-  showModal() {
-    this.modal.show();
-  }
+    constructor(private firebaseAuth: FirebaseAuthService) {
+    }
 
+    ngOnInit() {
+        this.firebaseAuth.makePhoneNumberForm('#firebase-ui');
+    }
+
+    showModal() {
+        this.onAuthStateChanged();
+        this.modal.show();
+    }
+
+    onAuthStateChanged() {
+        this.unsubscribed = this.firebaseAuth.firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.modal.hide();
+                this.onSuccess.emit(user);
+            }
+        })
+    }
+
+    onHideModal() {
+        this.unsubscribed();
+    }
 }
