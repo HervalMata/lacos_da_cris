@@ -16,6 +16,8 @@ declare const firebaseui;
 @Injectable()
 export class FirebaseAuthProvider {
 
+    private ui;
+
     constructor() {
         firebase.initializeApp(firebaseConfig);
     }
@@ -24,24 +26,39 @@ export class FirebaseAuthProvider {
         return firebase;
     }
 
-    async makePhoneNumberForm(selectorElement: string) {
-        const firebaseui = await this.getFirebaseUi();
-        const uiConfig = {
-            signInOptions: [
-                firebase.auth.PhoneAuthProvider.PROVIDER_ID
-            ],
-            callbacks: {
-                signInSuccessWithAuthResult: (authResult, redirectUrl) => {
-                    return false;
+    async makePhoneNumberForm(selectorElement: string): Promise<any> {
+        await this.getFirebaseUi();
+        return new Promise((resolve) => {
+            const uiConfig = {
+                signInOptions: [
+                    firebase.auth.PhoneAuthProvider.PROVIDER_ID
+                ],
+                callbacks: {
+                    signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+                        resolve(true);
+                        return false;
+                    }
                 }
             }
-        }
 
-        const ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start(selectorElement, uiConfig)
+            this.makeFormFirebaseUI(selectorElement, uiConfig);
+        });
     }
 
-    getUser() : Promise<firebase.User | null> {
+    private makeFormFirebaseUI(selectorElement, uiConfig) {
+        if (!this.ui) {
+            this.ui = new firebaseui.auth.AuthUI(firebase.auth());
+            this.ui.start(selectorElement, uiConfig);
+        } else {
+            this.ui.delete().then(() => {
+                this.ui = new firebaseui.auth.AuthUI(firebase.auth());
+                this.ui.start(selectorElement, uiConfig);
+            })
+        }
+
+    }
+
+    getUser(): Promise<firebase.User | null> {
         const currentUser = this.getCurrentUser();
         if (currentUser) {
             return Promise.resolve(currentUser);
@@ -57,7 +74,7 @@ export class FirebaseAuthProvider {
         });
     }
 
-    async getToken() : Promise<string> {
+    async getToken(): Promise<string> {
         try {
             const user = await this.getUser();
             if (!user) {
@@ -84,7 +101,7 @@ export class FirebaseAuthProvider {
 
     }
 
-    private getCurrentUser() : firebase.User | null {
+    private getCurrentUser(): firebase.User | null {
         return this.firebase.auth().currentUser;
     }
 }

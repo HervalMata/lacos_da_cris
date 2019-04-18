@@ -7,6 +7,7 @@ import scriptjs from 'scriptjs';
 import {FirebaseAuthProvider} from "../../providers/auth/firebase-auth";
 import {AuthProvider} from "../../providers/auth/auth";
 import {MainPage} from "../main/main";
+import {CustomerCreatePage} from "../customer-create/customer-create";
 
 declare const firebaseui;
 (<any>window).firebase = firebase;
@@ -34,21 +35,14 @@ export class LoginPhoneNumberPage {
     }
 
     ionViewDidLoad() {
-        /*this.firebaseAuth.getToken().then((token) => {
-            console.log(token), (error) => console.log(error);
-        });*/
-
         const unsubscribed = this.firebaseAuth.firebase.auth().onAuthStateChanged((user) => {
             if (user) {
-                this.authService
-                    .login()
-                    .subscribe((token) => {
-                        this.redirectToMainPage();
-                    }, (responseError) => {
-                        this.redirectToCustumerCreatePage();
-                    });
+                this.handleAuthUser();
                 unsubscribed();
             }
+        });
+        this.firebaseAuth.getToken().then((token) => {
+            console.log(token), (error) => console.log(error);
         });
         this.firebaseAuth.makePhoneNumberForm('#firebase-ui');
     }
@@ -58,7 +52,17 @@ export class LoginPhoneNumberPage {
     }
 
     redirectToCustumerCreatePage() {
-
+        this.navCtrl.push(CustomerCreatePage);
     }
 
+    private handleAuthUser() {
+        this.authService
+            .login()
+            .subscribe((token) => {
+                this.redirectToMainPage();
+            }, (responseError) => {
+                this.firebaseAuth.makePhoneNumberForm("#firebase-ui")
+                this.redirectToCustumerCreatePage();
+            });
+    }
 }

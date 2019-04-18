@@ -682,3 +682,5 @@ Criação dos vendedores e clientes
     ionic g provider customer-http
 
 225 - Mostrando preview da foto do perfil
+
+226 - Navegacao de paginas ate a criacao do cliente
