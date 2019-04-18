@@ -631,5 +631,5 @@ Criação dos vendedores e clientes
 204 - Protegendo API administrativa
     php artisan migrate:refresh --seed
 
-
+205 - Iniciando metodo para criacao de cliente
 

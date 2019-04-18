@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace LacosDaCris\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -33,6 +33,18 @@ class User extends Authenticatable implements JWTSubject
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public static function createCustomer(array $data) : User
+    {
+        try{
+            UserProfile::uploadPhoto($data['photo']);
+            \DB::beginTransaction();
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            throw $e;
+        }
+    }
 
     /**
      * @param array $attributes
