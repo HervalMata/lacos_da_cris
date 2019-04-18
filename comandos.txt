@@ -677,3 +677,6 @@ Criação dos vendedores e clientes
     ionic g page customer-create
 
 223 - Reactive Forms no IONIC
+
+224 - Criando cliente pelo ionic
+    ionic g provider customer-http
