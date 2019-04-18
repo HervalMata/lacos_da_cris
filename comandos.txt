@@ -635,3 +635,5 @@ Criação dos vendedores e clientes
 
 206 - Finalizando metodo para criacao de cliente
 
+207 - Testando criacao de clientes
+
