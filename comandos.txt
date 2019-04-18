@@ -628,4 +628,8 @@ Criação dos vendedores e clientes
 203 - Informacoes basicas de vendedores e clientes
     php artisan migrate:refresh --seed
 
+204 - Protegendo API administrativa
+    php artisan migrate:refresh --seed
+
+
 
