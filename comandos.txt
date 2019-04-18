@@ -661,3 +661,5 @@ Criação dos vendedores e clientes
 215 - Interface para remover foto do usuario
 
 216 - Recarregando informacoes de perfil
+
+217 - Integracao do Firebase no Angular
