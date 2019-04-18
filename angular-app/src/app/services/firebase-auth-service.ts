@@ -10,7 +10,7 @@ declare const firebaseui;
 @Injectable({
     providedIn: 'root'
 })
-export class FirebaseAuthProvider {
+export class FirebaseAuthService {
 
     constructor() {
         firebase.initializeApp(firebaseConfig);

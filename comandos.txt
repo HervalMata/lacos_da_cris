@@ -663,3 +663,6 @@ Criação dos vendedores e clientes
 216 - Recarregando informacoes de perfil
 
 217 - Integracao do Firebase no Angular
+
+218 - Modal com verificacao de telefone
+    ng g c components/common/phone-number-auth-modal
