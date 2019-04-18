@@ -3,34 +3,36 @@
  * Created by PhpStorm.
  * User: Herval
  * Date: 18/04/2019
- * Time: 00:21
+ * Time: 01:04
  */
 
 namespace LacosDaCris\Http\Controllers\Api;
 
 
+use Illuminate\Http\Request;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Firebase\Auth as FirebaseAuth;
-use LacosDaCris\Http\Requests\CustomerRequest;
-use LacosDaCris\Models\User;
+use LacosDaCris\Http\Resources\UserResource;
 
-class CustomerController extends Controller
+class UserProfileController extends Controller
 {
     /**
-     * @param CustomerRequest $request
-     * @return array
-     * @throws \Exception
+     * @param Request $request
+     * @return UserResource
      */
-    public function store(CustomerRequest $request)
+    public function update(Request $request)
     {
         $data = $request->all();
-        $token = $request->token;
-        $data['phone_number'] = $this->getPhoneNumber($token);
+        if ($request->has('token')) {
+            $token = $request->token;
+            $data["phone_number"] = $this->getPhoneNumber($token);
+        }
+
         $data['photo'] = $data['photo'] ?? null;
-        $user = User::createCustomer($data);
-        return [
-            'token' => \Auth::guard('api')->login($user)
-        ];
+        $user = \Auth::guard('api')->user();
+        $user->updateWithProfile($data);
+
+        return new UserResource($user);
     }
 
     /**

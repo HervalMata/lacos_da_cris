@@ -642,3 +642,5 @@ Criação dos vendedores e clientes
     php artisan make:rule PhoneNumberUnique
     php artisan migrate:refresh --seed
 
+209 - Atualizando perfil de Usuario
+
