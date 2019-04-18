@@ -101,6 +101,15 @@ class UserProfile extends Model
     }
 
     /**
+     * @return string
+     */
+    public function getPhotoUrlAttribute()
+    {
+        $path = self::photosDir();
+        return $this->photo ? asset("storage/{$path}/{$this->photo}") : 'https://www.gravatar.com/avatar/nouser.jpg';
+    }
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()

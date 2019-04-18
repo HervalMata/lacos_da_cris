@@ -649,3 +649,5 @@ Criação dos vendedores e clientes
 
 211 - Melhoria na Seeder de Usuarios
     php artisan migrate:refresh --seed
+
+212 - Melhoria na serializacao de usuarios
