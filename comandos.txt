@@ -659,3 +659,5 @@ Criação dos vendedores e clientes
     ng g s services/http/user-profile-http
 
 215 - Interface para remover foto do usuario
+
+216 - Recarregando informacoes de perfil

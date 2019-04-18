@@ -4,7 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {AuthService} from "../auth.service";
 import {Observable} from "rxjs";
 import {User} from "../../model";
-import {map} from "rxjs/operators";
+import {map, tap} from "rxjs/operators";
 
 interface Profile {
     name?: string;
@@ -28,23 +28,14 @@ export class UserProfileHttpService {
     ) {
     }
 
-    get(id: number): Observable<User> {
-        return this.http.get<{ data: User }>(`${this.bsseUrl}/${id}`, {
-            headers: {
-                'Authorization': `Bearer ${this.token}`
-            }
-        })
-            .pipe(
-                map(response => response.data)
-            );
-    }
-
-    update(data: Profile): Observable<User> {
+    update(data: Profile): Observable<{user: User, token: string}> {
         const formData = this.formDataToSend(data);
 
-        return this.http.post<{ data: User }>(this.bsseUrl, formData)
+        return this.http.post<{user: User, token: string}>(this.bsseUrl, formData)
             .pipe(
-                map(response => response.data)
+                tap(response =>
+                {this.authService.setToken(response.token);
+                })
             );
     }
 
