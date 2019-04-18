@@ -657,3 +657,5 @@ Criação dos vendedores e clientes
 214 - Atualizacao de perfil de usuario
     ng g c components/pages/user/user-profile
     ng g s services/http/user-profile-http
+
+215 - Interface para remover foto do usuario

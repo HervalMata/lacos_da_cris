@@ -1,7 +1,5 @@
 <div class="row">
-  <h5 modal-title>
-    Atualizar perfil
-  </h5>
+  <h1>Atualizar perfil</h1>
   <div class="col-md-12">
     <card-error *ngIf="showErrors()">
       <list-error [errors]="errors"></list-error>
@@ -14,22 +12,31 @@
         <input type="text" class="form-control" id="name" formControlName="name">
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
+        <label for="email">E-mail</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
       </div>
       <div class="form-group">
         <label for="password">Senha</label>
         <input type="password" class="form-control" id="password" formControlName="password">
       </div>
       <div class="form-group">
-        <label for="phone_number">Telefone</label>
+        <label>Telefone</label>
         <input type="text" class="form-control" readonly id="phone_number" formControlName="phone_number">
       </div>
       <div class="form-group">
         <label for="photo">Foto do perfil</label>
-        <input type="file" class="form-control" id="photo" (change)="onChoosePhoto($event.target.files)" )>
+        <input type="file" class="form-control" id="photo" (change)="onChoosePhoto($event.target.files)">
+        <div class="row col-md-12" style="margin-top: 5px">
+          <button type="button" class="btn btn-danger" [hidden]="!has_photo" (click)="removePhoto()">
+            Remover foto do perfil
+          </button>
+          <div class="alert alert-info" [hidden]="has_photo || !authService.me.profile.has_photo">
+            Para remover a foto, salve o formulário.
+          </div>
+        </div>
       </div>
-      <button type="submit" class="btn btn-success" [disabled]="!form.valid">Salvar</button>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Salvar</button>
     </form>
   </div>
 </div>

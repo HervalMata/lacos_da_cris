@@ -48,7 +48,7 @@ export class UserProfileHttpService {
             );
     }
 
-    private formDataToSend(data: Profile) {
+    private formDataToSend(data) : FormData {
         const dataKeys = Object.keys(data);
 
         this.deletePhotoKey(dataKeys);
