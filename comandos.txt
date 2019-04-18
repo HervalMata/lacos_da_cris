@@ -651,3 +651,5 @@ Criação dos vendedores e clientes
     php artisan migrate:refresh --seed
 
 212 - Melhoria na serializacao de usuarios
+
+213 - Mostrando foto de usuario na area administrativa
