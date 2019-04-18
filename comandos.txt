@@ -672,3 +672,6 @@ Criação dos vendedores e clientes
 220 - Melhoria de verificacao de telefone
 
 221 - Validacao front-end do perfil do usuario
+
+222 - Criando pagina para a criacao de cliente - IONIC
+    ionic g page customer-create
