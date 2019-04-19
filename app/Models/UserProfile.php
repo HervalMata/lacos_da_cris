@@ -14,6 +14,15 @@ class UserProfile extends Model
 
     protected $fillable = ['photo', 'phone_number'];
 
+    public static function createTokenToChangePhoneNumber(UserProfile $profile, $phoneNumber) : string
+    {
+        $token = base64_encode($phoneNumber);
+        $profile->phone_number_token_to_change = $token;
+        $profile->save();
+
+        return $token;
+    }
+
     /**
      * @param User $user
      * @param array $data

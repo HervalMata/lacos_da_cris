@@ -686,3 +686,6 @@ Criação dos vendedores e clientes
 226 - Navegacao de paginas ate a criacao do cliente
 
 227 - Configuracoes da pagina de reset do telefone
+
+228 - Criando requisicao de alteracao do telefone do cliente
+    php artisan make:request PhoneNumberToUpdateRequest

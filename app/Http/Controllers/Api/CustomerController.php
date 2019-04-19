@@ -9,10 +9,13 @@
 namespace LacosDaCris\Http\Controllers\Api;
 
 
+use Illuminate\Http\JsonResponse;
 use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Firebase\Auth as FirebaseAuth;
 use LacosDaCris\Http\Requests\CustomerRequest;
+use LacosDaCris\Http\Requests\PhoneNumberToUpdateRequest;
 use LacosDaCris\Models\User;
+use LacosDaCris\Models\UserProfile;
 
 class CustomerController extends Controller
 {
@@ -31,6 +34,19 @@ class CustomerController extends Controller
         return [
             'token' => \Auth::guard('api')->login($user)
         ];
+    }
+
+    /**
+     * @param PhoneNumberToUpdateRequest $request
+     * @return JsonResponse
+     */
+    public function requestPhoneNumberUpdate(PhoneNumberToUpdateRequest $request)
+    {
+        $user = User::whereEmail($request->email)->first();
+        $phoneNumber = $this->getPhoneNumber($request->token);
+        $token = UserProfile::createTokenToChangePhoneNumber($user->profile, $phoneNumber);
+
+        return response()->json([], 204);
     }
 
     /**
