@@ -34,7 +34,8 @@ class PhoneNumberChangeMail extends Mailable
      */
     public function build()
     {
-        return $this->route('customers.web_phone_number_update', ['token' => $this->token]);
-        return $this->view('mails.phone_number_change_email');
+        $this->url = route('customers.web_phone_number_update', ['token' => $this->token]);
+        return $this->subject('Alteração do número de telefone')
+            ->markdown('mails.phone_number_change_email');
     }
 }

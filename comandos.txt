@@ -693,3 +693,5 @@ Criação dos vendedores e clientes
 
 229 - Criando email de alteracao do telefone do cliente
     php artisan make:email PhoneNumberChangeMail
+
+230 - Testando primeira parte da alteracao de telefone

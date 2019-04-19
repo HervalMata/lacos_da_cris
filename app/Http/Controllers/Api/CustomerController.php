@@ -54,6 +54,16 @@ class CustomerController extends Controller
 
     /**
      * @param $token
+     * @return JsonResponse
+     */
+    public function updatePhoneNumber($token)
+    {
+        UserProfile::updatePhoneNumber($token);
+        return response()->json([], 204);
+    }
+
+    /**
+     * @param $token
      * @return string
      */
     private function getPhoneNumber($token)
