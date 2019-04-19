@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, ToastController} from 'ionic-angular';
 import {FormControl, Validators} from "@angular/forms";
 import {FirebaseAuthProvider} from "../../providers/auth/firebase-auth";
+import {CustomerHttpProvider} from "../../providers/http/customer-http";
+import {text} from "@angular/core/src/render3/instructions";
+import {LoginOptionsPage} from "../login-options/login-options";
 
 /**
  * Generated class for the ResetPhoneNumberPage page.
@@ -23,7 +26,10 @@ export class ResetPhoneNumberPage {
   constructor(
       public navCtrl: NavController,
       public navParams: NavParams,
-      private firebaseAuth: FirebaseAuthProvider
+      private firebaseAuth: FirebaseAuthProvider,
+      private customerHttp: CustomerHttpProvider,
+      private alertCtrl: AlertController,
+      private toastCtrl: ToastController
   ) {
   }
 
@@ -33,7 +39,38 @@ export class ResetPhoneNumberPage {
 
   showFirebaseUI() {
     this.canShowFirebaseUI = true;
-    this.firebaseAuth.makePhoneNumberForm('#firebase-ui');
+    this.handleUpdate();
   }
 
+    private handleUpdate() {
+        this.firebaseAuth.makePhoneNumberForm('#firebase-ui')
+            .then(() => {
+              const email = this.email.value;
+              this.customerHttp.requestUpdatePhoneNumber(email)
+                  .subscribe(() => {
+                    const alert = this.alertCtrl.create({
+                        title: 'Alerta',
+                        subTitle: `
+                        Um email com a validação da mudança foi enviado.
+                        Valide-o para logar com o novo telefone`,
+                        buttons: [
+                            {
+                              text: 'Ok',
+                              handler: () => {
+                                this.navCtrl.setRoot(LoginOptionsPage);
+                              }
+                            }
+                        ]
+                    });
+                    alert.present();
+                  }, () => {
+                    const toast = this.toastCtrl.create({
+                        message: 'Não foi possível requisitar a alteração do telefone',
+                        duration: 3000
+                    });
+                    toast.present();
+                    this.handleUpdate();
+                  });
+            });
+    }
 }
