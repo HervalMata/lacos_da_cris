@@ -695,3 +695,8 @@ Criação dos vendedores e clientes
     php artisan make:email PhoneNumberChangeMail
 
 230 - Testando primeira parte da alteracao de telefone
+
+Grupos de Chat
+
+231 - Iniciando conceito de grupos de chat
+    php artisan make:model Models/ChatGroup -m -f -r
