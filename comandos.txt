@@ -700,3 +700,7 @@ Grupos de Chat
 
 231 - Iniciando conceito de grupos de chat
     php artisan make:model Models/ChatGroup -m -f -r
+
+232 - Criando grupos de chat falsos
+    php artisan make:seeder ChatGroupsTableSeeder
+    php artisan migrate:refresh --seed
