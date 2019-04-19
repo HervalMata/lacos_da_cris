@@ -14,6 +14,7 @@ use LacosDaCris\Http\Controllers\Controller;
 use LacosDaCris\Firebase\Auth as FirebaseAuth;
 use LacosDaCris\Http\Requests\CustomerRequest;
 use LacosDaCris\Http\Requests\PhoneNumberToUpdateRequest;
+use LacosDaCris\Mail\PhoneNumberChangeMail;
 use LacosDaCris\Models\User;
 use LacosDaCris\Models\UserProfile;
 
@@ -45,6 +46,8 @@ class CustomerController extends Controller
         $user = User::whereEmail($request->email)->first();
         $phoneNumber = $this->getPhoneNumber($request->token);
         $token = UserProfile::createTokenToChangePhoneNumber($user->profile, $phoneNumber);
+
+        \Mail::to($user)->send(new PhoneNumberChangeMail($user, $token));
 
         return response()->json([], 204);
     }

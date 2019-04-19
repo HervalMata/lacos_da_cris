@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::name('customers.web_phone_number_update')->get('customers/phone_number_update/{token}', function () {
+
+});

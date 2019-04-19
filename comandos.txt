@@ -689,3 +689,7 @@ Criação dos vendedores e clientes
 
 228 - Criando requisicao de alteracao do telefone do cliente
     php artisan make:request PhoneNumberToUpdateRequest
+    php artisan migrate:refresh --seed
+
+229 - Criando email de alteracao do telefone do cliente
+    php artisan make:email PhoneNumberChangeMail
