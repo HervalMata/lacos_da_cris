@@ -704,3 +704,8 @@ Grupos de Chat
 232 - Criando grupos de chat falsos
     php artisan make:seeder ChatGroupsTableSeeder
     php artisan migrate:refresh --seed
+
+233 - Terminando CRUD na API de grupos de chat
+    php artisan make:request ChatGroupUpdateRequest
+    php artisan make:request ChatGroupCreateRequest
+    php artisan make:resource ChatGroupResource

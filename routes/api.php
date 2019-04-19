@@ -40,6 +40,8 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
             Route::resource('inputs', 'ProductInputController', ['only' => ['index', 'store', 'show']]);
             Route::resource('outputs', 'ProductOutputController', ['only' => ['index', 'store', 'show']]);
             Route::resource('users', 'UsersController', ['except' => ['create', 'edit']]);
+
+            Route::resource('chat_groups', 'ChatGroupController', ['except' => ['create', 'edit']]);
         });
     });
 });
