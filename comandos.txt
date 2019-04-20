@@ -732,3 +732,5 @@ Grupos de Chat
 238 - Montando area principal do aplicativo
     npm i ionic2-super-tabs@4.3.0 --save
     ionic g component chat-group-list
+
+239 - Base da listagem de grupos
