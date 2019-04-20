@@ -738,3 +738,5 @@ Grupos de Chat
 240 - Capturando informacoes com o Firebase
 
 241 - Iniciando trait para sincronia com o Firebase
+
+242 - Testando sincronia automatica com o Firebase, ajustes na sincronia

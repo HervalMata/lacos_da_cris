@@ -3,6 +3,7 @@ declare(strict_types=1);
 namespace LacosDaCris\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\UploadedFile;
 use LacosDaCris\Firebase\FirebaseSync;
@@ -108,8 +109,7 @@ class ChatGroup extends Model
      */
     public function getPhotoUrlAttribute()
     {
-        $path = self::photoDir();
-        return asset("storage/{$path}/{$this->photo}");
+        return asset("storage/{$this->photo_url_base}");
     }
 
     /**
@@ -121,9 +121,40 @@ class ChatGroup extends Model
         return $dir;
     }
 
+    /**
+     * @return BelongsToMany
+     */
     public function users()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    /**
+     *
+     */
+    protected function syncFbRemove()
+    {
+        $this->syncFbSet();
+    }
+
+    /**
+     *
+     */
+    protected function syncFbSet()
+    {
+        $data = $this->toArray();
+        $data['photo_url'] = $this->photo_url_base;
+        unset($data['photo']);
+        $this->getModelReference()-$this->update($data);
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhotoUrlBaseAttribute()
+    {
+        $path = self::photoDir();
+        return "{$path}/{$this->photo}";
     }
 
 }
