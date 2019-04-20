@@ -726,3 +726,5 @@ Grupos de Chat
 236 - Criando membros falsos para os grupos de chat
     php artisan make:migration create_chat_group_user_table --create=chat_group_user
     php artisan migrate:refresh --seed
+
+237 - Serializando numero de membros dos grupos
