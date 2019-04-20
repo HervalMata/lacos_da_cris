@@ -736,3 +736,5 @@ Grupos de Chat
 239 - Base da listagem de grupos
 
 240 - Capturando informacoes com o Firebase
+
+241 - Iniciando trait para sincronia com o Firebase

@@ -5,10 +5,11 @@ namespace LacosDaCris\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\UploadedFile;
+use LacosDaCris\Firebase\FirebaseSync;
 
 class ChatGroup extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, FirebaseSync;
 
     const BASE_PATH = 'app/public';
     const DIR_CHAT_GROUPS = 'chat_groups';
