@@ -20,7 +20,10 @@
           <a class="dropdown-item" [routerLink]="['/outputs/list']">Saida</a>
         </div>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['/chat_groups/list']">Grupo</a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
         <a class="nav-link" [routerLink]="['/users/list']">Usuário</a>
       </li>
     </ul>
