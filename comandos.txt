@@ -734,3 +734,5 @@ Grupos de Chat
     ionic g component chat-group-list
 
 239 - Base da listagem de grupos
+
+240 - Capturando informacoes com o Firebase
