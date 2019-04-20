@@ -722,3 +722,7 @@ Grupos de Chat
     ng g s components/pages/chat-group/chat-group-form/chat-group-id-field
     ng g c components/pages/chat-group/chat-group-form
     ng g c components/pages/chat-group/chat-group-search-form
+
+236 - Criando membros falsos para os grupos de chat
+    php artisan make:migration create_chat_group_user_table --create=chat_group_user
+    php artisan migrate:refresh --seed

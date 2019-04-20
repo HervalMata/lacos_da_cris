@@ -120,4 +120,9 @@ class ChatGroup extends Model
         return $dir;
     }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
 }

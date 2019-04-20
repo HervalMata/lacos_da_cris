@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use LacosDaCris\Models\ChatGroup;
 use Illuminate\Support\Collection;
 use Illuminate\Http\UploadedFile;
+use LacosDaCris\Models\User;
 
 class ChatGroupsTableSeeder extends Seeder
 {
@@ -19,13 +20,22 @@ class ChatGroupsTableSeeder extends Seeder
         $this->allFakerPhotos = $this->getFakerPhotos();
         $this->deleteAllPhotosInProductsPath();
         $self = $this;
+        $customerDefault = User::whereEmail('customer@user.com')->first();
+        $otherCustomers = User::
+            whereRole(User::ROLE_CUSTOMER)
+            ->whereNotIn('id', [$customerDefault->id])->get();
         factory(ChatGroup::class, 10)
             ->make()
-            ->each(function ($group) use ($self) {
-                ChatGroup::createWithPhoto([
-                    'name' => $group->name,
-                    'photo' => $self->getUploadedFile()
-                ]);
+            ->each(function ($group) use ($self, $otherCustomers) {
+                    $group = ChatGroup::createWithPhoto([
+                        'name' => $group->name,
+                        'photo' => $self->getUploadedFile()
+                    ]);
+                    $customerId = $otherCustomers
+                        ->random(10)
+                        ->pluck('id')
+                        ->toArray();
+                    $group->users()->attach($customerId);
         });
     }
 
