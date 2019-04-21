@@ -742,3 +742,5 @@ Grupos de Chat
 242 - Testando sincronia automatica com o Firebase, ajustes na sincronia
 
 243 - Listando os grupos no APP - IONIC
+
+244 - Mudanca instantanea de dados com o firebase
