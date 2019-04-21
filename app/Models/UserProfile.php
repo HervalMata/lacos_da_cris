@@ -3,10 +3,14 @@ declare(strict_types=1);
 namespace LacosDaCris\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Http\UploadedFile;
+use LacosDaCris\Firebase\FirebaseSync;
 
 class UserProfile extends Model
 {
+    use FirebaseSync;
+
     const BASE_PATH = 'app/public';
     const DIR_USERS = 'users';
     const DIR_USER_PHOTO = self::DIR_USERS . '/photos';
@@ -134,16 +138,32 @@ class UserProfile extends Model
      */
     public function getPhotoUrlAttribute()
     {
-        $path = self::photosDir();
-        return $this->photo ? asset("storage/{$path}/{$this->photo}") : 'https://www.gravatar.com/avatar/nouser.jpg';
+        return $this->photo ? asset("storage/{$this->photo_url_base}") : 'https://www.gravatar.com/avatar/nouser.jpg';
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return string
+     */
+    public function getPhotoUrlBaseAttribute()
+    {
+        $path = self::photosDir();
+        return $this->photo ? "{$path}/{$this->photo}" : 'https://www.gravatar.com/avatar/nouser.jpg';
+    }
+
+    /**
+     * @return BelongsTo
      */
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     *
+     */
+    protected function syncFbSetCustom()
+    {
+        $this->user->syncFbCustom();
     }
 
 }

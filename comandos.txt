@@ -749,3 +749,7 @@ Membros do chat
 
 245 - Atibuíndo uid do Firebase aos usuarios
     php artisan migrate:refresh --seed
+
+246 - Sincronizando usuarios no Firebase
+
+247 - Listando membros de um grupo - Parte 01/02

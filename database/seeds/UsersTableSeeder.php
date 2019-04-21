@@ -47,7 +47,11 @@ class UsersTableSeeder extends Seeder
 
         factory(User::class, 20)->create([
             'role' => User::ROLE_CUSTOMER
-        ]);
+        ])->each(function ($user, $key) {
+            $user->profile->phone_number = "+16555510{$key}";
+            $user->profile->firebase_uid = "user - {$key}";
+            $user->profile->save();
+        });
     }
 
     /**

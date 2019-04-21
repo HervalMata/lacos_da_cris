@@ -12,23 +12,30 @@ class ChatGroup extends Model
 {
     use SoftDeletes, FirebaseSync;
 
-    const BASE_PATH = 'app/public';
-    const DIR_CHAT_GROUPS = 'chat_groups';
+    const BASE_PATH       = 'app/public';
+    const DIR_CHAT_GROUPS       = 'chat_groups';
     const CHAT_GROUP_PHOTO_PATH = self::BASE_PATH . '/' . self::DIR_CHAT_GROUPS;
 
     protected $fillable = ['name', 'photo'];
     protected $dates = ['deleted_at'];
 
+    /**
+     * @param array $data
+     * @return ChatGroup
+     * @throws \Exception
+     */
     public static function createWithPhoto(array $data) : ChatGroup
     {
         try {
+            $photo = $data['photo'];
             self::uploadPhoto($data['photo']);
             $data['photo'] = $data['photo']->hashName();
             \DB::beginTransaction();
             $chatGroup = self::create($data);
             \DB::commit();
-        } catch (\Exception $e) {
-            self::deleteFile($data['photo']);
+        }catch (\Exception $e){
+            //excluir a photo - roll back
+            self::deleteFile($photo);
             \DB::rollBack();
             throw $e;
         }
@@ -44,7 +51,7 @@ class ChatGroup extends Model
     public function updateWithPhoto(array $data) : ChatGroup
     {
         try {
-            if (isset($data['photo'])) {
+            if(isset($data['photo'])){
                 self::uploadPhoto($data['photo']);
                 $this->deletePhoto();
                 $data['photo'] = $data['photo']->hashName();
@@ -53,25 +60,47 @@ class ChatGroup extends Model
             \DB::beginTransaction();
             $this->fill($data)->save();
             \DB::commit();
-            return $this;
-        } catch (\Exception $e) {
-
-            if (isset($data['photo'])) {
+        }catch (\Exception $e){
+            //excluir a photo - roll back
+            if(isset($data['photo'])){
                 self::deleteFile($data['photo']);
             }
             \DB::rollBack();
             throw $e;
         }
+
         return $this;
     }
 
     /**
-     * @param $photo
+     * @param UploadedFile $photo
      */
     private static function uploadPhoto(UploadedFile $photo)
     {
         $dir = self::photoDir();
         $photo->store($dir, ['disk' => 'public']);
+    }
+
+    /**
+     * @param UploadedFile $photo
+     */
+    private static function deleteFile(UploadedFile $photo)
+    {
+        $path = self::photosPath();
+        $filePath = "{$path}/{$photo->hashName()}";
+
+        if(file_exists($filePath)){
+            \File::delete($filePath);
+        }
+    }
+
+    /**
+     *
+     */
+    private function deletePhoto()
+    {
+        $dir = self::photoDir();
+        \Storage::disk('public')->delete("{$dir}/{$this->photo}");
     }
 
     /**
@@ -84,39 +113,9 @@ class ChatGroup extends Model
     }
 
     /**
-     */
-    private function deletePhoto()
-    {
-        $dir = self::photoDir();
-        \Storage::disk('public')->delete("{$dir}/{$this->photo}");
-    }
-
-    /**
-     * @param UploadedFile $photo
-     */
-    public static function deleteFile(UploadedFile $photo)
-    {
-
-         $path = self::photosPath();
-         $filePath = "{$path}/{$photo->hashName()}";
-         if (file_exists($filePath)) {
-                \File::delete($filePath);
-         }
-    }
-
-    /**
      * @return string
      */
-    public function getPhotoUrlAttribute()
-    {
-        return asset("storage/{$this->photo_url_base}");
-    }
-
-    /**
-     * @return string
-     */
-    public static function photoDir()
-    {
+    private static function photoDir(){
         $dir = self::DIR_CHAT_GROUPS;
         return $dir;
     }
@@ -124,35 +123,39 @@ class ChatGroup extends Model
     /**
      * @return BelongsToMany
      */
-    public function users()
-    {
+    public function users(){
         return $this->belongsToMany(User::class);
     }
 
     /**
      *
      */
-    protected function syncFbRemove()
-    {
+    protected function syncFbRemove(){
         $this->syncFbSet();
     }
 
     /**
-     *
+     * @param null $operation
      */
-    protected function syncFbSet()
-    {
+    protected function syncFbSet($operation = null){
         $data = $this->toArray();
         $data['photo_url'] = $this->photo_url_base;
         unset($data['photo']);
-        $this->getModelReference()-$this->update($data);
+        //$this->setTimestamps($data, $operation);
+        $this->getModelReference()->update($data);
     }
 
     /**
      * @return string
      */
-    public function getPhotoUrlBaseAttribute()
-    {
+    public function getPhotoUrlAttribute(){
+        return asset("storage/{$this->photo_url_base}");
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhotoUrlBaseAttribute(){
         $path = self::photoDir();
         return "{$path}/{$this->photo}";
     }
