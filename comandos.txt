@@ -744,3 +744,8 @@ Grupos de Chat
 243 - Listando os grupos no APP - IONIC
 
 244 - Mudanca instantanea de dados com o firebase
+
+Membros do chat
+
+245 - Atibuíndo uid do Firebase aos usuarios
+    php artisan migrate:refresh --seed
