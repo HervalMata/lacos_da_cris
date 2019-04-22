@@ -3,9 +3,12 @@
 namespace LacosDaCris\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Requests\ChatGroupUserRequest;
 use LacosDaCris\Http\Resources\ChatGroupUserResource;
 use LacosDaCris\Models\ChatGroup;
+use LacosDaCris\Models\User;
 
 class ChatGroupUserController extends Controller
 {
@@ -23,22 +26,28 @@ class ChatGroupUserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param ChatGroupUserRequest $request
+     * @param ChatGroup $chat_group
+     * @return Response
      */
-    public function store(Request $request)
+    public function store(ChatGroupUserRequest $request, ChatGroup $chat_group)
     {
-        //
+        $chat_group->users()->attach($request->users);
+        $users = User::whereIn('id', $request->users)->get();
+
+        return response()->json(new ChatGroupUserResource($chat_group));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param ChatGroup $chat_group
+     * @param User $user
+     * @return Response
      */
-    public function destroy($id)
+    public function destroy(ChatGroup $chat_group, User $user)
     {
-        //
+        $chat_group->users()->detach($user->id);
+        return response()->json([], 204);
     }
 }

@@ -753,3 +753,5 @@ Membros do chat
 246 - Sincronizando usuarios no Firebase
 
 247 - Listando membros de um grupo - Parte 01/02
+
+248 - Adicionando/removendo membros ao grupo
