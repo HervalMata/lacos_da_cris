@@ -8,6 +8,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use LacosDaCris\Common\OnlyTrashed;
 use LacosDaCris\Events\UserCreatedEvent;
 use LacosDaCris\Http\Controllers\Controller;
+use LacosDaCris\Http\Filters\UserFilter;
 use LacosDaCris\Http\Requests\UserRequest;
 use LacosDaCris\Http\Resources\UserResource;
 use LacosDaCris\Models\User;
@@ -22,9 +23,11 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
+        $filter = app(UserFilter::class);
         $query = User::query();
         $query = $this->onlyTrashedIfRequested($request, $query);
-        $users = $request->has('all') ? $query->all() : $query->paginate(10);
+        $filterQuery = $query->filtered($filter);
+        $users = $filter->hasFilterParameter() ? $filterQuery->get() : $filterQuery->paginate(10);
         return UserResource::collection($users);
     }
 
