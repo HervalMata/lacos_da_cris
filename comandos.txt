@@ -792,4 +792,6 @@ Mensagens do chat
 
 259 - Estilizando detalhes do footer
 
+260 - Iniciando estilizacao do conteudo
+
 
