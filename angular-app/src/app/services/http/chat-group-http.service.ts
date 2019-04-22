@@ -18,8 +18,8 @@ export class ChatGroupHttpService {
     ) {
     }
 
-    list(serchParams: SearchParams): Observable<{ data: Array<ChatGroup>, meta: any }> {
-        const sParams = new SearchParamsBuilder(serchParams).makeObject();
+    list(searchParams: SearchParams): Observable<{ data: Array<ChatGroup>, meta: any }> {
+        const sParams = new SearchParamsBuilder(searchParams).makeObject();
         const params = new HttpParams({
             fromObject: (<any>sParams)
         });

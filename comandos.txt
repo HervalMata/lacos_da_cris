@@ -757,3 +757,8 @@ Membros do chat
 248 - Adicionando/removendo membros ao grupo
 
 249 - Evento de exclusao da baseFirebese
+
+250 - listagem de mebros pelo front end
+    ng g c components/pages/chat-group-user/chat-group-user-list
+    ng g c components/pages/chat-group-user/chat-group-new
+    ng g s services/http/chat-group-user-http
