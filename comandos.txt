@@ -770,3 +770,6 @@ Membros do chat
 
 253 - Criando evento para pegar membros
     composer require fico7489/laravel-pivot:2.2.*
+
+254 - Sincronizando membros de grupo no Firebase
+    php artisan migrate:refresh --seed
