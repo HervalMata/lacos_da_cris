@@ -767,3 +767,6 @@ Membros do chat
 
 252 - Exclusao de membros pelo front end
     ng g c components/pages/chat-group-user/chat-group-user-delete-modal
+
+253 - Criando evento para pegar membros
+    composer require fico7489/laravel-pivot:2.2.*

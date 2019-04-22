@@ -2,6 +2,7 @@
 declare(strict_types=1);
 namespace LacosDaCris\Models;
 
+use Fico7489\Laravel\Pivot\Traits\PivotEventTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use LacosDaCris\Firebase\FirebaseSync;
 
 class ChatGroup extends Model
 {
-    use SoftDeletes, FirebaseSync;
+    use SoftDeletes, FirebaseSync, PivotEventTrait;
 
     const BASE_PATH       = 'app/public';
     const DIR_CHAT_GROUPS       = 'chat_groups';

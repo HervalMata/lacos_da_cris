@@ -31,6 +31,12 @@ trait FirebaseSync
         static::deleted(function ($model) {
             $model->syncFbRemove();
         }) ;
+
+        if (method_exists(__CLASS__, 'pivotAttached')) {
+            static::pivotAttached(function ($model, $relationName, $pivotIds, $pivotIdsAttribute) {
+
+            });
+        }
     }
 
     /**
