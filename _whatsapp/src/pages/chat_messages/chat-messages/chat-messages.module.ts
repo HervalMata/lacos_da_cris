@@ -19,6 +19,7 @@ import {ChatFooterComponent} from "../chat-footer/chat-footer";
     imports: [
         IonicPageModule.forChild(ChatMessagesPage),
     ],
+    entryComponents: [ChatMessagesPage]
 })
 export class ChatMessagesPageModule {
 }

@@ -776,6 +776,8 @@ Membros do chat
 
 255 - Sincronizando a exclusao dos membros de um grupo
 
+Mensagens do chat
+
 256 - Criando componentes para a area do chat
     ionic g page chat-messages
     ionic g component chat-avatar
@@ -783,5 +785,7 @@ Membros do chat
     ionic g component chat-content-right
     ionic g component chat-content-left
     ionic g component chat-content-detail
+
+257 - Modelando a area central do chat
 
 
