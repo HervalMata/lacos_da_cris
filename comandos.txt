@@ -794,4 +794,6 @@ Mensagens do chat
 
 260 - Iniciando estilizacao do conteudo
 
+261 - Regras de estilo para a mensagem a esquerda e direita
+
 
