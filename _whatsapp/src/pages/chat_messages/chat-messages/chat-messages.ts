@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {ChatGroup} from "../../../app/model";
+import {FirebaseAuthProvider} from "../../../providers/auth/firebase-auth";
 
 /**
  * Generated class for the ChatMessagesPage page.
@@ -10,16 +12,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-chat-messages',
-  templateUrl: 'chat-messages.html',
+    selector: 'page-chat-messages',
+    templateUrl: 'chat-messages.html',
 })
 export class ChatMessagesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    messages = [];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatMessagesPage');
-  }
+    constructor(public navCtrl: NavController,
+                public navParams: NavParams,
+                private firebaseAuth: FirebaseAuthProvider) {
+    }
+
+    ionViewDidLoad() {
+        const database = this.firebaseAuth.firebase.database();
+        database.ref('chat_groups/1/messages').on('child_added', (data) => {
+            const message = data.val() as ChatGroup;
+            this.messages.push(message);
+        });
+    }
 
 }

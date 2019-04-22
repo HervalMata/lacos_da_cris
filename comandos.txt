@@ -796,4 +796,6 @@ Mensagens do chat
 
 261 - Regras de estilo para a mensagem a esquerda e direita
 
+262 - Iniciando captura de menssagen do chat
+
 
