@@ -800,4 +800,6 @@ Mensagens do chat
 
 263 - Mostrando menssagem de texto
 
+264 - Formatacao da data de envio da mensagem
+    npm i ngx-moment@3.1.0
 
