@@ -34,6 +34,10 @@ export class ChatGroupUserHttpService {
             .pipe(map(response => response.data))
     }
 
+    destroy(chatGroupId: number, userId: number) : Observable<any> {
+        return this.http.delete(this.getBaseUrl(chatGroupId, userId))
+    }
+
     getBaseUrl(chatGroupId: number, userId: number = null): string {
         let baseUrl = `${environment.api.url}/chat_groups/${chatGroupId}/users`;
         if (userId) {
@@ -41,4 +45,6 @@ export class ChatGroupUserHttpService {
         }
         return baseUrl;
     }
+
+
 }

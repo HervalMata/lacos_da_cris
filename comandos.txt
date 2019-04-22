@@ -760,7 +760,10 @@ Membros do chat
 
 250 - listagem de mebros pelo front end
     ng g c components/pages/chat-group-user/chat-group-user-list
-    ng g c components/pages/chat-group-user/chat-group-new
+    ng g c components/pages/chat-group-user/chat-group-user-new
     ng g s services/http/chat-group-user-http
 
 251 - Adicao de membros pelo front end
+
+252 - Exclusao de membros pelo front end
+    ng g c components/pages/chat-group-user/chat-group-user-delete-modal
