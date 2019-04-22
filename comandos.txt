@@ -790,4 +790,6 @@ Mensagens do chat
 
 258 - Estilizando o footer da área do chat
 
+259 - Estilizando detalhes do footer
+
 
