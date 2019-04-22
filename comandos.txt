@@ -755,3 +755,5 @@ Membros do chat
 247 - Listando membros de um grupo - Parte 01/02
 
 248 - Adicionando/removendo membros ao grupo
+
+249 - Evento de exclusao da baseFirebese

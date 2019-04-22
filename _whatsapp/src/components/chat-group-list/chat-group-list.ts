@@ -26,7 +26,7 @@ export class ChatGroupListComponent {
         this.groups.push(group);
     });
 
-    database.ref('chat_groups').on('child_added',  (data) => {
+    database.ref('chat_groups').on('child_changed',  (data) => {
         const group = data.val() as ChatGroup;
         const index = this.groups.findIndex((g) => g.id == group.id);
 
@@ -35,5 +35,15 @@ export class ChatGroupListComponent {
         }
 
     });
+
+      database.ref('chat_groups').on('child_removed',  (data) => {
+          const group = data.val() as ChatGroup;
+          const index = this.groups.findIndex((g) => g.id == group.id);
+
+          if (index !== -1) {
+              this.groups.splice(index, 1);
+          }
+
+      });
   }
 }
