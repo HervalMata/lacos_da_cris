@@ -773,3 +773,5 @@ Membros do chat
 
 254 - Sincronizando membros de grupo no Firebase
     php artisan migrate:refresh --seed
+
+255 - Sincronizando a exclusao dos membros de um grupo

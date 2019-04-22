@@ -179,4 +179,21 @@ class ChatGroup extends Model
         $this->getFirebaseDatabase()->getReference()->update($data);
     }
 
+    /**
+     * @param $model
+     * @param $relationName
+     * @param $pivotIds
+     */
+    protected function syncPivotDetached($model, $relationName, $pivotIds)
+    {
+        $users = User::whereIn('id', $pivotIds)->get();
+
+        $data = [];
+        foreach ($users as $user) {
+            $data["chat_groups/{$model->id}/users/{$user->profile->firebase_uid}"] = true;
+        }
+
+        $this->getFirebaseDatabase()->getReference()->update($data);
+    }
+
 }

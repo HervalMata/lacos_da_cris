@@ -37,6 +37,12 @@ trait FirebaseSync
                 $model->syncPivotAttached($model, $relationName, $pivotIds, $pivotIdsAttribute);
             });
         }
+
+        if (method_exists(__CLASS__, 'pivotDetached')) {
+            static::pivotDetached(function ($model, $relationName, $pivotIds) {
+                $model->syncPivotDetached($model, $relationName, $pivotIds);
+            });
+        }
     }
 
     /**
@@ -79,6 +85,17 @@ trait FirebaseSync
      * @throws \Exception
      */
     protected function syncPivotAttached($model, $relationName, $pivotIds, $pivotIdsAttribute)
+    {
+        throw new \Exception('Not Implemented');
+    }
+
+    /**
+     * @param $model
+     * @param $relationName
+     * @param $pivotIds
+     * @throws \Exception
+     */
+    protected function syncPivotDetached($model, $relationName, $pivotIds)
     {
         throw new \Exception('Not Implemented');
     }
