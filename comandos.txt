@@ -775,3 +775,13 @@ Membros do chat
     php artisan migrate:refresh --seed
 
 255 - Sincronizando a exclusao dos membros de um grupo
+
+256 - Criando componentes para a area do chat
+    ionic g page chat-messages
+    ionic g component chat-avatar
+    ionic g component chat-footer
+    ionic g component chat-content-right
+    ionic g component chat-content-left
+    ionic g component chat-content-detail
+
+
