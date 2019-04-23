@@ -825,3 +825,7 @@ Mensagens do chat
 
 273 - Mudando cor do nome dos usuarios
     ionic g pipe color-first-letter
+
+Envio de mensagens
+
+274 - Concepcao inicial do envio de mensagens
