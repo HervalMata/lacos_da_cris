@@ -836,3 +836,6 @@ Envio de mensagens
     php artisan make:seeder ChatMessagesFbSeeder
     php artisan migrate:refresh --seed
 
+277 - Validando usuarios que enviam mensagem
+    php artisan make:request ChatMessageFbRequest
+    php artisan make:controller Api/ChatMessageFbController --resource
