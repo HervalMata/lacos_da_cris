@@ -820,3 +820,5 @@ Mensagens do chat
 
 271 - Normalizacao de URLs dos conteudos - FOTOS
     ionic g pipe build-url
+
+272 - Observable x Promisse
