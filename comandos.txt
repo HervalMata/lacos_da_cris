@@ -806,3 +806,6 @@ Mensagens do chat
 265 - Iniciando captura de usuario da mensagem
 
 266 - Relacionamentos do Firebase com Promessa
+
+267 - Capturando Firebase uid do token JWT
+    npm i @auth0/angular-jwt@1.2.0 --save

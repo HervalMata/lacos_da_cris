@@ -20,7 +20,19 @@ import { CustomerHttpProvider } from '../providers/http/customer-http';
 import {AuthProvider} from "../providers/auth/auth";
 import {SuperTabsModule} from "ionic2-super-tabs";
 import {ChatGroupListComponent} from "../components/chat-group-list/chat-group-list";
+import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-messages.module";
+
+function jwtFactory(authService: AuthProvider) {
+    return {
+        whitelistedDomains: [
+            new RegExp('localhost:8000/*')
+        ],
+        tokenGetter: () => {
+            return authService.getToken()
+        }
+    }
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +52,14 @@ import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-
     HttpClientModule,
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
-    ChatMessagesPageModule
+    ChatMessagesPageModule,
+    JwtModule.forRoot({
+          jwtOptionsProvider: {
+              provide: JWT_OPTIONS,
+              useFactory: jwtFactory,
+              deps: [AuthProvider]
+          }
+      })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
