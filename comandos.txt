@@ -804,3 +804,5 @@ Mensagens do chat
     npm i ngx-moment@3.1.0
 
 265 - Iniciando captura de usuario da mensagem
+
+266 - Relacionamentos do Firebase com Promessa
