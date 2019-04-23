@@ -839,3 +839,6 @@ Envio de mensagens
 277 - Validando usuarios que enviam mensagem
     php artisan make:request ChatMessageFbRequest
     php artisan make:controller Api/ChatMessageFbController --resource
+
+278 - Envio de mensagens de texo pelo ionic
+    ionic g provider http/chat-message-http

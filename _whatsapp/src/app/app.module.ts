@@ -22,6 +22,7 @@ import {SuperTabsModule} from "ionic2-super-tabs";
 import {ChatGroupListComponent} from "../components/chat-group-list/chat-group-list";
 import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-messages.module";
+import {ChatMessageHttpProvider} from '../providers/http/chat-message-http';
 
 function jwtFactory(authService: AuthProvider) {
     return {
@@ -79,7 +80,8 @@ function jwtFactory(authService: AuthProvider) {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     FirebaseAuthProvider,
-    CustomerHttpProvider
+    CustomerHttpProvider,
+    ChatMessageHttpProvider
   ]
 })
 export class AppModule {}
