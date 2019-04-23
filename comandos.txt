@@ -831,3 +831,8 @@ Envio de mensagens
 274 - Concepcao inicial do envio de mensagens
 
 275 - Criando primeira mensagem pelo Laravel
+
+276 - Gerando mensagens falsas
+    php artisan make:seeder ChatMessagesFbSeeder
+    php artisan migrate:refresh --seed
+

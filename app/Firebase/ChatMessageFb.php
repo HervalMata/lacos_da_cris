@@ -9,12 +9,18 @@
 namespace LacosDaCris\Firebase;
 
 
+use Kreait\Firebase\Database\Reference;
+use LacosDaCris\Models\ChatGroup;
+
 class ChatMessageFb
 {
     use FirebaseSync;
 
     private $chatGroup;
 
+    /**
+     * @param array $data
+     */
     public function create(array $data)
     {
         $this->chatGroup = $data['chat_group'];
@@ -26,7 +32,7 @@ class ChatMessageFb
             case 'text';
         }
 
-        $reference = $this->getMessageReference();
+        $reference = $this->getMessagesReference();
         $reference->push([
             'type'   => $data['type'],
             'content'   => $data['content'],
@@ -35,9 +41,21 @@ class ChatMessageFb
         ]);
     }
 
-    private function getMessageReference()
+    /**
+     * @return Reference
+     */
+    private function getMessagesReference()
     {
         $path = "/chat_groups/{$this->chatGroup->id}/messages";
         return $this->getFirebaseDatabase()->getReference($path);
+    }
+
+    /**
+     * @param ChatGroup $chatGroup
+     */
+    public function deleteMessages(ChatGroup $chatGroup)
+    {
+        $this->chatGroup = $chatGroup;
+        $this->getMessagesReference()->remove();
     }
 }
