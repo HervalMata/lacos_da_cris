@@ -813,3 +813,5 @@ Mensagens do chat
 
 268 - Criando pipe para analisar o usuario corrente
     ionic g pipe is-current-user
+
+269 - Terminando o alinhamento das mensagens
