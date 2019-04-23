@@ -817,3 +817,6 @@ Mensagens do chat
 269 - Terminando o alinhamento das mensagens
 
 270 - Alinhamento das fotos
+
+271 - Normalizacao de URLs dos conteudos - FOTOS
+    ionic g pipe build-url
