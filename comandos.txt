@@ -822,3 +822,6 @@ Mensagens do chat
     ionic g pipe build-url
 
 272 - Observable x Promisse
+
+273 - Mudando cor do nome dos usuarios
+    ionic g pipe color-first-letter
