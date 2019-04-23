@@ -829,3 +829,5 @@ Mensagens do chat
 Envio de mensagens
 
 274 - Concepcao inicial do envio de mensagens
+
+275 - Criando primeira mensagem pelo Laravel
