@@ -815,3 +815,5 @@ Mensagens do chat
     ionic g pipe is-current-user
 
 269 - Terminando o alinhamento das mensagens
+
+270 - Alinhamento das fotos
