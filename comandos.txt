@@ -802,6 +802,7 @@ Mensagens do chat
 
 264 - Formatacao da data de envio da mensagem
     npm i ngx-moment@3.1.0
+    npm i moment@^2.22.2 --save
 
 265 - Iniciando captura de usuario da mensagem
 
@@ -809,3 +810,6 @@ Mensagens do chat
 
 267 - Capturando Firebase uid do token JWT
     npm i @auth0/angular-jwt@1.2.0 --save
+
+268 - Criando pipe para analisar o usuario corrente
+    ionic g pipe is-current-user
