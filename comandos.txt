@@ -844,3 +844,5 @@ Envio de mensagens
     ionic g provider http/chat-message-http
 
 279 - Criando mensagem de imagem
+
+280 - Envio de imagens pelo ionic
