@@ -842,3 +842,5 @@ Envio de mensagens
 
 278 - Envio de mensagens de texo pelo ionic
     ionic g provider http/chat-message-http
+
+279 - Criando mensagem de imagem

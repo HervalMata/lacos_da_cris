@@ -9,6 +9,7 @@
 namespace LacosDaCris\Firebase;
 
 
+use Illuminate\Http\UploadedFile;
 use Kreait\Firebase\Database\Reference;
 use LacosDaCris\Models\ChatGroup;
 
@@ -29,7 +30,10 @@ class ChatMessageFb
         switch ($type) {
             case 'audio';
             case 'image';
-            case 'text';
+                $this->upload($data['content']);
+                $uploadFile = $data['content'];
+                $fileUrl = $this->groupFilesDir() . '/' . $uploadFile->hashName();
+                $data['content'] = $fileUrl;
         }
 
         $reference = $this->getMessagesReference();
@@ -39,6 +43,14 @@ class ChatMessageFb
             'created_at'   => ['.sv' => 'timestamp'],
             'user_id'   => $data['firebase_uid'],
         ]);
+    }
+
+    /**
+     * @param UploadedFile $file
+     */
+    private function upload(UploadedFile $file)
+    {
+        $file->store($this->groupFilesDir(), ['disk' => 'public']);
     }
 
     /**
@@ -57,5 +69,13 @@ class ChatMessageFb
     {
         $this->chatGroup = $chatGroup;
         $this->getMessagesReference()->remove();
+    }
+
+    /**
+     * @return string
+     */
+    private function groupFilesDir()
+    {
+        return ChatGroup::DIR_CHAT_GROUPS . '/' . $this->chatGroup->id . '/messages_files';
     }
 }
