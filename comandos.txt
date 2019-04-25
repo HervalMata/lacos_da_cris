@@ -848,3 +848,6 @@ Envio de mensagens
 280 - Envio de imagens pelo ionic
 
 281 - Organizando amostra de textos e imagens
+
+282 - Gerando build Android da aplicação Ionic
+    ionic corodova platform add android
