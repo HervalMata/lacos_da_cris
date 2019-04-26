@@ -850,4 +850,10 @@ Envio de mensagens
 281 - Organizando amostra de textos e imagens
 
 282 - Gerando build Android da aplicação Ionic
-    ionic corodova platform add android
+    ionic cordova platform add android
+    ionic cordova build android
+
+283 - Rodando aplicação Ionic ao emulador
+    ionic cordova emulate android
+    ionic cordova emulate android --livereload
+
