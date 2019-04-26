@@ -863,3 +863,5 @@ Envio de mensagens
 
 285 - Fixando informacoes de autenticacao no emulador
 
+286 - Criando ambientes na aplicacao Ionic
+
