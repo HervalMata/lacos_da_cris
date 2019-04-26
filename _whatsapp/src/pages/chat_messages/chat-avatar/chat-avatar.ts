@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 
-const DEFAULT_PHOTO_URL = 'https://www.gravatar.com/avatat/nouser.jpg';
+const DEFAULT_PHOTO_URL = 'https://www.gravatar.com/avatar/nouser.jpg';
 /**
  * Generated class for the ChatAvatarComponent component.
  *

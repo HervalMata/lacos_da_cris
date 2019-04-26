@@ -9,6 +9,7 @@ import {LoginOptionsPage} from "../pages/login-options/login-options";
 import {CustomerCreatePage} from "../pages/customer-create/customer-create";
 import {MainPage} from "../pages/main/main";
 import {ChatMessagesPage} from "../pages/chat_messages/chat-messages/chat-messages";
+import {LoginPhoneNumberPage} from "../pages/login-phone-number/login-phone-number";
 
 @Component({
   templateUrl: 'app.html'

@@ -13,6 +13,6 @@ export class BuildUrlPipe implements PipeTransform {
    * Takes a value and makes it lowercase.
    */
   transform(value: string, ...args) {
-    return value.startsWith('http') ? value : `http://localhost:8000/storage/${value}`;
+    return value.startsWith('http') ? value : `http://192.168.1.108:8000/storage/${value}`;
   }
 }
