@@ -849,6 +849,8 @@ Envio de mensagens
 
 281 - Organizando amostra de textos e imagens
 
+Iniciando com Android
+
 282 - Gerando build Android da aplicação Ionic
     ionic cordova platform add android
     ionic cordova build android
@@ -864,4 +866,8 @@ Envio de mensagens
 285 - Fixando informacoes de autenticacao no emulador
 
 286 - Criando ambientes na aplicacao Ionic
+
+Envio de mensagem com audio
+
+287 - Troca de ícones de send para mic
 

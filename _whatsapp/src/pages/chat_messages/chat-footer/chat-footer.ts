@@ -47,4 +47,12 @@ export class ChatFooterComponent {
     const inputFile = nativeElement.querySelector('input');
     inputFile.click();
   }
+
+    getIconSendMessage() {
+        if (this.messageType === 'text') {
+            return this.text === '' ? 'mic' : 'send';
+        }
+
+        return 'mic';
+    }
 }
