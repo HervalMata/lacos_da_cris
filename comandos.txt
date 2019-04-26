@@ -853,7 +853,10 @@ Envio de mensagens
     ionic cordova platform add android
     ionic cordova build android
 
-283 - Rodando aplicação Ionic ao emulador
+283 - Rodando aplicação Ionic no emulador
     ionic cordova emulate android
     ionic cordova emulate android --livereload
 
+283 - Rodando aplicação Ionic no dispositivo
+    ionic cordova run android
+    ionic cordova run android --livereload
