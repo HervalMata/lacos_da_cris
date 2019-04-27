@@ -55,4 +55,12 @@ export class ChatFooterComponent {
 
         return 'mic';
     }
+
+    holdAudioButton() {
+
+    }
+
+    releaseAudioButton() {
+
+    }
 }

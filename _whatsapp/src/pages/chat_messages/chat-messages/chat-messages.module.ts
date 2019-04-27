@@ -10,6 +10,7 @@ import {MomentModule} from "ngx-moment";
 import {IsCurrentUserPipe} from "../../../pipes/is-current-user/is-current-user";
 import {BuildUrlPipe} from "../../../pipes/build-url/build-url";
 import {PipesModule} from "../../../pipes/pipes.module";
+import {LongPressModule} from "ionic-long-press";
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import {PipesModule} from "../../../pipes/pipes.module";
     imports: [
         IonicPageModule.forChild(ChatMessagesPage),
         MomentModule,
-        PipesModule
+        PipesModule,
+        LongPressModule
     ],
     entryComponents: [ChatMessagesPage]
 })

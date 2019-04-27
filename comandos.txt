@@ -871,3 +871,7 @@ Envio de mensagem com audio
 
 287 - Troca de ícones de send para mic
 
+288 - Preparando botao para gravacao de audio
+
+
+

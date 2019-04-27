@@ -23,6 +23,7 @@ import {ChatGroupListComponent} from "../components/chat-group-list/chat-group-l
 import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-messages.module";
 import {ChatMessageHttpProvider} from '../providers/http/chat-message-http';
+import {LongPressModule} from "ionic-long-press";
 
 function jwtFactory(authService: AuthProvider) {
     return {
