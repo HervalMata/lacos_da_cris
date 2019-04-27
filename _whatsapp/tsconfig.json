@@ -15,7 +15,10 @@
     "baseUrl": "./src",
     "paths": {
       "@app/env": [
+        // "enviroments/enviroment.mock_dev",
         "enviroments/enviroment"
+        // "enviroments/enviroment.mock_prod",
+        // "enviroments/enviroment.prod"
       ]
     }
   },

@@ -877,5 +877,9 @@ Envio de mensagem com audio
 289 - Montando cronometro
     npm i easytimer.js@2.2.3 --save
 
+290 - Gravando audio
+    ionic cordova plugin add cordova-plugin-media
+    npm i --save @ionic-native/media
+
 
 

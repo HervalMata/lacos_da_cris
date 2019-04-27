@@ -2,7 +2,12 @@ import {Component, ViewChild} from '@angular/core';
 import {ChatMessageHttpProvider} from "../../../providers/http/chat-message-http";
 import {TextInput} from "ionic-angular";
 import Timer from 'easytimer.js/dist/easytimer.min';
-import {timer} from "rxjs/observable/timer";
+import {Media} from '@ionic-native/media';
+
+let component = Component({
+    selector: 'chat-footer',
+    templateUrl: 'chat-footer.html'
+});
 
 /**
  * Generated class for the ChatFooterComponent component.
@@ -10,10 +15,8 @@ import {timer} from "rxjs/observable/timer";
  * See https://angular.io/api/core/Component for more info on Angular
  * Components.
  */
-@Component({
-  selector: 'chat-footer',
-  templateUrl: 'chat-footer.html'
-})
+// @ts-ignore
+@component
 export class ChatFooterComponent {
 
   text: string = '';
@@ -23,7 +26,12 @@ export class ChatFooterComponent {
   @ViewChild('inputFileImage')
   inputFileImage: TextInput;
 
-  constructor(private chatMessageHttp: ChatMessageHttpProvider) {
+
+    constructor(
+      private chatMessageHttp: ChatMessageHttpProvider,
+      // @ts-ignore
+      private media: Media
+  ) {
   }
 
   sendMessage(data: {content, type}) {
@@ -60,6 +68,14 @@ export class ChatFooterComponent {
     }
 
     holdAudioButton() {
+      const recorder = this.media.create('recording.aac');
+      recorder.startRecord();
+
+      setTimeout(() => {
+        recorder.stopRecord();
+        recorder.play();
+      }, 5000);
+
       this.timer.start({precision: 'seconds'});
       this.timer.addEventListener('secondsUpdated', (s) => {
         const time = this.getMinuteSeconds();
