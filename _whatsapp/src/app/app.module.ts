@@ -24,6 +24,7 @@ import {JwtModule, JWT_OPTIONS} from '@auth0/angular-jwt';
 import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-messages.module";
 import {ChatMessageHttpProvider} from '../providers/http/chat-message-http';
 import {Media} from "@ionic-native/media";
+import {File} from "@ionic-native/file";
 
 function jwtFactory(authService: AuthProvider) {
     return {
@@ -84,7 +85,8 @@ function jwtFactory(authService: AuthProvider) {
     FirebaseAuthProvider,
     CustomerHttpProvider,
     ChatMessageHttpProvider,
-    Media
+    Media,
+    File
   ]
 })
 export class AppModule {}

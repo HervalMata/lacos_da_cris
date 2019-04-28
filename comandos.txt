@@ -881,5 +881,9 @@ Envio de mensagem com audio
     ionic cordova plugin add cordova-plugin-media
     npm i --save @ionic-native/media
 
+291 - Entendendo o sistema de arquivos nos dispositivos mobile
+    ionic cordova plugin add cordova-plugin-file
+    npm i --save @ionic-native/file
+
 
 

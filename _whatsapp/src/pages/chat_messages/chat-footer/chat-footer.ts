@@ -3,6 +3,7 @@ import {ChatMessageHttpProvider} from "../../../providers/http/chat-message-http
 import {TextInput} from "ionic-angular";
 import Timer from 'easytimer.js/dist/easytimer.min';
 import {Media} from '@ionic-native/media';
+import {File} from "@ionic-native/file";
 
 let component = Component({
     selector: 'chat-footer',
@@ -30,7 +31,8 @@ export class ChatFooterComponent {
     constructor(
       private chatMessageHttp: ChatMessageHttpProvider,
       // @ts-ignore
-      private media: Media
+      private media: Media,
+      private file: File
   ) {
   }
 
