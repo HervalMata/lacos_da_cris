@@ -30,7 +30,8 @@ import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorde
 function jwtFactory(authService: AuthProvider) {
     return {
         whitelistedDomains: [
-            new RegExp('localhost:8000/*')
+            new RegExp('localhost:8000/*'),
+            new RegExp('192.168,1.108:8000/*')
         ],
         tokenGetter: () => {
             return authService.getToken()

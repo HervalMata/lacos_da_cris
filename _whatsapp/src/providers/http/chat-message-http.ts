@@ -1,6 +1,7 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
 /*
   Generated class for the HttpChatMessageHttpProvider provider.
@@ -15,12 +16,12 @@ export class ChatMessageHttpProvider {
         console.log('Hello HttpChatMessageHttpProvider Provider');
     }
 
-    create(chatGroupId: number, data: { content, type }): Observable<any> {
+    create(chatGroupId: number, data: { content: string | Blob, type: string }): Observable<any> {
         const formData = new FormData();
 
         formData.append('content', data.content);
         formData.append('type', data.type);
 
-        return this.http.post(`http://localhost:8000/api/chat_groups/${chatGroupId}/messages`, formData)
+        return this.http.post(`${environment.api.url}/chat_groups/${chatGroupId}/messages`, formData)
     }
 }

@@ -2,8 +2,6 @@ import {Component, ViewChild} from '@angular/core';
 import {ChatMessageHttpProvider} from "../../../providers/http/chat-message-http";
 import {ItemSliding, TextInput} from "ionic-angular";
 import Timer from 'easytimer.js/dist/easytimer.min';
-import {Media} from '@ionic-native/media';
-import {File} from "@ionic-native/file";
 import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-recorder";
 import {Subject} from "rxjs";
 import {debounceTime} from "rxjs/operators";
@@ -133,10 +131,14 @@ export class ChatFooterComponent {
                 this.clearRecording();
                 this.audioRecorder.stopRecorder()
                     .then(
-                        (blob) => console.log(blob),
+                        (blob) => this.sendMessageAudio(blob),
                         error => console.log(error)
                     );
               }
             })
+    }
+
+    sendMessageAudio(blob: Blob) {
+        this.sendMessage({content: blob, type: 'audio'});
     }
 }
