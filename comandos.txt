@@ -889,5 +889,7 @@ Envio de mensagem com audio
 
 293 - Criando upload do audio no Laravel
 
+294 - Mostrando audio no chat
+
 
 
