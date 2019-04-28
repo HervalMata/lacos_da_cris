@@ -891,5 +891,7 @@ Envio de mensagem com audio
 
 294 - Mostrando audio no chat
 
+295 - Adequando nova estrutura do banco Firebase
+    php artisan migrate:refresh --seed
 
 

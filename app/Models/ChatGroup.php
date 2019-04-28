@@ -173,7 +173,7 @@ class ChatGroup extends Model
 
         $data = [];
         foreach ($users as $user) {
-            $data["chat_groups/{$model->id}/users/{$user->profile->firebase_uid}"] = true;
+            $data["chat_groups_users/{$model->id}/{$user->profile->firebase_uid}"] = true;
         }
 
         $this->getFirebaseDatabase()->getReference()->update($data);
@@ -190,7 +190,7 @@ class ChatGroup extends Model
 
         $data = [];
         foreach ($users as $user) {
-            $data["chat_groups/{$model->id}/users/{$user->profile->firebase_uid}"] = true;
+            $data["chat_groups_users/{$model->id}/{$user->profile->firebase_uid}"] = true;
         }
 
         $this->getFirebaseDatabase()->getReference()->update($data);
