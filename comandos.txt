@@ -894,4 +894,6 @@ Envio de mensagem com audio
 295 - Adequando nova estrutura do banco Firebase
     php artisan migrate:refresh --seed
 
+296 - Regra do Realtime Database para os vendedores
+    php artisan migrate:refresh --seed
 

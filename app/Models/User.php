@@ -154,6 +154,7 @@ class User extends Authenticatable implements JWTSubject
             $reference = $database->getReference($path);
             $reference->set([
                 'name' => $this->name,
+                'role' => $this->role,
                 'photo_url' => $this->photo_url,
                 'deleted_at' => $this->deleted_at
             ]);
