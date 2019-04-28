@@ -5,6 +5,8 @@ import Timer from 'easytimer.js/dist/easytimer.min';
 import {Media} from '@ionic-native/media';
 import {File} from "@ionic-native/file";
 import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-recorder";
+import {Subject} from "rxjs";
+import {debounceTime} from "rxjs/operators";
 
 let component = Component({
     selector: 'chat-footer',
@@ -24,6 +26,7 @@ export class ChatFooterComponent {
   text: string = '';
   messageType = 'text';
   timer = new Timer();
+  recording = false;
 
   @ViewChild('inputFileImage')
   inputFileImage: TextInput;
@@ -31,12 +34,18 @@ export class ChatFooterComponent {
   @ViewChild('itemSliding')
   itemSliding: ItemSliding;
 
+  subjectReleaseAudioButton = new Subject();
+
 
     constructor(
       private chatMessageHttp: ChatMessageHttpProvider,
       // @ts-ignore
       private audioRecorder: AudioRecorderProvider
   ) {
+  }
+
+  ngOnInit() {
+      this.onStopRecording();
   }
 
   onDrag() {
@@ -54,6 +63,7 @@ export class ChatFooterComponent {
   clearRecording() {
       this.timer.stop();
       this.text = '';
+      this.recording = false;
   }
 
   sendMessage(data: {content, type}) {
@@ -90,6 +100,7 @@ export class ChatFooterComponent {
     }
 
     holdAudioButton() {
+      this.recording = true;
       this.audioRecorder.startRecord();
 
       this.timer.start({precision: 'seconds'});
@@ -105,12 +116,27 @@ export class ChatFooterComponent {
     }
 
     releaseAudioButton() {
-      this.timer.stop();
-      this.text = '';
-      this.audioRecorder.stopRecorder()
-          .then(
-              (blob) => console.log(blob),
-              error => console.log(error)
-          )
+      this.subjectReleaseAudioButton.next();
+    }
+
+    onStopRecording() {
+        this.subjectReleaseAudioButton
+            .pipe(
+                debounceTime(500)
+            )
+            .subscribe(() => {
+              if (!this.recording) {
+                return;
+              }
+
+              if (this.itemSliding.getSlidingPercent() === 0) {
+                this.clearRecording();
+                this.audioRecorder.stopRecorder()
+                    .then(
+                        (blob) => console.log(blob),
+                        error => console.log(error)
+                    );
+              }
+            })
     }
 }

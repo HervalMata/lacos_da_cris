@@ -885,5 +885,7 @@ Envio de mensagem com audio
     ionic cordova plugin add cordova-plugin-file
     npm i --save @ionic-native/file
 
+292 - Melhoria no recurso de gravaoao e cancelamento
+
 
 
