@@ -11,6 +11,7 @@ import {IsCurrentUserPipe} from "../../../pipes/is-current-user/is-current-user"
 import {BuildUrlPipe} from "../../../pipes/build-url/build-url";
 import {PipesModule} from "../../../pipes/pipes.module";
 import {LongPressModule} from "ionic-long-press";
+import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-recorder";
 
 @NgModule({
     declarations: [
@@ -27,7 +28,10 @@ import {LongPressModule} from "ionic-long-press";
         PipesModule,
         LongPressModule
     ],
-    entryComponents: [ChatMessagesPage]
+    entryComponents: [ChatMessagesPage],
+    providers: [
+        AudioRecorderProvider
+    ]
 })
 export class ChatMessagesPageModule {
 }

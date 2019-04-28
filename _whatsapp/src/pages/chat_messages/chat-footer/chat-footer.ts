@@ -1,9 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {ChatMessageHttpProvider} from "../../../providers/http/chat-message-http";
-import {TextInput} from "ionic-angular";
+import {ItemSliding, TextInput} from "ionic-angular";
 import Timer from 'easytimer.js/dist/easytimer.min';
 import {Media} from '@ionic-native/media';
 import {File} from "@ionic-native/file";
+import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-recorder";
 
 let component = Component({
     selector: 'chat-footer',
@@ -27,13 +28,32 @@ export class ChatFooterComponent {
   @ViewChild('inputFileImage')
   inputFileImage: TextInput;
 
+  @ViewChild('itemSliding')
+  itemSliding: ItemSliding;
+
 
     constructor(
       private chatMessageHttp: ChatMessageHttpProvider,
       // @ts-ignore
-      private media: Media,
-      private file: File
+      private audioRecorder: AudioRecorderProvider
   ) {
+  }
+
+  onDrag() {
+      console.log(this.itemSliding.getSlidingPercent());
+      if (this.itemSliding.getSlidingPercent() > 0.9) {
+        this.itemSliding.close();
+        this.audioRecorder.stopRecorder()
+            .then(
+                (blob) => console.log('stop recording'),
+                error => console.log(error)
+            );
+      }
+  }
+
+  clearRecording() {
+      this.timer.stop();
+      this.text = '';
   }
 
   sendMessage(data: {content, type}) {
@@ -70,13 +90,7 @@ export class ChatFooterComponent {
     }
 
     holdAudioButton() {
-      const recorder = this.media.create('recording.aac');
-      recorder.startRecord();
-
-      setTimeout(() => {
-        recorder.stopRecord();
-        recorder.play();
-      }, 5000);
+      this.audioRecorder.startRecord();
 
       this.timer.start({precision: 'seconds'});
       this.timer.addEventListener('secondsUpdated', (s) => {
@@ -93,5 +107,10 @@ export class ChatFooterComponent {
     releaseAudioButton() {
       this.timer.stop();
       this.text = '';
+      this.audioRecorder.stopRecorder()
+          .then(
+              (blob) => console.log(blob),
+              error => console.log(error)
+          )
     }
 }

@@ -25,6 +25,7 @@ import {ChatMessagesPageModule} from "../pages/chat_messages/chat-messages/chat-
 import {ChatMessageHttpProvider} from '../providers/http/chat-message-http';
 import {Media} from "@ionic-native/media";
 import {File} from "@ionic-native/file";
+import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorder';
 
 function jwtFactory(authService: AuthProvider) {
     return {
@@ -86,7 +87,8 @@ function jwtFactory(authService: AuthProvider) {
     CustomerHttpProvider,
     ChatMessageHttpProvider,
     Media,
-    File
+    File,
+    AudioRecorderProvider
   ]
 })
 export class AppModule {}
