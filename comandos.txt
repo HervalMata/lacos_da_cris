@@ -902,3 +902,5 @@ Envio de mensagem com audio
 
 298 - Criando metodo para listar os grupos
 
+299 - Delimitando se usuário e membro do grupo
+
