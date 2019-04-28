@@ -887,5 +887,7 @@ Envio de mensagem com audio
 
 292 - Melhoria no recurso de gravaoao e cancelamento
 
+293 - Criando upload do audio no Laravel
+
 
 
