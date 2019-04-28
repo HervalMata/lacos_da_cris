@@ -142,7 +142,7 @@ class ChatGroup extends Model
         $data = $this->toArray();
         $data['photo_url'] = $this->photo_url_base;
         unset($data['photo']);
-        //$this->setTimestamps($data, $operation);
+        $this->setTimestamps($data, $operation);
         $this->getModelReference()->update($data);
     }
 

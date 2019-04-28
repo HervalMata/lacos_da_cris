@@ -897,3 +897,6 @@ Envio de mensagem com audio
 296 - Regra do Realtime Database para os vendedores
     php artisan migrate:refresh --seed
 
+297 - Definindo timestamps para created e updated_at
+    php artisan migrate:refresh --seed
+
