@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ChatGroup, ChatMessage} from "../../../app/model";
 import {FirebaseAuthProvider} from "../../../providers/auth/firebase-auth";
 import { Observable } from "rxjs/Observable";
@@ -22,6 +22,10 @@ export class ChatMessagesPage {
     messages: {key: string, value: ChatMessage}[] = [];
     chatGroup: ChatGroup;
     limit = 20;
+    showContent = false;
+
+    @ViewChild(Content)
+    content: Content;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -34,6 +38,10 @@ export class ChatMessagesPage {
             .subscribe((messages) => {
                 // @ts-ignore
                 this.messages = messages;
+                setTimeout(() => {
+                    this.content.scrollToBottom(0);
+                    this.showContent = true;
+                }, 800);
                 this.chatMessageFb.oldest(this.chatGroup, this.limit, messages[0].key)
                     .subscribe((messages) => {
                         // @ts-ignore

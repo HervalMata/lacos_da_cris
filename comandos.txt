@@ -934,3 +934,5 @@ Terminando area das mensagens
 309 - Limitando capturas de mensagens
 
 310 - Limitando captura de mensagens antigas
+
+311 - Barra de rolagem no final da pagina
