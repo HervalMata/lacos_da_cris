@@ -908,3 +908,5 @@ Envio de mensagem com audio
 
 301 - Ordenando listagem de grupos pela data de atualizacao
 
+302 - Guardando ultima mensagem enviada para o grupo
+

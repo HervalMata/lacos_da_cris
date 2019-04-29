@@ -5,7 +5,7 @@
                 <img src="https://www.gravatar.com/avatar/" alt="">
             </ion-avatar>
             <h2>{{group.name}}</h2>
-            <h3>Quais são as características do produto x?</h3>
+            <h3>{{(group.last_message|async)?.content}}</h3>
         </ion-item>
     </ion-list>
 </ion-content>

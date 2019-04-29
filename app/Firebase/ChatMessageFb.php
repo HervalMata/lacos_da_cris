@@ -37,12 +37,14 @@ class ChatMessageFb
         }
 
         $reference = $this->getMessagesReference();
-        $reference->push([
+        $newReference = $reference->push([
             'type'   => $data['type'],
             'content'   => $data['content'],
             'created_at'   => ['.sv' => 'timestamp'],
             'user_id'   => $data['firebase_uid'],
         ]);
+
+        $this->setLastMessage($newReference->getKey());
     }
 
     /**
@@ -58,7 +60,7 @@ class ChatMessageFb
      */
     private function getMessagesReference()
     {
-        $path = "/chat_groups_messages/{$this->chatGroup->id}/messages";
+        $path = "{$this->getChatGroupsMessagesReference()}/messages";
         return $this->getFirebaseDatabase()->getReference($path);
     }
 
@@ -91,5 +93,18 @@ class ChatMessageFb
             default:
                 return $file->hashName();
         }
+    }
+
+    private function setLastMessage($messageUid)
+    {
+        $path = "{$this->getChatGroupsMessagesReference()}/last_message_id";
+        $reference = $this->getFirebaseDatabase()->getReference($path);
+        $reference->set($messageUid);
+
+    }
+
+    private function getChatGroupsMessagesReference()
+    {
+        return "/chat_groups_messages/{$this->chatGroup->id}";
     }
 }
