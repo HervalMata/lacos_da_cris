@@ -19,7 +19,7 @@ import {ChatMessageFbProvider} from "../../../providers/firebase/chat-message-fb
 })
 export class ChatMessagesPage {
 
-    messages: ChatMessage[] = [];
+    messages: {key: string, value: ChatMessage}[] = [];
     chatGroup: ChatGroup;
     limit = 20;
 
@@ -32,7 +32,13 @@ export class ChatMessagesPage {
     ionViewDidLoad() {
         this.chatMessageFb.latest(this.chatGroup, this.limit)
             .subscribe((messages) => {
+                // @ts-ignore
                 this.messages = messages;
+                this.chatMessageFb.oldest(this.chatGroup, this.limit, messages[0].key)
+                    .subscribe((messages) => {
+                        // @ts-ignore
+                        this.messages = messages;
+                    })
             });
     }
 

@@ -932,3 +932,5 @@ Terminando area das mensagens
     php artisan db:seed --class=ChatMessagesLargFbSeeder
 
 309 - Limitando capturas de mensagens
+
+310 - Limitando captura de mensagens antigas
