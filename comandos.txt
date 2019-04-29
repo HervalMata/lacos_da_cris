@@ -923,4 +923,10 @@ Terminando grupos do chat
 Terminando area das mensagens
 
 306 - Abrindo mensagens de um grupo
+
+307 - Listando ultimas mensagens
     php artisan migrate:refresh --seed
+
+308 - Organizando geracao de mensagens falsas
+    php artisan migrate:refresh --seed
+    php artisan db:seed --class=ChatMessagesLargFbSeeder
