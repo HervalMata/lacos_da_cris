@@ -2,7 +2,7 @@
     <ion-list>
         <ion-item *ngFor="let group of groups" [hidden]="!(group.is_member|async)">
             <ion-avatar item-start>
-                <img src="https://www.gravatar.com/avatar/" alt="">
+                <img src="http://192.168.1.108/storage/{{group.photo_url}}" alt="">
             </ion-avatar>
             <h2>{{group.name}}</h2>
             <h3>

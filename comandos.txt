@@ -914,3 +914,5 @@ Envio de mensagem com audio
 
 303 - Formatando ultima mensagem na listagem dos grupos
 
+304 - Organizando Captura de Novos Grupos e captura de modificacoes nos grupos
+
