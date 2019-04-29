@@ -1,7 +1,6 @@
-<!-- Generated template for the ChatGroupListComponent component -->
 <ion-content>
     <ion-list>
-        <ion-item *ngFor="let group of groups">
+        <ion-item *ngFor="let group of groups" [hidden]="!(group.is_member|async)">
             <ion-avatar item-start>
                 <img src="https://www.gravatar.com/avatar/" alt="">
             </ion-avatar>
@@ -10,3 +9,4 @@
         </ion-item>
     </ion-list>
 </ion-content>
+

@@ -904,3 +904,5 @@ Envio de mensagem com audio
 
 299 - Delimitando se usuário e membro do grupo
 
+300 - Mostrando somente grupos do usuario
+
