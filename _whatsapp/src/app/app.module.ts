@@ -26,6 +26,7 @@ import {ChatMessageHttpProvider} from '../providers/http/chat-message-http';
 import {Media} from "@ionic-native/media";
 import {File} from "@ionic-native/file";
 import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorder';
+import {PipesModule} from "../pipes/pipes.module";
 
 function jwtFactory(authService: AuthProvider) {
     return {
@@ -59,6 +60,7 @@ function jwtFactory(authService: AuthProvider) {
     ReactiveFormsModule,
     SuperTabsModule.forRoot(),
     ChatMessagesPageModule,
+    PipesModule,
     JwtModule.forRoot({
           jwtOptionsProvider: {
               provide: JWT_OPTIONS,
