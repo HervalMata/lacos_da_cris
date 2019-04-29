@@ -916,3 +916,5 @@ Envio de mensagem com audio
 
 304 - Organizando Captura de Novos Grupos e captura de modificacoes nos grupos
 
+305 - Reempilhando grupos ao chegar nova mensagem
+

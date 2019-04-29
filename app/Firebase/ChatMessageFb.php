@@ -45,6 +45,7 @@ class ChatMessageFb
         ]);
 
         $this->setLastMessage($newReference->getKey());
+        $this->chatGroup->updateInFb();
     }
 
     /**

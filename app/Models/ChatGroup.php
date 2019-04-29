@@ -147,6 +147,14 @@ class ChatGroup extends Model
     }
 
     /**
+     *
+     */
+    public function updateInFb()
+    {
+        $this->syncFbSet(self::$OPERATION_UPDATE);
+    }
+
+    /**
      * @return string
      */
     public function getPhotoUrlAttribute(){
