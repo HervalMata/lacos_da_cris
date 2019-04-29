@@ -21,6 +21,7 @@ export class ChatMessagesPage {
 
     messages: ChatMessage[] = [];
     chatGroup: ChatGroup;
+    limit = 20;
 
     constructor(public navCtrl: NavController,
                 public navParams: NavParams,
@@ -29,7 +30,7 @@ export class ChatMessagesPage {
     }
 
     ionViewDidLoad() {
-        this.chatMessageFb.latest(this.chatGroup)
+        this.chatMessageFb.latest(this.chatGroup, this.limit)
             .subscribe((messages) => {
                 this.messages = messages;
             });

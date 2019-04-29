@@ -32,7 +32,7 @@ class ChatMessageFb
             case 'image';
                 $this->upload($data['content']);
                 $uploadFile = $data['content'];
-                $fileUrl = $this->groupFilesDir() . '/' . $uploadFile->buildFileName($uploadFile);
+                $fileUrl = $this->groupFilesDir() . '/' . $this->buildFileName($uploadFile);
                 $data['content'] = $fileUrl;
         }
 
@@ -53,7 +53,7 @@ class ChatMessageFb
      */
     private function upload(UploadedFile $file)
     {
-        $file->store($this->groupFilesDir(), $this->buildFileName($file), ['disk' => 'public']);
+        $file->storeAs($this->groupFilesDir(), $this->buildFileName($file), ['disk' => 'public']);
     }
 
     /**

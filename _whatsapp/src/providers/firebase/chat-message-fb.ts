@@ -16,10 +16,11 @@ export class ChatMessageFbProvider {
         this.database = this.firebaseAuth.firebase.database();
     }
 
-    latest(group: ChatGroup) {
+    latest(group: ChatGroup, limit: number) {
         return Observable.create((observer) => {
             this.database.ref(`chat_groups/${group.id}/messages`)
                 .orderByKey()
+                .limitToLast(limit)
                 .once('value',  (data) => {
                 const messages = [];
                 data.forEach((child) => {
