@@ -12,6 +12,7 @@ import {BuildUrlPipe} from "../../../pipes/build-url/build-url";
 import {PipesModule} from "../../../pipes/pipes.module";
 import {LongPressModule} from "ionic-long-press";
 import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-recorder";
+import {ChatMessageFbProvider} from "../../../providers/firebase/chat-message-fb";
 
 @NgModule({
     declarations: [
@@ -30,7 +31,8 @@ import {AudioRecorderProvider} from "../../../providers/audio-recorder/audio-rec
     ],
     entryComponents: [ChatMessagesPage],
     providers: [
-        AudioRecorderProvider
+        AudioRecorderProvider,
+        ChatMessageFbProvider
     ]
 })
 export class ChatMessagesPageModule {
