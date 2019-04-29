@@ -907,6 +907,10 @@ Envio de mensagem com audio
 300 - Mostrando somente grupos do usuario
 
 301 - Ordenando listagem de grupos pela data de atualizacao
+    php artisan migrate:refresh --seed
 
 302 - Guardando ultima mensagem enviada para o grupo
+
+
+303 - Formatando ultima mensagem na listagem dos grupos
 
