@@ -946,3 +946,5 @@ Terminando area das mensagens
 315 - Botao para mover scroll para funcionar
 
 316 - Organizando notificador de novas mensagens
+
+317 - Iniciando estrutura para gerenciar grupos nao vistos

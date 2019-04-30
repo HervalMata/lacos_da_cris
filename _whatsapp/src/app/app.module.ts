@@ -27,6 +27,7 @@ import {Media} from "@ionic-native/media";
 import {File} from "@ionic-native/file";
 import { AudioRecorderProvider } from '../providers/audio-recorder/audio-recorder';
 import {PipesModule} from "../pipes/pipes.module";
+import { ChatGroupViewerProvider } from '../providers/chat-group-viewer/chat-group-viewer';
 
 function jwtFactory(authService: AuthProvider) {
     return {
@@ -91,7 +92,8 @@ function jwtFactory(authService: AuthProvider) {
     ChatMessageHttpProvider,
     Media,
     File,
-    AudioRecorderProvider
+    AudioRecorderProvider,
+    ChatGroupViewerProvider
   ]
 })
 export class AppModule {}
