@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {Content, IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Content, InfiniteScroll, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {ChatGroup, ChatMessage} from "../../../app/model";
 import {FirebaseAuthProvider} from "../../../providers/auth/firebase-auth";
 import { Observable } from "rxjs/Observable";
@@ -22,6 +22,7 @@ export class ChatMessagesPage {
     messages: {key: string, value: ChatMessage}[] = [];
     chatGroup: ChatGroup;
     limit = 20;
+    canMoreMessages = true;
     showContent = false;
 
     @ViewChild(Content)
@@ -41,13 +42,22 @@ export class ChatMessagesPage {
                 setTimeout(() => {
                     this.content.scrollToBottom(0);
                     this.showContent = true;
-                }, 800);
-                this.chatMessageFb.oldest(this.chatGroup, this.limit, messages[0].key)
-                    .subscribe((messages) => {
-                        // @ts-ignore
-                        this.messages = messages;
-                    })
+                }, 600);
+
             });
+    }
+
+    doInfinite(infiniteScroll: InfiniteScroll) {
+        this.chatMessageFb.oldest(this.chatGroup, this.limit, this.messages[0].key)
+            .subscribe((messages) => {
+                // @ts-ignore
+                if (!messages.length) {
+                    this.canMoreMessages = false;
+                }
+                // @ts-ignore
+                this.messages.unshift(...messages);
+                infiniteScroll.complete();
+            }, () => infiniteScroll.complete());
     }
 
 }
