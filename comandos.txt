@@ -940,3 +940,5 @@ Terminando area das mensagens
 312 - Organizando carregamento das mensagens antigas
 
 313 - Organizando captura de novas mensagens
+
+314 - Estrutura para mover scroll e notificar novas mensagens
