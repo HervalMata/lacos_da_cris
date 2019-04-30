@@ -944,3 +944,5 @@ Terminando area das mensagens
 314 - Estrutura para mover scroll e notificar novas mensagens
 
 315 - Botao para mover scroll para funcionar
+
+316 - Organizando notificador de novas mensagens
