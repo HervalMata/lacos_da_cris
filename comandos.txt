@@ -938,3 +938,5 @@ Terminando area das mensagens
 311 - Barra de rolagem no final da pagina
 
 312 - Organizando carregamento das mensagens antigas
+
+313 - Organizando captura de novas mensagens
