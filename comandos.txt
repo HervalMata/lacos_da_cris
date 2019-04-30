@@ -942,3 +942,5 @@ Terminando area das mensagens
 313 - Organizando captura de novas mensagens
 
 314 - Estrutura para mover scroll e notificar novas mensagens
+
+315 - Botao para mover scroll para funcionar

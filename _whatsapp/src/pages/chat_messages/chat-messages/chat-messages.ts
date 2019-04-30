@@ -22,6 +22,7 @@ export class ChatMessagesPage {
 
     limit = 20;
     canMoreMessages = true;
+    countNewMessages = 20;
     showContent = false;
 
     @ViewChild(Content)
@@ -39,9 +40,9 @@ export class ChatMessagesPage {
                 // @ts-ignore
                 this.messages = messages;
                 setTimeout(() => {
-                    this.content.scrollToBottom(0);
+                    this.scrollToBottom();
                     this.showContent = true;
-                }, 600);
+                }, 500);
 
             });
 
@@ -65,4 +66,17 @@ export class ChatMessagesPage {
             }, () => infiniteScroll.complete());
     }
 
+    scrollToBottom() {
+        this.countNewMessages = 0;
+        this.content.scrollToBottom(0);
+    }
+
+    showButtonScrollBottom() {
+        const dimensions = this.content.getContentDimensions();
+        const contentHeight = dimensions.contentHeight;
+        const scrollTop = dimensions.scrollTop;
+        const scrollHeigth = dimensions.scrollHeight;
+
+        return scrollHeigth > scrollTop + contentHeight;
+    }
 }
